@@ -1,30 +1,231 @@
 {
   "expo": {
-    "name": "dikhr-app",
+    "name": "Dhikr",
     "slug": "dikhr-app",
-    "version": "1.0.0",
+    "scheme": "dhikr",
+    "version": "3.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/icon-square.png",
+    "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/dhikr.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0f172a"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#192235",
+        "foregroundImage": "./assets/android-foreground-square.png",
+        "backgroundImage": "./assets/android-background-square.png",
+        "monochromeImage": "./assets/android-monochrome-square.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.wariyanawaz786.dhikhrapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      "@react-native-google-signin/google-signin",
+      "expo-asset",
+      "expo-font",
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "AyahOfDay",
+              "label": "Dhikr: Ayah of the Day",
+              "description": "Displays a daily Quran verse in Arabic and translation.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/ayah_of_day.png"
+            },
+            {
+              "name": "TasbihCounter",
+              "label": "Dhikr: Tasbih & Remembrance",
+              "description": "Daily supplications and dhikr counter widget.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "110dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/tasbih_counter.png"
+            },
+            {
+              "name": "QuickActions",
+              "label": "Dhikr: Quick Actions",
+              "description": "Quick access shortcuts to Last Read, Search, and Bookmarks.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal",
+              "minWidth": "250dp",
+              "minHeight": "40dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 1,
+              "previewImage": "./assets/widget-previews/quick_actions.png"
+            },
+            {
+              "name": "DuaOfDay",
+              "label": "Dhikr: Dua of the Day",
+              "description": "Displays a daily supplication from Quran and Sunnah.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/dua_of_day.png"
+            },
+            {
+              "name": "WisdomQuote",
+              "label": "Dhikr: Islamic Wisdom",
+              "description": "Inspiring quotes and wisdom sayings from Islamic history.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "180dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 3,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/wisdom_quote.png"
+            },
+            {
+              "name": "LastRead",
+              "label": "Dhikr: Last Read Resume",
+              "description": "Quickly resume reading your last read verse.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal",
+              "minWidth": "180dp",
+              "minHeight": "40dp",
+              "targetCellWidth": 3,
+              "targetCellHeight": 1,
+              "previewImage": "./assets/widget-previews/last_read.png"
+            },
+            {
+              "name": "JuzProgress",
+              "label": "Dhikr: Juz Progress",
+              "description": "Progress bar of your reading status in the current Juz.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal",
+              "minWidth": "250dp",
+              "minHeight": "40dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 1,
+              "previewImage": "./assets/widget-previews/juz_progress.png"
+            },
+            {
+              "name": "PrayerTracker",
+              "label": "Dhikr: Prayer Tracker",
+              "description": "Quickly check off your daily prayers from the homescreen.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/prayer_tracker.png"
+            },
+            {
+              "name": "NamesOfAllah",
+              "label": "Dhikr: Names of Allah",
+              "description": "Displays one of the 99 Names of Allah with meaning & spiritual benefits.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "110dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/names_of_allah.png"
+            },
+            {
+              "name": "SunnahDaily",
+              "label": "Dhikr: Daily Sunnah",
+              "description": "Displays authentic daily Sunnahs and practices of the Prophet ﷺ.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "110dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/sunnah_daily.png"
+            },
+            {
+              "name": "HadithOfDay",
+              "label": "Dhikr: Hadith of the Day",
+              "description": "Displays an authentic Daily Hadith with reference and grading.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/hadith_of_day.png"
+            },
+            {
+              "name": "IslamicHistory",
+              "label": "Dhikr: Islamic History",
+              "description": "Rotates key historical events and companion biographies daily.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal",
+              "minWidth": "180dp",
+              "minHeight": "40dp",
+              "targetCellWidth": 3,
+              "targetCellHeight": 1,
+              "previewImage": "./assets/widget-previews/islamic_history.png"
+            },
+            {
+              "name": "ProphetsStories",
+              "label": "Dhikr: Prophets Stories",
+              "description": "Displays narrative snippets detailing key moments from the lives of the Prophets.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "180dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 3,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/prophets_stories.png"
+            },
+            {
+              "name": "CharacterFocus",
+              "label": "Dhikr: Character Akhlaq Target",
+              "description": "Proposes one actionable moral character target weekly.",
+              "updatePeriodMillis": 86400000,
+              "resizeMode": "horizontal",
+              "minWidth": "110dp",
+              "minHeight": "40dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 1,
+              "previewImage": "./assets/widget-previews/character_focus.png"
+            },
+            {
+              "name": "DigitalDetox",
+              "label": "Dhikr: Digital Detox",
+              "description": "Displays time spent in-app on Quran & Remembrance vs target.",
+              "updatePeriodMillis": 3600000,
+              "resizeMode": "horizontal|vertical",
+              "minWidth": "110dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-previews/digital_detox.png"
+            }
+          ]
+        }
+      ],
+      "expo-secure-store",
+      "expo-web-browser"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "825447e5-bf9a-4595-b8df-a0f4ead57a49"
+      }
     }
   }
 }
