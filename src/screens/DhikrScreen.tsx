@@ -16,6 +16,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAppPreferences } from '../context/AppPreferencesContext';
+import { useSpiritualTimeTracker } from '../utils/useSpiritualTimeTracker';
 import { FONTS } from '../utils/constants';
 
 interface DhikrItem {
@@ -94,6 +95,7 @@ const PREDEFINED_DHIKR: DhikrItem[] = [
 ];
 
 export const DhikrScreen: React.FC = () => {
+  useSpiritualTimeTracker('Remembrance');
   const { colors } = useAppPreferences();
   const insets = useSafeAreaInsets();
   const [dhikrList, setDhikrList] = useState<DhikrItem[]>([]);

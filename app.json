@@ -35,6 +35,12 @@
       [
         "react-native-android-widget",
         {
+          "fonts": [
+            "./assets/fonts/MaterialIcons.ttf",
+            "./assets/fonts/UthmanicHafs1Ver18.ttf",
+            "./assets/fonts/Figtree.ttf",
+            "./assets/fonts/indopak.ttf"
+          ],
           "widgets": [
             {
               "name": "AyahOfDay",

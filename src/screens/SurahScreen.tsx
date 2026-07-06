@@ -29,6 +29,7 @@ import { tafseerService } from '../services/tafseerService';
 import { Ayah } from '../models/types';
 import { BISMILLAH, FONTS, getArabicFontFamily } from '../utils/constants';
 import { useAppPreferences } from '../context/AppPreferencesContext';
+import { useSpiritualTimeTracker } from '../utils/useSpiritualTimeTracker';
 import quranData from '../../assets/json/quran.json';
 import juzData from '../../assets/json/juz.json';
 import surahMetaData from '../../assets/json/surah_meta.json';
@@ -151,6 +152,7 @@ const updateLastReadWidgets = (surahId: number, ayahNumber: number) => {
 };
 
 export const SurahScreen: React.FC<Props> = ({ route, navigation }) => {
+  useSpiritualTimeTracker('Quran');
   const { preferences, colors } = useAppPreferences();
   const { surahId, juzNumber, initialAyah } = route.params;
   const listRef = useRef<FlatList<ListItem>>(null);
