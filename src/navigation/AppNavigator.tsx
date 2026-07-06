@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pressable } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,6 +11,8 @@ import { BookmarksScreen } from '../screens/BookmarksScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { DhikrScreen } from '../screens/DhikrScreen';
 import { PrayerTrackerScreen } from '../screens/PrayerTrackerScreen';
+import { SajdahTrackerScreen } from '../screens/SajdahTrackerScreen';
+import { QuizScreen } from '../screens/QuizScreen';
 import { FONTS } from '../utils/constants';
 import { useAppPreferences } from '../context/AppPreferencesContext';
 
@@ -17,6 +20,8 @@ export type RootStackParamList = {
   Main: undefined;
   Surah: { surahId?: number; juzNumber?: number; initialAyah?: number };
   PrayerTracker: undefined;
+  SajdahTracker: undefined;
+  Quiz: undefined;
 };
 
 export type TabParamList = {
@@ -109,8 +114,35 @@ export const AppNavigator: React.FC = () => {
       <Stack.Screen
         name="PrayerTracker"
         component={PrayerTrackerScreen as any}
-        options={() => ({
+        options={({ navigation }) => ({
           title: 'Prayer Tracker',
+          headerShadowVisible: false,
+          animation: 'slide_from_right',
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('SajdahTracker')}
+              style={({ pressed }) => [{ marginRight: 8, opacity: pressed ? 0.7 : 1 }]}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <Ionicons name="book-outline" size={22} color={colors.primary} />
+            </Pressable>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="SajdahTracker"
+        component={SajdahTrackerScreen as any}
+        options={() => ({
+          title: 'Sajdah Tracker',
+          headerShadowVisible: false,
+          animation: 'slide_from_right',
+        })}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={QuizScreen as any}
+        options={() => ({
+          title: 'Quranic Quiz',
           headerShadowVisible: false,
           animation: 'slide_from_right',
         })}

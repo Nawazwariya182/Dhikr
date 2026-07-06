@@ -258,6 +258,17 @@ class BookmarkService {
           hasHistory = true;
           hasFolder = true;
         }
+      } else {
+        const lastReadRaw = await AsyncStorage.getItem('@dhikr_last_read');
+        if (lastReadRaw) {
+          const lastRead = JSON.parse(lastReadRaw);
+          if (lastRead && lastRead.surahId && lastRead.ayahNumber) {
+            surahId = lastRead.surahId;
+            ayahNumber = lastRead.ayahNumber;
+            hasHistory = true;
+          }
+        }
+        hasFolder = true; // Show general history in the widget layout instead of the "NO PRIMARY FOLDER" view
       }
 
       const surah = surahMetaData.find((s) => s.id === surahId);

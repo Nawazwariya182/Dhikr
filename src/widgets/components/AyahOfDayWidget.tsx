@@ -14,10 +14,14 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
   translation,
   surahName,
   ayah,
+  surah,
 }) => {
+  const deepLinkUri = surah ? `dhikr://surah?surahId=${surah}&initialAyah=${ayah}` : 'dhikr://home';
+
   return (
     <FlexWidget
-      clickAction="OPEN_APP"
+      clickAction="OPEN_URI"
+      clickActionData={{ uri: deepLinkUri }}
       style={{
         height: 'match_parent',
         width: 'match_parent',

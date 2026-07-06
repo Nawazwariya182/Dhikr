@@ -483,6 +483,21 @@ export const BookmarksScreen: React.FC<Props> = ({ navigation }) => {
           </View>
         </View>
       </Modal>
+
+      {/* Quiz Floating Action Button */}
+      <Pressable
+        onPress={() => navigation.navigate('Quiz')}
+        style={({ pressed }) => [
+          styles.quizFab,
+          {
+            backgroundColor: colors.primary,
+            shadowColor: colors.primary,
+            opacity: pressed ? 0.9 : 1,
+          },
+        ]}
+      >
+        <Ionicons name="sparkles-outline" size={24} color="#fff" />
+      </Pressable>
     </View>
   );
 };
@@ -729,5 +744,20 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.english,
     fontSize: 14,
     fontWeight: '600',
+  },
+  quizFab: {
+    position: 'absolute',
+    bottom: 24,
+    right: 24,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 6,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    zIndex: 999,
   },
 });

@@ -12,8 +12,11 @@ interface LastReadWidgetProps {
 export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
   surahName,
   ayahNumber,
+  surahId,
   hasFolder = true,
 }) => {
+  const deepLinkUri = surahId ? `dhikr://surah?surahId=${surahId}&initialAyah=${ayahNumber}` : 'dhikr://home';
+
   if (!hasFolder) {
     return (
       <FlexWidget
@@ -108,7 +111,8 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
 
   return (
     <FlexWidget
-      clickAction="OPEN_APP"
+      clickAction="OPEN_URI"
+      clickActionData={{ uri: deepLinkUri }}
       style={{
         height: 'match_parent',
         width: 'match_parent',

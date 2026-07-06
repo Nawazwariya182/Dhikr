@@ -24,11 +24,17 @@ import quranData from '../../assets/json/quran.json';
 import surahMetaData from '../../assets/json/surah_meta.json';
 import juzData from '../../assets/json/juz.json';
 
-// Define Tasbih rotation phrases
-const TASBIH_PHRASES = [
-  { phrase: 'سُبْحَانَ ٱللَّٰهِ', translation: 'SubhanAllah (Glory be to Allah)', target: 33 },
-  { phrase: 'ٱلْحَمْدُ لِلَّٰهِ', translation: 'Alhamdulillah (Praise be to Allah)', target: 33 },
-  { phrase: 'ٱللَّٰهُ أَكْبَرُ', translation: 'Allahu Akbar (Allah is the Greatest)', target: 34 },
+// Define fallback Tasbih rotation phrases matching the app's predefined presets
+const DEFAULT_DHIKR = [
+  { id: 'subhanallah', arabic: 'سُبْحَانَ ٱللَّٰهِ', translation: 'Glory be to Allah', target: 33, count: 0 },
+  { id: 'alhamdulillah', arabic: 'ٱلْحَمْدُ لِلَّٰهِ', translation: 'Praise be to Allah', target: 33, count: 0 },
+  { id: 'allahuakbar', arabic: 'ٱللَّٰهُ أَكْبَرُ', translation: 'Allah is the Greatest', target: 34, count: 0 },
+  { id: 'astaghfirullah', arabic: 'أَسْتَغْفِرُ ٱللَّٰهَ', translation: 'I seek forgiveness from Allah', target: 100, count: 0 },
+  { id: 'lailahaillallah', arabic: 'لَا إِلَٰهَ إِلَّا ٱللَّٰهُ', translation: 'There is no deity but Allah', target: 100, count: 0 },
+  { id: 'subhanallah_bihamdihi', arabic: 'سُبْحَانَ ٱللَّٰهِ وَبِحَمْدِهِ', translation: 'Glory be to Allah and Praise is due to Him', target: 100, count: 0 },
+  { id: 'lahawla', arabic: 'لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ', translation: 'There is no power or strength except with Allah', target: 100, count: 0 },
+  { id: 'hasbunallah', arabic: 'حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ', translation: 'Allah is sufficient for us, and He is the best Disposer of affairs', target: 100, count: 0 },
+  { id: 'salawat', arabic: 'ٱللَّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ', translation: 'O Allah, send blessings upon Muhammad', target: 100, count: 0 },
 ];
 
 const DUAS = [
@@ -306,53 +312,71 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps) {
   // WIDGET: TasbihCounter
   // -------------------------------------------------------------
   else if (widgetName === 'TasbihCounter') {
-    let count = 0;
+    let dhikrList = [];
+    try {
+      const storedList = await AsyncStorage.getItem('@dhikr_app_list_v1');
+      if (storedList) {
+        dhikrList = JSON.parse(storedList);
+      }
+    } catch {}
+    if (!dhikrList || dhikrList.length === 0) {
+      dhikrList = DEFAULT_DHIKR;
+    }
+
     let phraseIndex = 0;
     try {
-      const storedCount = await AsyncStorage.getItem(STORAGE_KEYS.tasbihCount);
       const storedIndex = await AsyncStorage.getItem(STORAGE_KEYS.tasbihIndex);
-      if (storedCount !== null) count = Number(storedCount);
-      if (storedIndex !== null) phraseIndex = Number(storedIndex) % TASBIH_PHRASES.length;
+      if (storedIndex !== null) {
+        phraseIndex = Number(storedIndex) % dhikrList.length;
+      }
     } catch {}
 
-    const currentPhrase = TASBIH_PHRASES[phraseIndex];
+    const currentDhikr = dhikrList[phraseIndex];
+    let count = currentDhikr.count || 0;
+    const target = currentDhikr.target || 100;
 
     if (widgetAction === 'WIDGET_CLICK' && props.clickAction === 'INCREMENT') {
       count += 1;
-      if (count >= currentPhrase.target) {
+      let targetReached = false;
+      if (target > 0 && count >= target) {
         count = 0;
-        phraseIndex = (phraseIndex + 1) % TASBIH_PHRASES.length;
+        targetReached = true;
       }
-      
+
+      dhikrList[phraseIndex].count = count;
+
+      if (targetReached) {
+        phraseIndex = (phraseIndex + 1) % dhikrList.length;
+      }
+
       try {
-        await AsyncStorage.setItem(STORAGE_KEYS.tasbihCount, String(count));
+        await AsyncStorage.setItem('@dhikr_app_list_v1', JSON.stringify(dhikrList));
         await AsyncStorage.setItem(STORAGE_KEYS.tasbihIndex, String(phraseIndex));
       } catch {}
 
-      const nextPhrase = TASBIH_PHRASES[phraseIndex];
+      const nextDhikr = dhikrList[phraseIndex];
       props.renderWidget(
         <TasbihCounterWidget
-          phrase={nextPhrase.phrase}
-          phraseTranslation={nextPhrase.translation}
-          count={count}
-          target={nextPhrase.target}
+          phrase={nextDhikr.arabic || nextDhikr.phrase || ''}
+          phraseTranslation={nextDhikr.translation || ''}
+          count={nextDhikr.count || 0}
+          target={nextDhikr.target || 100}
         />
       );
     } 
     
     else if (widgetAction === 'WIDGET_CLICK' && props.clickAction === 'RESET') {
+      dhikrList[phraseIndex].count = 0;
       try {
-        await AsyncStorage.setItem(STORAGE_KEYS.tasbihCount, '0');
-        await AsyncStorage.setItem(STORAGE_KEYS.tasbihIndex, '0');
+        await AsyncStorage.setItem('@dhikr_app_list_v1', JSON.stringify(dhikrList));
       } catch {}
 
-      const firstPhrase = TASBIH_PHRASES[0];
       props.renderWidget(
         <TasbihCounterWidget
-          phrase={firstPhrase.phrase}
-          phraseTranslation={firstPhrase.translation}
+          phrase={currentDhikr.arabic || currentDhikr.phrase || ''}
+          phraseTranslation={currentDhikr.translation || ''}
           count={0}
-          target={firstPhrase.target}
+          target={target}
         />
       );
     } 
@@ -360,10 +384,10 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps) {
     else {
       props.renderWidget(
         <TasbihCounterWidget
-          phrase={currentPhrase.phrase}
-          phraseTranslation={currentPhrase.translation}
+          phrase={currentDhikr.arabic || currentDhikr.phrase || ''}
+          phraseTranslation={currentDhikr.translation || ''}
           count={count}
-          target={currentPhrase.target}
+          target={target}
         />
       );
     }
@@ -419,9 +443,6 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps) {
     );
   }
 
-  // -------------------------------------------------------------
-  // WIDGET: LastRead
-  // -------------------------------------------------------------
   else if (widgetName === 'LastRead') {
     let surahId = 1;
     let ayahNumber = 1;
@@ -445,6 +466,19 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps) {
             }
           }
         }
+      }
+
+      if (!hasFolder) {
+        const lastReadRaw = await AsyncStorage.getItem('@dhikr_last_read');
+        if (lastReadRaw) {
+          const lastRead = JSON.parse(lastReadRaw);
+          if (lastRead && lastRead.surahId && lastRead.ayahNumber) {
+            surahId = lastRead.surahId;
+            ayahNumber = lastRead.ayahNumber;
+            hasHistory = true;
+          }
+        }
+        hasFolder = true; // Show general history instead of the empty layout
       }
     } catch {}
 
@@ -486,6 +520,18 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps) {
             }
           }
         }
+      }
+
+      if (!hasFolder) {
+        const lastReadRaw = await AsyncStorage.getItem('@dhikr_last_read');
+        if (lastReadRaw) {
+          const lastRead = JSON.parse(lastReadRaw);
+          if (lastRead && lastRead.surahId && lastRead.ayahNumber) {
+            surahId = lastRead.surahId;
+            ayahNumber = lastRead.ayahNumber;
+          }
+        }
+        hasFolder = true; // Show general history instead of the empty layout
       }
     } catch {}
 

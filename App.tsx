@@ -21,7 +21,7 @@ const linking = {
       Main: {
         screens: {
           Home: 'home',
-          Search: 'search',
+          Quran: 'search',
           Bookmarks: 'bookmarks',
           Settings: 'settings',
         },

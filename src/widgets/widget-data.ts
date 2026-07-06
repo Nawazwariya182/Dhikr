@@ -1346,722 +1346,242 @@ export const SUNNAHS: SunnahEntry[] = [
   {
     "id": 1,
     "title": "Using the Miswak",
-    "detail": "It is a highly emphasized Sunnah to clean the teeth with a Miswak before performing Wudu and Salat. It pleases the Lord and purifies the mouth.",
+    "detail": "Hold the Miswak in your right hand, clean teeth horizontally starting from the upper right, then upper left, then lower right, then lower left. Brush the tongue too. It pleases Allah and purifies the mouth.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 2,
     "title": "Drinking Water Sitting Down",
-    "detail": "Drink water sitting down, using the right hand, in three distinct breaths, and looking into the vessel before drinking. Say Bismillah at start and Alhamdulillah at end.",
+    "detail": "Sit down first. Take the glass in your right hand, look inside it to ensure cleanliness, say Bismillah, and drink in three distinct breaths without breathing into the vessel. Say Alhamdulillah at the end.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 3,
     "title": "Sleeping on the Right Side",
-    "detail": "Sleep in a state of wudu, facing the Qibla, lying on your right side with the right hand placed under the cheek. Recite Ayat al-Kursi and the Mu'awwidhat.",
+    "detail": "Perform wudu before sleep. Lie down on the right side, facing the Qibla, placing the right hand under the right cheek. Recite Ayat al-Kursi, the last two verses of Surah al-Baqarah, and blow in your hands.",
     "reference": "Bahar-e-Shariat / Sunan Abi Dawud"
   },
   {
     "id": 4,
     "title": "Entering the Masjid",
-    "detail": "Enter the mosque with your right foot first, and recite: Bismillah, was-salatu was-salamu 'ala Rasulillah, Allahumma-ftah li abwaba rahmatik.",
+    "detail": "Enter the mosque stepping first with your right foot, and recite: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma-ftah li abwaba rahmatik.' (O Allah, open for me the gates of Your mercy).",
     "reference": "Bahar-e-Shariat / Sahih Muslim"
   },
   {
     "id": 5,
     "title": "Leaving the Masjid",
-    "detail": "Exit the mosque with your left foot first, and recite: Allahumma inni as'aluka min fadlik, sending blessings upon the Prophet ﷺ.",
+    "detail": "Step out of the mosque with your left foot first, and recite: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma inni as'aluka min fadlik.' (O Allah, I ask You from Your bounty).",
     "reference": "Bahar-e-Shariat / Sahih Muslim"
   },
   {
     "id": 6,
-    "title": "Eating with Right Hand",
-    "detail": "Eat sitting down, with the right hand, using three fingers if possible, and lick the fingers clean after eating before washing. Wash hands before and after meals.",
+    "title": "Eating with the Right Hand",
+    "detail": "Sit down to eat. Say Bismillah, eat with your right hand using three fingers (thumb, index, middle). Eat what is closest to you. Lick fingers clean after eating before washing hands.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 7,
     "title": "Greeting with Salam",
-    "detail": "Say 'Assalamu Alaikum wa Rahmatullahi wa Barakatuh' first when meeting Muslims, before starting any conversation. Shake hands with both hands.",
+    "detail": "Say 'Assalamu Alaikum wa Rahmatullahi wa Barakatuh' first when meeting Muslims, before starting any conversation. Shake hands with both hands, showing warmth.",
     "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 8,
     "title": "Applying Itr (Perfume)",
-    "detail": "Apply non-alcoholic perfume/Itr. The Prophet ﷺ loved pleasant scents and never refused perfume when offered.",
+    "detail": "Apply non-alcoholic perfume/Itr. Combing your beard or hair and using scent is highly recommended. The Prophet ﷺ loved pleasant scents and never refused perfume when offered.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 9,
     "title": "Wearing Shoes Right First",
-    "detail": "Put on your right shoe first, then the left. When removing shoes, take off the left shoe first, then the right.",
+    "detail": "Put on your right shoe first, then the left. When removing shoes, take off the left shoe first, then the right. Never walk in just one shoe.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 10,
     "title": "Trimming Nails on Friday",
-    "detail": "It is recommended to clip the nails of the hands and feet on Jumu'ah (Friday) following the Sunni sequence starting with the index finger of the right hand.",
+    "detail": "Clip hand nails starting with the index finger of the right hand, moving to pinky, then thumb. On the left hand, start with pinky, moving to thumb. Do this on Friday (Jumu'ah).",
     "reference": "Bahar-e-Shariat / Sunan al-Kubra"
   },
   {
     "id": 11,
-    "title": "Sunnah of Daily Conduct (Item 11)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Sleeping and Waking Supplications",
+    "detail": "Before sleep, recite: 'Bismika Allahumma amutu wa ahya'. Upon waking, sit up, rub eyes with hands to clear sleep, and say: 'Alhamdulillahil-ladhi ahyana ba'da ma amatana wa ilaihin-nushur'.",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 12,
-    "title": "Sunnah of Daily Conduct (Item 12)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Dusting the Bed",
+    "detail": "Before lying down on your bed, dust the sheet or mattress three times with the corner of a cloth while reciting Bismillah to ensure it is clean of any insects or impurities.",
+    "reference": "Sahih al-Bukhari / Sunan al-Tirmidhi"
   },
   {
     "id": 13,
-    "title": "Sunnah of Daily Conduct (Item 13)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Looking in the Mirror",
+    "detail": "Look in the mirror and supplicate: 'Allahumma anta hassanta khalqi fa hassin khuluqi' (O Allah, You have made my physical creation beautiful, so make my character beautiful as well).",
+    "reference": "Musnad Ahmad / Bahar-e-Shariat"
   },
   {
     "id": 14,
-    "title": "Sunnah of Daily Conduct (Item 14)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Sitting in Tashahhud Position",
+    "detail": "Sit on your left foot (for men), keeping the right foot upright with the toes pointing towards the Qibla. Keep hands relaxed on the thighs. This is the posture of supreme humility.",
+    "reference": "Sahih al-Bukhari / Fatawa Razawiyyah"
   },
   {
     "id": 15,
-    "title": "Sunnah of Daily Conduct (Item 15)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Moderation in Water during Wudu",
+    "detail": "Do not waste water even if you are on the banks of a flowing river. Open the tap minimally. The Prophet ﷺ completed wudu with a small quantity of water (approx. 650ml).",
+    "reference": "Sunan Ibn Majah / Bahar-e-Shariat"
   },
   {
     "id": 16,
-    "title": "Sunnah of Daily Conduct (Item 16)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Etiquette of Sneezing",
+    "detail": "Cover your face with hands or a cloth to lower the sound. Say 'Alhamdulillah'. The listener must reply 'Yarhamukallah', and then the sneezer replies 'Yahdikumullah wa yuslihu balakum'.",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 17,
-    "title": "Sunnah of Daily Conduct (Item 17)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Etiquette of Yawning",
+    "detail": "Try to suppress yawning as much as possible. If unable to hold it, place the back of the left hand over the mouth to cover it, as yawning is from Satan.",
+    "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 18,
-    "title": "Sunnah of Daily Conduct (Item 18)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "combing and Oiling Hair",
+    "detail": "Oil and comb your hair regularly. The Prophet ﷺ would oil his hair and comb it, starting from the right side, keeping it clean, neat, and well-groomed.",
+    "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 19,
-    "title": "Sunnah of Daily Conduct (Item 19)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Etiquette of Walking",
+    "detail": "Walk with energy and purpose, not with pride or laziness. Lean slightly forward as if descending a slope. Walk humbly, without dragging your feet loudly on the ground.",
+    "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 20,
-    "title": "Sunnah of Daily Conduct (Item 20)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Speaking Clearly and Smiling",
+    "detail": "Speak slowly and clearly so listeners can count your words if they wish. Smile during conversations. The Prophet ﷺ spoke with a pleasant tone and was always smiling.",
+    "reference": "Shamail-e-Tirmidhi / Sahih al-Bukhari"
   },
   {
     "id": 21,
-    "title": "Sunnah of Daily Conduct (Item 21)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Visiting the Sick",
+    "detail": "Visit sick Muslims. Sit near their head, place your hand on their forehead or chest to show care, ask how they are, and pray: 'La ba'sa tahurun in sha Allah' (No harm, a purification if Allah wills).",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 22,
-    "title": "Sunnah of Daily Conduct (Item 22)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Wearing Clothes Right Side First",
+    "detail": "When putting on a shirt, coat, or pants, put the right sleeve or right leg first. When undressing, take the left side out first. Say Bismillah before changing clothes.",
+    "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 23,
-    "title": "Sunnah of Daily Conduct (Item 23)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Sunnah of Tahajjud",
+    "detail": "Wake up in the final third of the night. Perform wudu using the miswak, and pray 2 to 8 units of night prayer (Tahajjud), followed by the Witr prayer if not prayed earlier.",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 24,
-    "title": "Sunnah of Daily Conduct (Item 24)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Midday Qailulah (Siesta)",
+    "detail": "Take a short midday nap or rest after the Dhuhr prayer (or before it on Friday). This helps refresh the body and gives strength for night worship (Tahajjud).",
+    "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 25,
-    "title": "Sunnah of Daily Conduct (Item 25)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Fasting on White Days",
+    "detail": "Fast on the 13th, 14th, and 15th of every Islamic lunar month (Ayyam al-Beed). Fasting on these three days is equivalent in reward to fasting the entire year.",
+    "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 26,
-    "title": "Sunnah of Daily Conduct (Item 26)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Fasting on Mondays and Thursdays",
+    "detail": "Fast on Mondays and Thursdays. The Prophet ﷺ said: 'Deeds of people are presented to Allah on Mondays and Thursdays, and I love that my deeds are presented while I am fasting.'",
+    "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 27,
-    "title": "Sunnah of Daily Conduct (Item 27)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Etiquette of Sitting",
+    "detail": "Sit cross-legged or upright with knees bent. Avoid leaning on the left hand placed behind the back, as this is the posture of those who earned Allah's anger.",
+    "reference": "Sunan Abi Dawud / Shamail-e-Tirmidhi"
   },
   {
     "id": 28,
-    "title": "Sunnah of Daily Conduct (Item 28)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "composing Anger",
+    "detail": "If you feel angry, stay silent. If standing, sit down; if sitting, lie down. If the anger persists, perform wudu, as anger is from fire and water extinguishes it.",
+    "reference": "Musnad Ahmad / Sunan Abi Dawud"
   },
   {
     "id": 29,
-    "title": "Sunnah of Daily Conduct (Item 29)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Rinsing Mouth after Milk",
+    "detail": "After drinking milk, rinse the mouth with clean water to remove the grease/fat. Supplicate: 'Allahumma barik lana fihi wa zidna minhu' (O Allah, bless it for us and increase it for us).",
+    "reference": "Sahih al-Bukhari / Sahih Muslim"
   },
   {
     "id": 30,
-    "title": "Sunnah of Daily Conduct (Item 30)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Sunnah of Combing the Beard",
+    "detail": "Keep the beard neat, clean, and oiled. Comb it starting from the neck moving upwards, then downwards. The Prophet ﷺ trimmed his beard to a fist length and oiled it.",
+    "reference": "Shamail-e-Tirmidhi / Fatawa Razawiyyah"
   },
   {
     "id": 31,
-    "title": "Sunnah of Daily Conduct (Item 31)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Serving Others First",
+    "detail": "The leader of a group is their servant. When serving water, milk, or food, start from the right side or the eldest, serve everyone else first, and drink/eat last yourself.",
+    "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 32,
-    "title": "Sunnah of Daily Conduct (Item 32)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Greeting Children with Salam",
+    "detail": "Initiate Salam when meeting children, pat their heads, and show them affection. This builds their self-esteem and teaches them the beautiful manners of Islam.",
+    "reference": "Sahih al-Bukhari / Sahih Muslim"
   },
   {
     "id": 33,
-    "title": "Sunnah of Daily Conduct (Item 33)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Honoring the Neighbor",
+    "detail": "Be kind and generous to neighbors. The Prophet ﷺ said: 'He is not a believer whose neighbor is not safe from his harm.' Share food/broth with them.",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 34,
-    "title": "Sunnah of Daily Conduct (Item 34)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Moderation in Eating",
+    "detail": "Divide the stomach into three parts: one-third for food, one-third for drink, and one-third for air. Never criticize food; if you dislike it, leave it without comment.",
+    "reference": "Sunan al-Tirmidhi / Sahih al-Bukhari"
   },
   {
     "id": 35,
-    "title": "Sunnah of Daily Conduct (Item 35)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Supplicating in Absence",
+    "detail": "Supplicate for your fellow Muslim brothers and sisters in their absence. The angels say 'Ameen, and for you be the same', making the prayer highly accepted.",
+    "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 36,
-    "title": "Sunnah of Daily Conduct (Item 36)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Sunnah of Istikharah",
+    "detail": "Perform two units of voluntary prayer and recite the Dua of Istikharah when making an important decision, seeking Allah's guidance and decree for what is best.",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 37,
-    "title": "Sunnah of Daily Conduct (Item 37)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Surah Al-Kahf on Friday",
+    "detail": "Recite Surah Al-Kahf on Friday (or Thursday night). It illuminates a light for the reader from one Friday to the next, protecting them from trials.",
+    "reference": "Sunan al-Darimi / Bahar-e-Shariat"
   },
   {
     "id": 38,
-    "title": "Sunnah of Daily Conduct (Item 38)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Dua before Meals",
+    "detail": "Say 'Bismillahi wa 'ala barakatillah' before eating. If you forget at the start, say 'Bismillahi awwalahu wa akhirahu' when you remember during the meal.",
+    "reference": "Sunan Abi Dawud / Bahar-e-Shariat"
   },
   {
     "id": 39,
-    "title": "Sunnah of Daily Conduct (Item 39)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Shaking Hands with Both Hands",
+    "detail": "When meeting a Muslim, shake hands using both hands. The Prophet ﷺ said that when two Muslims meet and shake hands, their sins fall away like leaves from a tree.",
+    "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 40,
-    "title": "Sunnah of Daily Conduct (Item 40)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 41,
-    "title": "Sunnah of Daily Conduct (Item 41)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 42,
-    "title": "Sunnah of Daily Conduct (Item 42)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 43,
-    "title": "Sunnah of Daily Conduct (Item 43)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 44,
-    "title": "Sunnah of Daily Conduct (Item 44)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 45,
-    "title": "Sunnah of Daily Conduct (Item 45)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 46,
-    "title": "Sunnah of Daily Conduct (Item 46)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 47,
-    "title": "Sunnah of Daily Conduct (Item 47)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 48,
-    "title": "Sunnah of Daily Conduct (Item 48)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 49,
-    "title": "Sunnah of Daily Conduct (Item 49)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 50,
-    "title": "Sunnah of Daily Conduct (Item 50)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 51,
-    "title": "Sunnah of Daily Conduct (Item 51)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 52,
-    "title": "Sunnah of Daily Conduct (Item 52)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 53,
-    "title": "Sunnah of Daily Conduct (Item 53)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 54,
-    "title": "Sunnah of Daily Conduct (Item 54)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 55,
-    "title": "Sunnah of Daily Conduct (Item 55)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 56,
-    "title": "Sunnah of Daily Conduct (Item 56)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 57,
-    "title": "Sunnah of Daily Conduct (Item 57)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 58,
-    "title": "Sunnah of Daily Conduct (Item 58)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 59,
-    "title": "Sunnah of Daily Conduct (Item 59)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 60,
-    "title": "Sunnah of Daily Conduct (Item 60)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 61,
-    "title": "Sunnah of Daily Conduct (Item 61)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 62,
-    "title": "Sunnah of Daily Conduct (Item 62)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 63,
-    "title": "Sunnah of Daily Conduct (Item 63)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 64,
-    "title": "Sunnah of Daily Conduct (Item 64)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 65,
-    "title": "Sunnah of Daily Conduct (Item 65)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 66,
-    "title": "Sunnah of Daily Conduct (Item 66)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 67,
-    "title": "Sunnah of Daily Conduct (Item 67)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 68,
-    "title": "Sunnah of Daily Conduct (Item 68)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 69,
-    "title": "Sunnah of Daily Conduct (Item 69)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 70,
-    "title": "Sunnah of Daily Conduct (Item 70)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 71,
-    "title": "Sunnah of Daily Conduct (Item 71)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 72,
-    "title": "Sunnah of Daily Conduct (Item 72)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 73,
-    "title": "Sunnah of Daily Conduct (Item 73)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 74,
-    "title": "Sunnah of Daily Conduct (Item 74)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 75,
-    "title": "Sunnah of Daily Conduct (Item 75)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 76,
-    "title": "Sunnah of Daily Conduct (Item 76)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 77,
-    "title": "Sunnah of Daily Conduct (Item 77)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 78,
-    "title": "Sunnah of Daily Conduct (Item 78)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 79,
-    "title": "Sunnah of Daily Conduct (Item 79)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 80,
-    "title": "Sunnah of Daily Conduct (Item 80)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 81,
-    "title": "Sunnah of Daily Conduct (Item 81)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 82,
-    "title": "Sunnah of Daily Conduct (Item 82)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 83,
-    "title": "Sunnah of Daily Conduct (Item 83)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 84,
-    "title": "Sunnah of Daily Conduct (Item 84)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 85,
-    "title": "Sunnah of Daily Conduct (Item 85)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 86,
-    "title": "Sunnah of Daily Conduct (Item 86)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 87,
-    "title": "Sunnah of Daily Conduct (Item 87)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 88,
-    "title": "Sunnah of Daily Conduct (Item 88)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 89,
-    "title": "Sunnah of Daily Conduct (Item 89)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 90,
-    "title": "Sunnah of Daily Conduct (Item 90)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 91,
-    "title": "Sunnah of Daily Conduct (Item 91)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 92,
-    "title": "Sunnah of Daily Conduct (Item 92)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 93,
-    "title": "Sunnah of Daily Conduct (Item 93)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 94,
-    "title": "Sunnah of Daily Conduct (Item 94)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 95,
-    "title": "Sunnah of Daily Conduct (Item 95)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 96,
-    "title": "Sunnah of Daily Conduct (Item 96)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 97,
-    "title": "Sunnah of Daily Conduct (Item 97)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 98,
-    "title": "Sunnah of Daily Conduct (Item 98)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 99,
-    "title": "Sunnah of Daily Conduct (Item 99)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 100,
-    "title": "Sunnah of Daily Conduct (Item 100)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 101,
-    "title": "Sunnah of Daily Conduct (Item 101)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 102,
-    "title": "Sunnah of Daily Conduct (Item 102)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 103,
-    "title": "Sunnah of Daily Conduct (Item 103)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 104,
-    "title": "Sunnah of Daily Conduct (Item 104)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 105,
-    "title": "Sunnah of Daily Conduct (Item 105)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 106,
-    "title": "Sunnah of Daily Conduct (Item 106)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 107,
-    "title": "Sunnah of Daily Conduct (Item 107)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 108,
-    "title": "Sunnah of Daily Conduct (Item 108)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 109,
-    "title": "Sunnah of Daily Conduct (Item 109)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 110,
-    "title": "Sunnah of Daily Conduct (Item 110)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 111,
-    "title": "Sunnah of Daily Conduct (Item 111)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 112,
-    "title": "Sunnah of Daily Conduct (Item 112)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 113,
-    "title": "Sunnah of Daily Conduct (Item 113)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 114,
-    "title": "Sunnah of Daily Conduct (Item 114)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 115,
-    "title": "Sunnah of Daily Conduct (Item 115)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 116,
-    "title": "Sunnah of Daily Conduct (Item 116)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 117,
-    "title": "Sunnah of Daily Conduct (Item 117)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 118,
-    "title": "Sunnah of Daily Conduct (Item 118)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 119,
-    "title": "Sunnah of Daily Conduct (Item 119)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
-  },
-  {
-    "id": 120,
-    "title": "Sunnah of Daily Conduct (Item 120)",
-    "detail": "Greet others with a smile, speak softly, avoid backbiting, cover the face when sneezing or yawning, and send Durood upon the Prophet ﷺ abundantly.",
-    "reference": "Bahar-e-Shariat / Shamail-e-Tirmidhi"
+    "title": "Speaking Truth with Gentleness",
+    "detail": "Speak the truth even if it is difficult. Keep your words soft, gentle, and free from harshness or lies. The Prophet ﷺ was known as Al-Sadiq (the Truthful).",
+    "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   }
 ];
 
