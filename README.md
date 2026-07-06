@@ -1,6 +1,6 @@
 # Dhikr (ذكر) Mobile App 🌙
 
-Dhikr is a premium, distraction-free spiritual companion application built with **React Native** and **Expo**. It provides a beautiful interface for reading the Quran, tracking prayers (Salah), managing daily remembrance (Dhikr), and pinning customized dark-theme widgets to your home screen.
+Dhikr is a premium, distraction-free spiritual companion application built with **React Native** and **Expo**. It is available for download at **[dhikr.contentify.studio](https://dhikr.contentify.studio)**. It provides a beautiful interface for reading the Quran, tracking prayers (Salah), managing daily remembrance (Dhikr), and pinning customized dark-theme widgets to your home screen.
 
 ---
 
