@@ -12,26 +12,32 @@ Dhikr is a premium, distraction-free spiritual companion application built with 
 *   **Surah Historical Context**: Detailed backgrounds, revelation details (Makki/Madani), and themes for all 114 Surahs.
 *   **Reading Progress & Bookmarks**: Dynamic bookmarking with folder organizations.
 
-### 2. 📿 Interactive Dhikr Section
+### 2. 📿 Interactive Dhikr & Tasbih Sync
 *   **Azkar Counter**: Custom counters with targets (33, 99, 100, or unlimited) and haptic feedback.
-*   **Dedicated Widgets**: Perform tasbih directly from your Android home screen.
+*   **Real-time Widget Sync**: Seamless synchronization between the app and the home screen Tasbih Counter widget. Selecting or counting a Dhikr in either updates the other instantly.
 
-### 3. 🕌 Advanced Prayer Log System
-*   Track obligatory daily Salah and voluntary prayers.
-*   Log history, maintain streaks, and log stats using the interactive home screen widget.
+### 3. 🕌 Prayer & Sajdah Tracker
+*   **Daily Prayer Log**: Track obligatory daily Salah and voluntary prayers, maintaining streaks and logging stats via the home screen widget.
+*   **Sajdah al-Tilawah Tracker**: A dedicated screen to log and track all 15 prostrations of recitation in the Quran, complete with verse references, progress indicators, and an educational performance guide.
 
-### 4. 📂 Organized Bookmark Folders
+### 4. 🧠 Groq AI Quranic Quiz Generator
+*   **Custom Verse Range Quizzes**: Generate customized quizzes based on user-selected Surah and Ayah ranges.
+*   **10-Question Difficulty Distribution**: Tests users with a structured set of 3 Easy (high-level moral lessons), 3 Medium (theology/history), and 4 Hard (Asbab al-Nuzul and complex Sunni Aqeedah concepts) questions.
+*   **Creed-Aligned Tafsir Lessons**: System prompt is strictly aligned with the creed of the Ahl-e-Sunnat wal Jama'at, featuring detailed explanations that act as educational mini-lessons.
+*   **Resilient Fallback Chain & Rate Limit**: Implements a sequential retry loop over 5 Groq models, with a 1-time-a-day rate limit (bypassed in development mode).
+
+### 5. 📂 Organized Bookmark Folders
 *   Group bookmarks by categories (e.g. Daily Recitation, Study, Duas).
-*   Customize folder colors and designate a folder as the "Primary Folder" to feed data directly into the Juz Progress and Resume Reading widgets.
+*   Designate a folder as the "Primary Folder" to feed data directly into the Juz Progress and Resume Reading widgets, locking widget tracking to your active folder.
 
-### 5. ☁️ Private Google Drive Sync
+### 6. ☁️ Private Google Drive Sync
 *   Secure, manually triggered backups.
 *   Uses a hidden application sandbox directory inside Google Drive to keep your backups private.
 
-### 6. 📱 Premium Widget Suite (15 Widgets)
+### 7. 📱 Premium Widget Suite (15 Widgets)
 *   **Quran & Remembrance**: Last Read, Juz Progress, Ayah of the Day, Digital Detox.
-*   **Daily Inspiration**: Hadith of the Day, Names of Allah, Prophets Stories, Sunnah of the Day, Islamic History Facts, Character Focus.
-*   **Utilities**: Quick Actions, Tasbih Counter, Prayer Tracker, Backup Status.
+*   **Daily Inspiration**: Hadith of the Day, Names of Allah, Prophets Stories, Sunnah of the Day (40 detailed guides on how the Prophet ﷺ practiced them), Islamic History Facts, Character Focus.
+*   **Utilities**: Quick Actions (with direct deep links to Search/Quran), Tasbih Counter, Prayer Tracker, Backup Status.
 
 ---
 

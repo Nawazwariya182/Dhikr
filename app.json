@@ -3,7 +3,7 @@
     "name": "Dhikr",
     "slug": "dikhr-app",
     "scheme": "dhikr",
-    "version": "3.0.0",
+    "version": "3.1.1",
     "orientation": "portrait",
     "icon": "./assets/icon-square.png",
     "userInterfaceStyle": "dark",
