@@ -24,13 +24,13 @@ import {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyCQu55WdaQAt90ykg-hQMrm_bksPRYh3vo",
-  authDomain: "dhikr-b11df.firebaseapp.com",
-  projectId: "dhikr-b11df",
-  storageBucket: "dhikr-b11df.firebasestorage.app",
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
   messagingSenderId: "74884040959",
-  appId: "1:74884040959:web:9ee430cd05eea68b2fe4ca",
-  measurementId: "G-QCDWMKD0VD"
+  appId: "",
+  measurementId: ""
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
