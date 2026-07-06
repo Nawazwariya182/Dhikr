@@ -15,6 +15,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { requestWidgetUpdate } from 'react-native-android-widget';
+import { TasbihCounterWidget } from '../widgets/components/TasbihCounterWidget';
 import { useAppPreferences } from '../context/AppPreferencesContext';
 import { useSpiritualTimeTracker } from '../utils/useSpiritualTimeTracker';
 import { FONTS } from '../utils/constants';
@@ -174,15 +176,25 @@ export const DhikrScreen: React.FC = () => {
         try {
           const storedList = await AsyncStorage.getItem('@dhikr_app_list_v1');
           const storedVibration = await AsyncStorage.getItem('@dhikr_vibration_enabled');
+          const storedIndex = await AsyncStorage.getItem('@dhikr_widget_tasbih_index');
           
           if (storedVibration !== null) {
             setVibrationEnabled(storedVibration === 'true');
           }
 
+          let currentList = PREDEFINED_DHIKR;
           if (storedList !== null) {
-            setDhikrList(JSON.parse(storedList));
+            currentList = JSON.parse(storedList);
+            setDhikrList(currentList);
           } else {
             setDhikrList(PREDEFINED_DHIKR);
+          }
+
+          if (storedIndex !== null && currentList.length > 0) {
+            const idx = Number(storedIndex) % currentList.length;
+            if (idx >= 0 && idx < currentList.length) {
+              setSelectedId(currentList[idx].id);
+            }
           }
         } catch (error) {
           console.error('Failed to load Dhikr list:', error);
@@ -202,6 +214,32 @@ export const DhikrScreen: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [showToast]);
+
+  // Synchronize active item and count changes to Android Widget
+  useEffect(() => {
+    if (dhikrList.length === 0) return;
+    const index = dhikrList.findIndex(item => item.id === selectedId);
+    if (index >= 0) {
+      const active = dhikrList[index];
+      AsyncStorage.setItem('@dhikr_widget_tasbih_index', String(index)).then(() => {
+        try {
+          requestWidgetUpdate({
+            widgetName: 'TasbihCounter',
+            renderWidget: () => (
+              <TasbihCounterWidget
+                phrase={active.arabic || ''}
+                phraseTranslation={active.translation || ''}
+                count={active.count || 0}
+                target={active.target || 100}
+              />
+            ),
+          });
+        } catch (err) {
+          console.warn('Error updating Tasbih widget:', err);
+        }
+      });
+    }
+  }, [selectedId, dhikrList]);
 
   const saveDhikrList = async (updatedList: DhikrItem[]) => {
     try {

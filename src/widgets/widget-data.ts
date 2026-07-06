@@ -1346,241 +1346,241 @@ export const SUNNAHS: SunnahEntry[] = [
   {
     "id": 1,
     "title": "Using the Miswak",
-    "detail": "Hold the Miswak in your right hand, clean teeth horizontally starting from the upper right, then upper left, then lower right, then lower left. Brush the tongue too. It pleases Allah and purifies the mouth.",
+    "detail": "The Holy Prophet ﷺ held the Miswak in His noble right hand (pinky underneath, thumb under the head, other three fingers on top). He brushed His blessed teeth horizontally three times, starting from the upper right, then upper left, lower right, lower left, and brushed His tongue, saying it purifies the mouth and pleases Allah.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 2,
     "title": "Drinking Water Sitting Down",
-    "detail": "Sit down first. Take the glass in your right hand, look inside it to ensure cleanliness, say Bismillah, and drink in three distinct breaths without breathing into the vessel. Say Alhamdulillah at the end.",
+    "detail": "The Holy Prophet ﷺ always sat down to drink water, holding the cup in His noble right hand. He looked inside it first, said 'Bismillah', and drank in three separate sips, breathing outside the vessel between sips, and said 'Alhamdulillah' at the end.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 3,
     "title": "Sleeping on the Right Side",
-    "detail": "Perform wudu before sleep. Lie down on the right side, facing the Qibla, placing the right hand under the right cheek. Recite Ayat al-Kursi, the last two verses of Surah al-Baqarah, and blow in your hands.",
+    "detail": "The Holy Prophet ﷺ performed wudu before sleeping. He laid on His noble right side facing the Qibla, placing His blessed right hand under His cheek, reciting Ayat al-Kursi, the Mu'awwidhatayn (last two Surahs), blowing into His palms, and wiping His body.",
     "reference": "Bahar-e-Shariat / Sunan Abi Dawud"
   },
   {
     "id": 4,
     "title": "Entering the Masjid",
-    "detail": "Enter the mosque stepping first with your right foot, and recite: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma-ftah li abwaba rahmatik.' (O Allah, open for me the gates of Your mercy).",
+    "detail": "The Holy Prophet ﷺ entered the mosque stepping first with His noble right foot, and supplicated: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma-ftah li abwaba rahmatik' (O Allah, open for me the doors of Your mercy).",
     "reference": "Bahar-e-Shariat / Sahih Muslim"
   },
   {
     "id": 5,
     "title": "Leaving the Masjid",
-    "detail": "Step out of the mosque with your left foot first, and recite: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma inni as'aluka min fadlik.' (O Allah, I ask You from Your bounty).",
+    "detail": "The Holy Prophet ﷺ left the mosque stepping first with His left foot, and supplicated: 'Bismillah, was-salatu was-salamu 'ala Rasulillah. Allahumma inni as'aluka min fadlik' (O Allah, I ask You from Your bounty).",
     "reference": "Bahar-e-Shariat / Sahih Muslim"
   },
   {
     "id": 6,
     "title": "Eating with the Right Hand",
-    "detail": "Sit down to eat. Say Bismillah, eat with your right hand using three fingers (thumb, index, middle). Eat what is closest to you. Lick fingers clean after eating before washing hands.",
+    "detail": "The Holy Prophet ﷺ sat on His knees or with the right leg upright, eating with His three noble fingers (thumb, index, middle). He ate what was closest to Him, took small sips/bites, and licked His fingers clean before washing.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 7,
     "title": "Greeting with Salam",
-    "detail": "Say 'Assalamu Alaikum wa Rahmatullahi wa Barakatuh' first when meeting Muslims, before starting any conversation. Shake hands with both hands, showing warmth.",
+    "detail": "The Holy Prophet ﷺ always initiated Salam when meeting anyone, saying 'Assalamu Alaikum wa Rahmatullahi wa Barakatuh' before speaking. He shook hands using both of His noble hands with warmth.",
     "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 8,
     "title": "Applying Itr (Perfume)",
-    "detail": "Apply non-alcoholic perfume/Itr. Combing your beard or hair and using scent is highly recommended. The Prophet ﷺ loved pleasant scents and never refused perfume when offered.",
+    "detail": "The Holy Prophet ﷺ loved pleasant scents and used non-alcoholic perfume (Itr) regularly. He kept His hair and beard oiled and combed, and never refused perfume when offered.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 9,
     "title": "Wearing Shoes Right First",
-    "detail": "Put on your right shoe first, then the left. When removing shoes, take off the left shoe first, then the right. Never walk in just one shoe.",
+    "detail": "The Holy Prophet ﷺ wore His right shoe first, then the left. When taking them off, He removed the left shoe first, then the right, saying that the right should be honored first.",
     "reference": "Bahar-e-Shariat / Sahih al-Bukhari"
   },
   {
     "id": 10,
     "title": "Trimming Nails on Friday",
-    "detail": "Clip hand nails starting with the index finger of the right hand, moving to pinky, then thumb. On the left hand, start with pinky, moving to thumb. Do this on Friday (Jumu'ah).",
+    "detail": "The Holy Prophet ﷺ clipped His fingernails on Friday, starting with the index finger of the right hand to the pinky, then the thumb, and on the left hand from the pinky to the thumb, followed by washing.",
     "reference": "Bahar-e-Shariat / Sunan al-Kubra"
   },
   {
     "id": 11,
     "title": "Sleeping and Waking Supplications",
-    "detail": "Before sleep, recite: 'Bismika Allahumma amutu wa ahya'. Upon waking, sit up, rub eyes with hands to clear sleep, and say: 'Alhamdulillahil-ladhi ahyana ba'da ma amatana wa ilaihin-nushur'.",
+    "detail": "The Holy Prophet ﷺ supplicated before sleep: 'Bismika Allahumma amutu wa ahya'. Upon waking, He sat up, rubbed His face with His hands to remove sleep, and praised Allah: 'Alhamdulillahil-ladhi ahyana ba'da ma amatana wa ilaihin-nushur'.",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 12,
     "title": "Dusting the Bed",
-    "detail": "Before lying down on your bed, dust the sheet or mattress three times with the corner of a cloth while reciting Bismillah to ensure it is clean of any insects or impurities.",
+    "detail": "The Holy Prophet ﷺ dusted His bed three times with the corner of a cloth while reciting Bismillah before lying down, ensuring that no dust, insects, or impurities were on it.",
     "reference": "Sahih al-Bukhari / Sunan al-Tirmidhi"
   },
   {
     "id": 13,
     "title": "Looking in the Mirror",
-    "detail": "Look in the mirror and supplicate: 'Allahumma anta hassanta khalqi fa hassin khuluqi' (O Allah, You have made my physical creation beautiful, so make my character beautiful as well).",
+    "detail": "The Holy Prophet ﷺ looked in the mirror, combed His hair, and supplicated: 'Allahumma anta hassanta khalqi fa hassin khuluqi' (O Allah, as You made my body beautiful, make my character beautiful).",
     "reference": "Musnad Ahmad / Bahar-e-Shariat"
   },
   {
     "id": 14,
     "title": "Sitting in Tashahhud Position",
-    "detail": "Sit on your left foot (for men), keeping the right foot upright with the toes pointing towards the Qibla. Keep hands relaxed on the thighs. This is the posture of supreme humility.",
+    "detail": "The Holy Prophet ﷺ sat in Tashahhud by laying His left foot flat and sitting on it, while keeping His right foot upright with the toes pointing towards the Qibla, placing His hands on His thighs.",
     "reference": "Sahih al-Bukhari / Fatawa Razawiyyah"
   },
   {
     "id": 15,
     "title": "Moderation in Water during Wudu",
-    "detail": "Do not waste water even if you are on the banks of a flowing river. Open the tap minimally. The Prophet ﷺ completed wudu with a small quantity of water (approx. 650ml).",
+    "detail": "The Holy Prophet ﷺ used water sparingly during wudu, completing it with about one mudd of water (approx. 650ml), and forbade wasting water even if at a flowing river.",
     "reference": "Sunan Ibn Majah / Bahar-e-Shariat"
   },
   {
     "id": 16,
     "title": "Etiquette of Sneezing",
-    "detail": "Cover your face with hands or a cloth to lower the sound. Say 'Alhamdulillah'. The listener must reply 'Yarhamukallah', and then the sneezer replies 'Yahdikumullah wa yuslihu balakum'.",
+    "detail": "The Holy Prophet ﷺ covered His blessed face with His hands or a cloth while sneezing to suppress the sound. He said 'Alhamdulillah', expecting the listener to say 'Yarhamukallah'.",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 17,
     "title": "Etiquette of Yawning",
-    "detail": "Try to suppress yawning as much as possible. If unable to hold it, place the back of the left hand over the mouth to cover it, as yawning is from Satan.",
+    "detail": "The Holy Prophet ﷺ suppressed yawning as much as possible, teaching that it is from Satan, and placed the back of His noble left hand over His mouth if unable to suppress it.",
     "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 18,
     "title": "combing and Oiling Hair",
-    "detail": "Oil and comb your hair regularly. The Prophet ﷺ would oil his hair and comb it, starting from the right side, keeping it clean, neat, and well-groomed.",
+    "detail": "The Holy Prophet ﷺ oiled and combed His blessed hair and beard regularly. He kept a mirror, comb, and oil flask in His travel bag, starting combing from the right side.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 19,
     "title": "Etiquette of Walking",
-    "detail": "Walk with energy and purpose, not with pride or laziness. Lean slightly forward as if descending a slope. Walk humbly, without dragging your feet loudly on the ground.",
+    "detail": "The Holy Prophet ﷺ walked with a firm, energetic step, lifting His feet fully and leaning slightly forward as if walking down a slope. He walked with modesty, never dragging His feet.",
     "reference": "Shamail-e-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 20,
     "title": "Speaking Clearly and Smiling",
-    "detail": "Speak slowly and clearly so listeners can count your words if they wish. Smile during conversations. The Prophet ﷺ spoke with a pleasant tone and was always smiling.",
+    "detail": "The Holy Prophet ﷺ spoke slowly and clearly, repeating key phrases three times so listeners could easily understand and memorize. He was always pleasant and smiled at companions.",
     "reference": "Shamail-e-Tirmidhi / Sahih al-Bukhari"
   },
   {
     "id": 21,
     "title": "Visiting the Sick",
-    "detail": "Visit sick Muslims. Sit near their head, place your hand on their forehead or chest to show care, ask how they are, and pray: 'La ba'sa tahurun in sha Allah' (No harm, a purification if Allah wills).",
+    "detail": "The Holy Prophet ﷺ visited sick companions, sat near their head, placed His noble hand on their forehead to comfort them, and prayed: 'La ba'sa tahurun in sha Allah' (No harm, a purification).",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 22,
     "title": "Wearing Clothes Right Side First",
-    "detail": "When putting on a shirt, coat, or pants, put the right sleeve or right leg first. When undressing, take the left side out first. Say Bismillah before changing clothes.",
+    "detail": "The Holy Prophet ﷺ put on His clothes starting with the right sleeve of His shirt or right leg of His trousers. When undressing, He removed the left side first, reciting Bismillah.",
     "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 23,
     "title": "Sunnah of Tahajjud",
-    "detail": "Wake up in the final third of the night. Perform wudu using the miswak, and pray 2 to 8 units of night prayer (Tahajjud), followed by the Witr prayer if not prayed earlier.",
+    "detail": "The Holy Prophet ﷺ woke in the final third of the night, used the miswak, performed wudu, and offered 8 units of Tahajjud prayer, followed by Witr, praying until His feet swelled out of love.",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 24,
     "title": "Midday Qailulah (Siesta)",
-    "detail": "Take a short midday nap or rest after the Dhuhr prayer (or before it on Friday). This helps refresh the body and gives strength for night worship (Tahajjud).",
+    "detail": "The Holy Prophet ﷺ took a short midday nap (Qailulah) before or after Dhuhr prayer (and before Jumu'ah on Fridays), saying it gives strength for night worship (Tahajjud).",
     "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 25,
     "title": "Fasting on White Days",
-    "detail": "Fast on the 13th, 14th, and 15th of every Islamic lunar month (Ayyam al-Beed). Fasting on these three days is equivalent in reward to fasting the entire year.",
+    "detail": "The Holy Prophet ﷺ regularly fasted on the 13th, 14th, and 15th days of every lunar Islamic month (Ayyam al-Beed), describing it as fasting the entire year in reward.",
     "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 26,
     "title": "Fasting on Mondays and Thursdays",
-    "detail": "Fast on Mondays and Thursdays. The Prophet ﷺ said: 'Deeds of people are presented to Allah on Mondays and Thursdays, and I love that my deeds are presented while I am fasting.'",
+    "detail": "The Holy Prophet ﷺ fasted on Mondays and Thursdays, saying: 'Actions are presented to Allah on these days, and I love that my deeds are presented while I am fasting.'",
     "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 27,
     "title": "Etiquette of Sitting",
-    "detail": "Sit cross-legged or upright with knees bent. Avoid leaning on the left hand placed behind the back, as this is the posture of those who earned Allah's anger.",
+    "detail": "The Holy Prophet ﷺ sat cross-legged, on His knees, or with knees pulled up (Qurfat). He forbade sitting while leaning on the left hand behind the back, calling it a cursed posture.",
     "reference": "Sunan Abi Dawud / Shamail-e-Tirmidhi"
   },
   {
     "id": 28,
     "title": "composing Anger",
-    "detail": "If you feel angry, stay silent. If standing, sit down; if sitting, lie down. If the anger persists, perform wudu, as anger is from fire and water extinguishes it.",
+    "detail": "The Holy Prophet ﷺ taught that if anger strikes, one should remain silent. If standing, sit down; if sitting, lie down. Perform wudu since anger is from fire and water cools it.",
     "reference": "Musnad Ahmad / Sunan Abi Dawud"
   },
   {
     "id": 29,
     "title": "Rinsing Mouth after Milk",
-    "detail": "After drinking milk, rinse the mouth with clean water to remove the grease/fat. Supplicate: 'Allahumma barik lana fihi wa zidna minhu' (O Allah, bless it for us and increase it for us).",
+    "detail": "The Holy Prophet ﷺ drank milk and then rinsed His blessed mouth with water, saying: 'Indeed, it contains fat/grease.' He prayed for blessings and increase upon drinking it.",
     "reference": "Sahih al-Bukhari / Sahih Muslim"
   },
   {
     "id": 30,
     "title": "Sunnah of Combing the Beard",
-    "detail": "Keep the beard neat, clean, and oiled. Comb it starting from the neck moving upwards, then downwards. The Prophet ﷺ trimmed his beard to a fist length and oiled it.",
+    "detail": "The Holy Prophet ﷺ combed His blessed beard, applying oil and water to keep it neat. He combed it first from the neck upwards under the chin, then combed it downwards from the top.",
     "reference": "Shamail-e-Tirmidhi / Fatawa Razawiyyah"
   },
   {
     "id": 31,
     "title": "Serving Others First",
-    "detail": "The leader of a group is their servant. When serving water, milk, or food, start from the right side or the eldest, serve everyone else first, and drink/eat last yourself.",
+    "detail": "The Holy Prophet ﷺ served water or milk starting from the right side. He taught: 'The one who serves the drink should be the last of them to drink.'",
     "reference": "Sunan al-Tirmidhi / Bahar-e-Shariat"
   },
   {
     "id": 32,
     "title": "Greeting Children with Salam",
-    "detail": "Initiate Salam when meeting children, pat their heads, and show them affection. This builds their self-esteem and teaches them the beautiful manners of Islam.",
+    "detail": "The Holy Prophet ﷺ initiated Salam to children whenever He passed them. He patted their heads, stroked their cheeks with His fragrant hands, and made supplications for them.",
     "reference": "Sahih al-Bukhari / Sahih Muslim"
   },
   {
     "id": 33,
     "title": "Honoring the Neighbor",
-    "detail": "Be kind and generous to neighbors. The Prophet ﷺ said: 'He is not a believer whose neighbor is not safe from his harm.' Share food/broth with them.",
+    "detail": "The Holy Prophet ﷺ was extremely kind to His neighbors, advising Sahaba to make extra soup broth to share. He said Jibril repeatedly emphasized neighbors' rights.",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 34,
     "title": "Moderation in Eating",
-    "detail": "Divide the stomach into three parts: one-third for food, one-third for drink, and one-third for air. Never criticize food; if you dislike it, leave it without comment.",
+    "detail": "The Holy Prophet ﷺ ate with moderation, leaving one-third of His stomach for food, one-third for drink, and one-third for air. He never criticized any food served.",
     "reference": "Sunan al-Tirmidhi / Sahih al-Bukhari"
   },
   {
     "id": 35,
     "title": "Supplicating in Absence",
-    "detail": "Supplicate for your fellow Muslim brothers and sisters in their absence. The angels say 'Ameen, and for you be the same', making the prayer highly accepted.",
+    "detail": "The Holy Prophet ﷺ taught that praying for a brother in their absence is answered quickly, and an angel stands by saying: 'Ameen, and may you receive the same.'",
     "reference": "Sahih Muslim / Bahar-e-Shariat"
   },
   {
     "id": 36,
     "title": "Sunnah of Istikharah",
-    "detail": "Perform two units of voluntary prayer and recite the Dua of Istikharah when making an important decision, seeking Allah's guidance and decree for what is best.",
+    "detail": "The Holy Prophet ﷺ taught the Sahaba the prayer and supplication of Istikharah for all decisions, just as He taught them a Surah of the Quran, seeking Allah's guidance.",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   },
   {
     "id": 37,
     "title": "Surah Al-Kahf on Friday",
-    "detail": "Recite Surah Al-Kahf on Friday (or Thursday night). It illuminates a light for the reader from one Friday to the next, protecting them from trials.",
+    "detail": "The Holy Prophet ﷺ recommended reciting Surah Al-Kahf on Friday (or Thursday night), stating it creates a guiding light for the reader that lasts until the next Friday.",
     "reference": "Sunan al-Darimi / Bahar-e-Shariat"
   },
   {
     "id": 38,
     "title": "Dua before Meals",
-    "detail": "Say 'Bismillahi wa 'ala barakatillah' before eating. If you forget at the start, say 'Bismillahi awwalahu wa akhirahu' when you remember during the meal.",
+    "detail": "The Holy Prophet ﷺ always said Bismillah before eating. He taught: 'If one forgets, say: Bismillahi awwalahu wa akhirahu (In the name of Allah at its beginning and end).'",
     "reference": "Sunan Abi Dawud / Bahar-e-Shariat"
   },
   {
     "id": 39,
     "title": "Shaking Hands with Both Hands",
-    "detail": "When meeting a Muslim, shake hands using both hands. The Prophet ﷺ said that when two Muslims meet and shake hands, their sins fall away like leaves from a tree.",
+    "detail": "The Holy Prophet ﷺ shook hands using both of His hands when greeting a Muslim. He did not withdraw His noble hand until the other person withdrew theirs first.",
     "reference": "Bahar-e-Shariat / Sunan al-Tirmidhi"
   },
   {
     "id": 40,
     "title": "Speaking Truth with Gentleness",
-    "detail": "Speak the truth even if it is difficult. Keep your words soft, gentle, and free from harshness or lies. The Prophet ﷺ was known as Al-Sadiq (the Truthful).",
+    "detail": "The Holy Prophet ﷺ spoke only truth, even in jest, and was known as Al-Sadiq. He spoke with soft gentleness, saying: 'Gentleness beautifies everything and harshness ruins it.'",
     "reference": "Sahih al-Bukhari / Bahar-e-Shariat"
   }
 ];

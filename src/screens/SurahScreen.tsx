@@ -90,8 +90,13 @@ function stripAutoBismillahPrefix(ayah: Ayah): Ayah {
   };
 }
 
-const updateLastReadWidgets = (surahId: number, ayahNumber: number) => {
+const updateLastReadWidgets = async (surahId: number, ayahNumber: number) => {
   try {
+    const primaryFolderId = await AsyncStorage.getItem('@dikhr_primary_bookmark_folder');
+    if (primaryFolderId) {
+      // If primary folder is set, widgets track folder bookmarks, not scrolled reading history
+      return;
+    }
     const surah = surahMetaData.find((s) => s.id === surahId);
     const surahName = surah ? surah.name_translit : 'Al-Fatihah';
 

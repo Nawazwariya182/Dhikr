@@ -19,6 +19,7 @@ const linking = {
   config: {
     screens: {
       Main: {
+        path: '',
         screens: {
           Home: 'home',
           Quran: 'search',
