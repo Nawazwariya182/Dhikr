@@ -178,6 +178,14 @@ export const SettingsScreen: React.FC = () => {
 
   // Google OAuth redirect link opener (using native Google Sign-In)
   const handleConnectGoogle = async () => {
+    if (!googleAuthService.isNativeAvailable) {
+      Alert.alert(
+        'Manual Connection Required',
+        'Native Google Sign-In is not supported in Expo Go or emulators. Please paste a manual access token or code below to connect your account.',
+        [{ text: 'OK' }]
+      );
+      return;
+    }
     setRestoring(true);
     try {
       const success = await googleAuthService.loginNatively();
@@ -864,47 +872,51 @@ export const SettingsScreen: React.FC = () => {
                 <Ionicons name="logo-google" size={18} color="#fff" />
                 <Text style={{ color: '#fff', fontWeight: '700', fontSize: 14 }}>Connect via Google OAuth</Text>
               </Pressable>
-              {/* <Text style={{ color: colors.textMuted, fontSize: 11, textAlign: 'center', marginVertical: 12 }}>
-                — or connect manually (Required for Expo Go testing) —
-              </Text>
+              {!googleAuthService.isNativeAvailable && (
+                <>
+                  <Text style={{ color: colors.textMuted, fontSize: 11, textAlign: 'center', marginVertical: 12 }}>
+                    — or connect manually (e.g. for Expo Go testing / Emulator) —
+                  </Text>
 
-              <TextInput
-                value={manualToken}
-                onChangeText={setManualToken}
-                placeholder="Paste Google OAuth Access Token (ya29...)"
-                placeholderTextColor={colors.textMuted}
-                style={[
-                  styles.inputField,
-                  {
-                    color: colors.textPrimary,
-                    borderColor: colors.border,
-                    backgroundColor: colors.background,
-                    marginBottom: 8,
-                    fontSize: 12,
-                  }
-                ]}
-              />
+                  <TextInput
+                    value={manualToken}
+                    onChangeText={setManualToken}
+                    placeholder="Paste Google OAuth Access Token (ya29...)"
+                    placeholderTextColor={colors.textMuted}
+                    style={[
+                      styles.inputField,
+                      {
+                        color: colors.textPrimary,
+                        borderColor: colors.border,
+                        backgroundColor: colors.background,
+                        marginBottom: 8,
+                        fontSize: 12,
+                      }
+                    ]}
+                  />
 
-              <Pressable
-                onPress={handleConnectManualToken}
-                style={({ pressed }) => ([
-                  {
-                    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-                    gap: 8, paddingVertical: 12, borderRadius: 12,
-                    borderWidth: 1.5, borderColor: colors.border,
-                    backgroundColor: colors.surfaceLight,
-                    opacity: pressed ? 0.8 : 1,
-                    marginBottom: 8,
-                  },
-                ])}
-              >
-                <Ionicons name="key-outline" size={16} color={colors.textSecondary} />
-                <Text style={{ color: colors.textPrimary, fontWeight: '600', fontSize: 13 }}>Connect with Token</Text>
-              </Pressable>
+                  <Pressable
+                    onPress={handleConnectManualToken}
+                    style={({ pressed }) => ([
+                      {
+                        flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+                        gap: 8, paddingVertical: 12, borderRadius: 12,
+                        borderWidth: 1.5, borderColor: colors.border,
+                        backgroundColor: colors.surfaceLight,
+                        opacity: pressed ? 0.8 : 1,
+                        marginBottom: 8,
+                      },
+                    ])}
+                  >
+                    <Ionicons name="key-outline" size={16} color={colors.textSecondary} />
+                    <Text style={{ color: colors.textPrimary, fontWeight: '600', fontSize: 13 }}>Connect with Token</Text>
+                  </Pressable>
 
-              <Text style={{ color: colors.textMuted, fontSize: 11, fontStyle: 'italic', textAlign: 'center', paddingHorizontal: 4, marginTop: 4 }}>
-                Tip: Google blocks standard sign-in inside Expo Go due to security proxy policies. To test backup/restore, search "Google OAuth Playground", authorize the "drive.appdata" scope to generate an Access Token, and paste it here.
-              </Text> */}
+                  <Text style={{ color: colors.textMuted, fontSize: 11, fontStyle: 'italic', textAlign: 'center', paddingHorizontal: 4, marginTop: 4 }}>
+                    Tip: Google blocks standard sign-in inside Expo Go due to security proxy policies. To test backup/restore, search "Google OAuth Playground", authorize the "drive.appdata" scope to generate an Access Token, and paste it here.
+                  </Text>
+                </>
+              )}
             </View>
           )}
         </View>

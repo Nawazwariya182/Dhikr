@@ -31,7 +31,7 @@ class GoogleAuthService {
   };
 
   private listeners: ((state: AuthState) => void)[] = [];
-  private isNativeAvailable = false;
+  public isNativeAvailable = false;
 
   constructor() {
     this.init();
