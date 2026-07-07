@@ -182,18 +182,11 @@ export const QuizScreen: React.FC = () => {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, padding: 24, justifyContent: 'center' }]}>
         <View style={[styles.warningCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <Ionicons name="key-outline" size={48} color={colors.accent} style={{ alignSelf: 'center', marginBottom: 16 }} />
-          <Text style={[styles.warningTitle, { color: colors.textPrimary }]}>Groq API Key Required</Text>
-          <Text style={[styles.warningText, { color: colors.textSecondary }]}>
-            The Daily Quranic Quiz Generator uses artificial intelligence to generate customized questions from translations, vocabulary, and historical contexts.{"\n\n"}
-            To use this feature, please configure your personal **Groq API Key** under **Settings** screen first.
+          <Ionicons name="alert-circle-outline" size={48} color={colors.error} style={{ alignSelf: 'center', marginBottom: 16 }} />
+          <Text style={[styles.warningTitle, { color: colors.textPrimary }]}>Service Configuration Required</Text>
+          <Text style={[styles.warningText, { color: colors.textSecondary, textAlign: 'center' }]}>
+            The Daily Quranic Quiz Generator requires a valid Groq API Key configuration to run. Please contact the administrator.
           </Text>
-          <Pressable
-            onPress={checkApiKey}
-            style={[styles.retryButton, { backgroundColor: colors.primary, marginTop: 16 }]}
-          >
-            <Text style={{ color: '#fff', fontWeight: 'bold' }}>I have pasted it. Verify Key</Text>
-          </Pressable>
         </View>
       </View>
     );

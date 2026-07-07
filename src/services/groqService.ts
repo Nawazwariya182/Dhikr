@@ -1,7 +1,8 @@
+import * as SecureStore from 'expo-secure-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ayah } from '../models/types';
 
-const API_KEY_STORAGE_KEY = '@dhikr_groq_api_key';
+const API_KEY_SECURE_KEY = 'secure_dhikr_groq_api_key';
 
 export interface QuizQuestion {
   question: string;
@@ -20,32 +21,34 @@ class GroqService {
 
   async getApiKey(): Promise<string | null> {
     if (this.apiKey) return this.apiKey;
+
+    // 1. Try reading from device-level hardware keychain
     try {
-      const key = await AsyncStorage.getItem(API_KEY_STORAGE_KEY);
-      if (key && key.trim()) {
-        this.apiKey = key.trim();
+      const securedKey = await SecureStore.getItemAsync(API_KEY_SECURE_KEY);
+      if (securedKey && securedKey.trim()) {
+        this.apiKey = securedKey.trim();
         return this.apiKey;
       }
     } catch (e) {
-      console.warn('Error reading Groq API key:', e);
+      console.warn('Error reading from SecureStore:', e);
     }
-    // Fallback to environment variable
+
+    // 2. Fallback to bundled environment variable, write to secure store if found
     const envKey = process.env.EXPO_PUBLIC_GROQ_API_KEY;
     if (envKey && envKey.trim()) {
-      return envKey.trim();
+      const trimmed = envKey.trim();
+      this.apiKey = trimmed;
+      try {
+        await SecureStore.setItemAsync(API_KEY_SECURE_KEY, trimmed);
+      } catch (e) {
+        console.warn('Error writing to SecureStore:', e);
+      }
+      return this.apiKey;
     }
+
     return null;
   }
 
-  async setApiKey(key: string): Promise<void> {
-    this.apiKey = key.trim();
-    await AsyncStorage.setItem(API_KEY_STORAGE_KEY, this.apiKey);
-  }
-
-  async clearApiKey(): Promise<void> {
-    this.apiKey = null;
-    await AsyncStorage.removeItem(API_KEY_STORAGE_KEY);
-  }
 
   async canGenerateQuiz(): Promise<boolean> {
     // Enable unlimited generation during development/testing

@@ -116,20 +116,11 @@ export const SettingsScreen: React.FC = () => {
   const [circleLoading, setCircleLoading] = useState(false);
   const [myCircleCount, setMyCircleCount] = useState(0);
 
-  // Groq API Key State
-  const [groqApiKey, setGroqApiKey] = useState('');
-
-  // Load Saved Google OAuth Token and Handle Redirect URL
   useEffect(() => {
     // Load Username & GDrive Token
     AsyncStorage.getItem('@dhikr_username').then(name => {
       if (name) setUserName(name);
       else setUserName(`Guest_${Math.floor(1000 + Math.random() * 9000)}`);
-    });
-
-    // Load Groq API Key
-    AsyncStorage.getItem('@dhikr_groq_api_key').then(key => {
-      if (key) setGroqApiKey(key);
     });
 
     // Load last backup time even without token
@@ -147,14 +138,6 @@ export const SettingsScreen: React.FC = () => {
     };
   }, []);
 
-  const handleSaveGroqKey = async () => {
-    try {
-      await AsyncStorage.setItem('@dhikr_groq_api_key', groqApiKey.trim());
-      Alert.alert('Key Saved', 'Your Groq API Key has been saved successfully.');
-    } catch (e) {
-      Alert.alert('Save Failed', 'Failed to save Groq API Key.');
-    }
-  };
 
   // Live Firebase Subscriptions
   useEffect(() => {
@@ -927,45 +910,7 @@ export const SettingsScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* API Configuration */}
-      <View style={styles.section}>
-        <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>API Configuration</Text>
-        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <Text style={[styles.prefDesc, { color: colors.textMuted, marginBottom: 12, fontSize: 13, lineHeight: 18 }]}>
-            Enter your Groq API Key to enable the Daily Quranic Quiz Generator.
-          </Text>
-          <TextInput
-            value={groqApiKey}
-            onChangeText={setGroqApiKey}
-            secureTextEntry
-            placeholder="Enter Groq API Key (gsk_...)"
-            placeholderTextColor={colors.textMuted}
-            style={[
-              styles.inputField,
-              {
-                color: colors.textPrimary,
-                borderColor: colors.border,
-                backgroundColor: colors.background,
-                marginBottom: 12,
-              }
-            ]}
-          />
-          <Pressable
-            onPress={handleSaveGroqKey}
-            style={({ pressed }) => [
-              {
-                paddingVertical: 12,
-                borderRadius: 10,
-                backgroundColor: colors.primary,
-                alignItems: 'center',
-                opacity: pressed ? 0.9 : 1,
-              }
-            ]}
-          >
-            <Text style={{ color: '#fff', fontWeight: '700', fontSize: 13 }}>Save API Key</Text>
-          </Pressable>
-        </View>
-      </View>
+
 
       {/* About */}
       <View style={styles.section}>
