@@ -1,6 +1,7 @@
 import { bookmarkService } from './bookmarkService';
 import { preferencesService } from './preferencesService';
 import { prayerService } from './prayerService';
+import { sajdahService } from './sajdahService';
 import * as FileSystem from 'expo-file-system/legacy';
 import { Share, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,6 +18,7 @@ export interface BackupPayload {
   tasbihIndex?: number;
   lastRead?: any;
   dhikrList?: any[];
+  sajdahLogs?: any;
 }
 
 export interface GoogleDriveFile {
@@ -44,6 +46,7 @@ class BackupService {
     let tasbihIndex = null;
     let lastRead = null;
     let dhikrList = null;
+    let sajdahLogs = null;
 
     try {
       const tCount = await AsyncStorage.getItem('@dhikr_widget_tasbih_count');
@@ -57,6 +60,9 @@ class BackupService {
 
       const dList = await AsyncStorage.getItem('@dhikr_app_list_v1');
       if (dList) dhikrList = JSON.parse(dList);
+
+      const sLogs = await AsyncStorage.getItem('@dhikr_sajdah_logs');
+      if (sLogs) sajdahLogs = JSON.parse(sLogs);
     } catch (e) {
       console.warn('Error reading extra backup data:', e);
     }
@@ -72,6 +78,7 @@ class BackupService {
       tasbihIndex: tasbihIndex ?? undefined,
       lastRead,
       dhikrList: dhikrList ?? undefined,
+      sajdahLogs: sajdahLogs ?? undefined,
     };
   }
 
@@ -147,6 +154,9 @@ class BackupService {
         }
         if (payload.dhikrList) {
           await AsyncStorage.setItem('@dhikr_app_list_v1', JSON.stringify(payload.dhikrList));
+        }
+        if (payload.sajdahLogs) {
+          await sajdahService.restoreData(payload.sajdahLogs);
         }
       } catch (e) {
         console.warn('Error restoring extra backup data:', e);

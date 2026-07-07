@@ -48,42 +48,60 @@ class GoogleAuthService {
         offlineAccess: true, // enables token refresh capabilities
       });
       this.isNativeAvailable = true;
+    } catch (e) {
+      console.warn('[Auth] Native Google Sign-In SDK configuration failed:', e);
+      this.isNativeAvailable = false;
+    }
 
-      // Check if natively signed in
-      const isSignedIn = GoogleSignin.hasPreviousSignIn();
-      if (isSignedIn) {
-        console.log('[Auth] Natively signed in, performing silent sign-in...');
-        const response = await GoogleSignin.signInSilently();
-        
-        if (response.type === 'success') {
-          const nativeUser = response.data;
-          const tokens = await GoogleSignin.getTokens();
+    if (this.isNativeAvailable) {
+      try {
+        // Check if natively signed in
+        const isSignedIn = await GoogleSignin.hasPreviousSignIn();
+        if (isSignedIn) {
+          console.log('[Auth] Natively signed in, performing silent sign-in...');
+          const response = await GoogleSignin.signInSilently();
+          
+          if (response.type === 'success') {
+            const nativeUser = response.data;
+            const tokens = await GoogleSignin.getTokens();
 
-          const profile: UserProfile = {
-            email: nativeUser.user.email,
-            name: nativeUser.user.name || undefined,
-            picture: nativeUser.user.photo || undefined,
-          };
+            const profile: UserProfile = {
+              email: nativeUser.user.email,
+              name: nativeUser.user.name || undefined,
+              picture: nativeUser.user.photo || undefined,
+            };
 
-          await SecureStore.setItemAsync(SECURE_KEYS.ACCESS_TOKEN, tokens.accessToken);
-          await AsyncStorage.setItem(ASYNC_KEYS.USER_PROFILE, JSON.stringify(profile));
+            await SecureStore.setItemAsync(SECURE_KEYS.ACCESS_TOKEN, tokens.accessToken);
+            await AsyncStorage.setItem(ASYNC_KEYS.USER_PROFILE, JSON.stringify(profile));
 
-          this.authState.user = profile;
-          this.authState.isAuthenticated = true;
+            this.authState.user = profile;
+            this.authState.isAuthenticated = true;
+          }
+        } else {
+          // Fallback: Check if manual token is stored
+          const accessToken = await SecureStore.getItemAsync(SECURE_KEYS.ACCESS_TOKEN);
+          const profileStr = await AsyncStorage.getItem(ASYNC_KEYS.USER_PROFILE);
+
+          if (accessToken && profileStr) {
+            this.authState.user = JSON.parse(profileStr);
+            this.authState.isAuthenticated = true;
+          }
         }
-      } else {
-        // Fallback: Check if manual token is stored
-        const accessToken = await SecureStore.getItemAsync(SECURE_KEYS.ACCESS_TOKEN);
-        const profileStr = await AsyncStorage.getItem(ASYNC_KEYS.USER_PROFILE);
-
-        if (accessToken && profileStr) {
-          this.authState.user = JSON.parse(profileStr);
-          this.authState.isAuthenticated = true;
+      } catch (e) {
+        console.log('[Auth] Native silent check failed or no user signed in:', e);
+        try {
+          const accessToken = await SecureStore.getItemAsync(SECURE_KEYS.ACCESS_TOKEN);
+          const profileStr = await AsyncStorage.getItem(ASYNC_KEYS.USER_PROFILE);
+          if (accessToken && profileStr) {
+            this.authState.user = JSON.parse(profileStr);
+            this.authState.isAuthenticated = true;
+          }
+        } catch (err) {
+          await this.clearAuthData();
         }
       }
-    } catch (e) {
-      console.log('[Auth] Native Google Sign-In not available or silent check failed, falling back to manual token details if available:', e);
-      this.isNativeAvailable = false;
+    } else {
+      // Fallback: Check if manual token is stored
       try {
         const accessToken = await SecureStore.getItemAsync(SECURE_KEYS.ACCESS_TOKEN);
         const profileStr = await AsyncStorage.getItem(ASYNC_KEYS.USER_PROFILE);
@@ -94,10 +112,10 @@ class GoogleAuthService {
       } catch (err) {
         await this.clearAuthData();
       }
-    } finally {
-      this.authState.loading = false;
-      this.notifyListeners();
     }
+
+    this.authState.loading = false;
+    this.notifyListeners();
   }
 
   /**
@@ -122,7 +140,7 @@ class GoogleAuthService {
   async getAccessToken(): Promise<string | null> {
     try {
       if (this.isNativeAvailable) {
-        const isNativelySignedIn = GoogleSignin.hasPreviousSignIn();
+        const isNativelySignedIn = await GoogleSignin.hasPreviousSignIn();
         if (isNativelySignedIn) {
           const tokens = await GoogleSignin.getTokens();
           await SecureStore.setItemAsync(SECURE_KEYS.ACCESS_TOKEN, tokens.accessToken);
@@ -286,7 +304,7 @@ class GoogleAuthService {
   async logout(): Promise<void> {
     try {
       if (this.isNativeAvailable) {
-        const isNativelySignedIn = GoogleSignin.hasPreviousSignIn();
+        const isNativelySignedIn = await GoogleSignin.hasPreviousSignIn();
         if (isNativelySignedIn) {
           await GoogleSignin.signOut();
         }
