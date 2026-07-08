@@ -25,14 +25,15 @@ import {
 // IMPORTANT: Set EXPO_PUBLIC_FIREBASE_APP_ID in your .env file to enable Firebase!
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Read env values safely — process.env access can be undefined in some RN builds
-const _apiKey = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_API_KEY) || '';
-const _authDomain = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN) || 'dhikr-9bdeb.firebaseapp.com';
-const _projectId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_PROJECT_ID) || 'dhikr-9bdeb';
-const _storageBucket = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET) || 'dhikr-9bdeb.firebasestorage.app';
-const _messagingSenderId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID) || '481773828965';
-const _appId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_APP_ID) || '';
-const _measurementId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID) || '';
+// Metro bundler inlines process.env.EXPO_PUBLIC_* at build time.
+// IMPORTANT: Do NOT use optional chaining (process.env?.X) — Metro only substitutes process.env.X
+const _apiKey = process.env.EXPO_PUBLIC_FIREBASE_API_KEY || '';
+const _authDomain = process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN || 'dhikr-9bdeb.firebaseapp.com';
+const _projectId = process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID || 'dhikr-9bdeb';
+const _storageBucket = process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET || 'dhikr-9bdeb.firebasestorage.app';
+const _messagingSenderId = process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || '481773828965';
+const _appId = process.env.EXPO_PUBLIC_FIREBASE_APP_ID || '';
+const _measurementId = process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID || '';
 
 const FIREBASE_CONFIG = {
   apiKey: _apiKey,
