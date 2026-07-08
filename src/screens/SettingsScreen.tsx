@@ -12,6 +12,9 @@ import { notificationService } from '../services/notificationService';
 import { backupService } from '../services/backupService';
 import { googleAuthService } from '../services/googleAuthService';
 import { sharingService, KhatmRoom, DhikrCircle, getJuzDivisionForMember } from '../services/sharingService';
+import { QRScannerModal } from '../components/QRScannerModal';
+import { getQRCodeUrl, buildKhatmUri, buildCircleUri } from '../utils/qrHelper';
+import { isFirebaseEnabled } from '../services/firebaseConfig';
 
 // Initialize WebBrowser redirect listener
 WebBrowser.maybeCompleteAuthSession();
@@ -105,6 +108,8 @@ export const SettingsScreen: React.FC = () => {
   const [activeKhatmRoom, setActiveKhatmRoom] = useState<KhatmRoom | null>(null);
   const [khatmAction, setKhatmAction] = useState<'none' | 'create' | 'join'>('none');
   const [khatmLoading, setKhatmLoading] = useState(false);
+  const [khatmScannerVisible, setKhatmScannerVisible] = useState(false);
+  const [showKhatmQrModal, setShowKhatmQrModal] = useState(false);
 
   // Dhikr Circle States
   const [circleIdInput, setCircleIdInput] = useState('');
@@ -113,6 +118,7 @@ export const SettingsScreen: React.FC = () => {
   const [activeCircle, setActiveCircle] = useState<DhikrCircle | null>(null);
   const [circleAction, setCircleAction] = useState<'none' | 'create' | 'join'>('none');
   const [circleLoading, setCircleLoading] = useState(false);
+  const [showCircleQrModal, setShowCircleQrModal] = useState(false);
   const [myCircleCount, setMyCircleCount] = useState(0);
 
   useEffect(() => {
@@ -226,7 +232,16 @@ export const SettingsScreen: React.FC = () => {
       }
     } catch (err: any) {
       if (err.code !== 'SIGN_IN_CANCELLED') {
-        Alert.alert('Connection Failed', err.message || 'An error occurred during native sign-in.');
+        const configuredWebId = GOOGLE_DRIVE_CONFIG.webClientId || 'none';
+        const configuredAndroidId = GOOGLE_DRIVE_CONFIG.clientId || 'none';
+        Alert.alert(
+          'Connection Failed',
+          `${err.message || 'An error occurred during native sign-in.'}\n\n` +
+          `[Diagnostics]\n` +
+          `Web Client ID: ${configuredWebId.substring(0, 15)}...\n` +
+          `Android Client ID: ${configuredAndroidId.substring(0, 15)}...\n` +
+          `Package: com.wariyanawaz786.dhikhrapp`
+        );
       }
     } finally {
       setRestoring(false);
@@ -347,7 +362,7 @@ export const SettingsScreen: React.FC = () => {
     setKhatmLoading(true);
     try {
       const count = Number(khatmMemberCountInput);
-      const room = await sharingService.createKhatmRoom(khatmRoomIdInput.trim(), khatmRoomNameInput.trim(), count);
+      const room = await sharingService.createKhatmRoom(khatmRoomIdInput.trim(), khatmRoomNameInput.trim(), 'fixed', count);
       setActiveKhatmRoom(room);
       setKhatmAction('none');
       await AsyncStorage.setItem('@dhikr_username', userName.trim());
@@ -358,15 +373,16 @@ export const SettingsScreen: React.FC = () => {
     }
   };
 
-  const handleJoinKhatmRoom = async () => {
-    if (!khatmRoomIdInput.trim() || !userName.trim()) {
+  const handleJoinKhatmRoom = async (forcedId?: string) => {
+    const id = (forcedId || khatmRoomIdInput).trim();
+    if (!id || !userName.trim()) {
       Alert.alert('Required Info', 'Room ID and Username are required to join.');
       return;
     }
     setKhatmLoading(true);
     try {
       await sharingService.claimMemberDivision(
-        khatmRoomIdInput.trim(),
+        id,
         selectedMemberSlot,
         5, // Temporary fallback, division details will be read from Firestore room metadata
         userName.trim()
@@ -374,9 +390,10 @@ export const SettingsScreen: React.FC = () => {
       
       // Setup active reference
       setActiveKhatmRoom({
-        roomId: khatmRoomIdInput.trim().toLowerCase(),
+        roomId: id.toLowerCase(),
         name: 'Connecting...',
         createdAt: Date.now(),
+        mode: 'fixed',
         memberCount: 5,
         slots: {},
       });
@@ -526,6 +543,14 @@ export const SettingsScreen: React.FC = () => {
 
   return (
     <View style={[styles.screenWrapper, { backgroundColor: colors.background, paddingTop: insets.top + 8 }]}>
+      {!isFirebaseEnabled && (
+        <View style={{ backgroundColor: colors.error + '20', padding: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 1, borderBottomColor: colors.error + '40' }}>
+          <Ionicons name="cloud-offline-outline" size={16} color={colors.error} style={{ marginRight: 6 }} />
+          <Text style={{ fontSize: 13, color: colors.error, fontWeight: '600', fontFamily: FONTS.english }}>
+            Offline Mode: Cloud Sync is disabled.
+          </Text>
+        </View>
+      )}
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       {/* App Info Header */}
       <View style={styles.section}>
@@ -977,11 +1002,26 @@ export const SettingsScreen: React.FC = () => {
 
             {activeKhatmRoom ? (
               <View style={styles.activeSyncBox}>
-                <View style={styles.activeSyncHeader}>
-                  <Ionicons name="chatbubbles-outline" size={18} color={colors.primary} />
-                  <Text style={[styles.activeSyncTitle, { color: colors.textPrimary, marginLeft: 6 }]}>
-                    {activeKhatmRoom.name}
-                  </Text>
+                <View style={[styles.activeSyncHeader, { justifyContent: 'space-between', width: '100%', flexDirection: 'row', alignItems: 'center' }]}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Ionicons name="chatbubbles-outline" size={18} color={colors.primary} />
+                    <Text style={[styles.activeSyncTitle, { color: colors.textPrimary, marginLeft: 6 }]}>
+                      {activeKhatmRoom.name}
+                    </Text>
+                  </View>
+                  <Pressable
+                    onPress={() => setShowKhatmQrModal(true)}
+                    style={({ pressed }) => [
+                      {
+                        padding: 6,
+                        borderRadius: 8,
+                        backgroundColor: colors.surfaceLight,
+                        opacity: pressed ? 0.8 : 1,
+                      }
+                    ]}
+                  >
+                    <Ionicons name="qr-code-outline" size={18} color={colors.primary} />
+                  </Pressable>
                 </View>
                 <Text style={{ color: colors.textMuted, fontSize: 12, marginBottom: 10 }}>
                   Room ID: {activeKhatmRoom.roomId} | Total Members: {activeKhatmRoom.memberCount}
@@ -1066,14 +1106,35 @@ export const SettingsScreen: React.FC = () => {
                   </View>
                 ) : (
                   <View style={styles.syncForm}>
-                    <TextInput
-                      value={khatmRoomIdInput}
-                      onChangeText={setKhatmRoomIdInput}
-                      placeholder="Enter Alphanumeric Room ID"
-                      placeholderTextColor={colors.textMuted}
-                      style={[styles.inputField, { color: colors.textPrimary, borderColor: colors.border, backgroundColor: colors.background }]}
-                      autoCapitalize="none"
-                    />
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 12 }}>
+                      <TextInput
+                        value={khatmRoomIdInput}
+                        onChangeText={setKhatmRoomIdInput}
+                        placeholder="Enter Alphanumeric Room ID"
+                        placeholderTextColor={colors.textMuted}
+                        style={[styles.inputField, { flex: 1, color: colors.textPrimary, borderColor: colors.border, backgroundColor: colors.background, marginBottom: 0 }]}
+                        autoCapitalize="none"
+                      />
+                      <Pressable
+                        onPress={() => setKhatmScannerVisible(true)}
+                        style={({ pressed }) => [
+                          {
+                            marginLeft: 8,
+                            padding: 12,
+                            borderRadius: 8,
+                            backgroundColor: colors.surfaceLight,
+                            borderColor: colors.border,
+                            borderWidth: 1,
+                            opacity: pressed ? 0.8 : 1,
+                            height: 48,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }
+                        ]}
+                      >
+                        <Ionicons name="qr-code-outline" size={20} color={colors.primary} />
+                      </Pressable>
+                    </View>
                     {khatmAction === 'create' && (
                       <View>
                         <TextInput
@@ -1157,7 +1218,7 @@ export const SettingsScreen: React.FC = () => {
                     <View style={styles.rowButtons}>
                       <Pressable
                         disabled={khatmLoading}
-                        onPress={khatmAction === 'create' ? handleCreateKhatmRoom : handleJoinKhatmRoom}
+                        onPress={khatmAction === 'create' ? () => { handleCreateKhatmRoom(); } : () => { handleJoinKhatmRoom(); }}
                         style={[styles.syncOptionBtn, { backgroundColor: colors.primary }]}
                       >
                         {khatmLoading ? <ActivityIndicator size="small" color="#fff" /> : <Text style={styles.syncBtnText}>Confirm</Text>}
@@ -1184,11 +1245,26 @@ export const SettingsScreen: React.FC = () => {
 
             {activeCircle ? (
               <View style={styles.activeSyncBox}>
-                <View style={styles.activeSyncHeader}>
-                  <Ionicons name="ellipse-outline" size={18} color={colors.accent} />
-                  <Text style={[styles.activeSyncTitle, { color: colors.textPrimary, marginLeft: 6 }]}>
-                    {activeCircle.name}
-                  </Text>
+                <View style={[styles.activeSyncHeader, { justifyContent: 'space-between', width: '100%', flexDirection: 'row', alignItems: 'center' }]}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Ionicons name="ellipse-outline" size={18} color={colors.accent} />
+                    <Text style={[styles.activeSyncTitle, { color: colors.textPrimary, marginLeft: 6 }]}>
+                      {activeCircle.name}
+                    </Text>
+                  </View>
+                  <Pressable
+                    onPress={() => setShowCircleQrModal(true)}
+                    style={({ pressed }) => [
+                      {
+                        padding: 6,
+                        borderRadius: 8,
+                        backgroundColor: colors.surfaceLight,
+                        opacity: pressed ? 0.8 : 1,
+                      }
+                    ]}
+                  >
+                    <Ionicons name="qr-code-outline" size={18} color={colors.primary} />
+                  </Pressable>
                 </View>
                 <Text style={{ color: colors.textMuted, fontSize: 12, marginBottom: 10 }}>
                   Circle ID: {activeCircle.circleId} | Target: {activeCircle.targetCount}
@@ -1280,14 +1356,35 @@ export const SettingsScreen: React.FC = () => {
                   </View>
                 ) : (
                   <View style={styles.syncForm}>
-                    <TextInput
-                      value={circleIdInput}
-                      onChangeText={setCircleIdInput}
-                      placeholder="Enter Alphanumeric Circle ID"
-                      placeholderTextColor={colors.textMuted}
-                      style={[styles.inputField, { color: colors.textPrimary, borderColor: colors.border, backgroundColor: colors.background }]}
-                      autoCapitalize="none"
-                    />
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 12 }}>
+                      <TextInput
+                        value={circleIdInput}
+                        onChangeText={setCircleIdInput}
+                        placeholder="Enter Alphanumeric Circle ID"
+                        placeholderTextColor={colors.textMuted}
+                        style={[styles.inputField, { flex: 1, color: colors.textPrimary, borderColor: colors.border, backgroundColor: colors.background, marginBottom: 0 }]}
+                        autoCapitalize="none"
+                      />
+                      <Pressable
+                        onPress={() => setKhatmScannerVisible(true)}
+                        style={({ pressed }) => [
+                          {
+                            marginLeft: 8,
+                            padding: 12,
+                            borderRadius: 8,
+                            backgroundColor: colors.surfaceLight,
+                            borderColor: colors.border,
+                            borderWidth: 1,
+                            opacity: pressed ? 0.8 : 1,
+                            height: 48,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }
+                        ]}
+                      >
+                        <Ionicons name="qr-code-outline" size={20} color={colors.primary} />
+                      </Pressable>
+                    </View>
                     {circleAction === 'create' && (
                       <View>
                         <TextInput
@@ -1328,7 +1425,99 @@ export const SettingsScreen: React.FC = () => {
         </ScrollView>
       </View>
     </Modal>
-  </View>
+      {/* QR scanner for Settings Rooms & Circles */}
+      <QRScannerModal
+        visible={khatmScannerVisible}
+        onClose={() => setKhatmScannerVisible(false)}
+        onScanSuccess={async (id, type) => {
+          setKhatmScannerVisible(false);
+          if (type === 'khatm') {
+            await handleJoinKhatmRoom(id);
+          } else if (type === 'circle') {
+            setCircleIdInput(id);
+            setCircleAction('join');
+            Alert.alert('Scanned Circle', `Loaded circle code: ${id.toUpperCase()}. Tap "Confirm" to join.`);
+          } else {
+            Alert.alert('Invalid QR Code', 'Could not recognize the scanned code.');
+          }
+        }}
+      />
+
+      {/* Share QR Code Modal for Quran Khatm */}
+      <Modal
+        visible={showKhatmQrModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowKhatmQrModal(false)}
+      >
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.75)', justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+          <View style={{ backgroundColor: colors.surface, padding: 24, borderRadius: 16, width: '100%', maxWidth: 340, alignItems: 'center', borderColor: colors.border, borderWidth: 1 }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: colors.textPrimary, marginBottom: 4, textAlign: 'center', fontFamily: FONTS.english }}>Share Khatm Room QR</Text>
+            <Text style={{ fontSize: 13, color: colors.textSecondary, marginBottom: 20, textAlign: 'center', fontFamily: FONTS.english }}>
+              Scan this code to join "{activeKhatmRoom?.name}"
+            </Text>
+            
+            {activeKhatmRoom?.roomId && (
+              <View style={{ padding: 12, backgroundColor: '#ffffff', borderRadius: 12, marginBottom: 20 }}>
+                <Image
+                  source={{ uri: getQRCodeUrl(buildKhatmUri(activeKhatmRoom.roomId)) }}
+                  style={{ width: 200, height: 200 }}
+                  resizeMode="contain"
+                />
+              </View>
+            )}
+
+            <Text style={{ fontSize: 12, color: colors.textMuted, marginBottom: 20, textAlign: 'center', fontFamily: FONTS.english }}>
+              Room ID: {activeKhatmRoom?.roomId?.toUpperCase()}
+            </Text>
+
+            <Pressable
+              onPress={() => setShowKhatmQrModal(false)}
+              style={{ backgroundColor: colors.primary, width: '100%', padding: 12, borderRadius: 8, alignItems: 'center' }}
+            >
+              <Text style={{ color: colors.background, fontWeight: 'bold', fontSize: 15, fontFamily: FONTS.english }}>Close</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      {/* Share QR Code Modal for Dhikr Circle */}
+      <Modal
+        visible={showCircleQrModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowCircleQrModal(false)}
+      >
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.75)', justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+          <View style={{ backgroundColor: colors.surface, padding: 24, borderRadius: 16, width: '100%', maxWidth: 340, alignItems: 'center', borderColor: colors.border, borderWidth: 1 }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: colors.textPrimary, marginBottom: 4, textAlign: 'center', fontFamily: FONTS.english }}>Share Circle QR</Text>
+            <Text style={{ fontSize: 13, color: colors.textSecondary, marginBottom: 20, textAlign: 'center', fontFamily: FONTS.english }}>
+              Scan this code to join "{activeCircle?.name}"
+            </Text>
+            
+            {activeCircle?.circleId && (
+              <View style={{ padding: 12, backgroundColor: '#ffffff', borderRadius: 12, marginBottom: 20 }}>
+                <Image
+                  source={{ uri: getQRCodeUrl(buildCircleUri(activeCircle.circleId)) }}
+                  style={{ width: 200, height: 200 }}
+                  resizeMode="contain"
+                />
+              </View>
+            )}
+
+            <Text style={{ fontSize: 12, color: colors.textMuted, marginBottom: 20, textAlign: 'center', fontFamily: FONTS.english }}>
+              Circle ID: {activeCircle?.circleId?.toUpperCase()}
+            </Text>
+
+            <Pressable
+              onPress={() => setShowCircleQrModal(false)}
+              style={{ backgroundColor: colors.primary, width: '100%', padding: 12, borderRadius: 8, alignItems: 'center' }}
+            >
+              <Text style={{ color: colors.background, fontWeight: 'bold', fontSize: 15, fontFamily: FONTS.english }}>Close</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+    </View>
   );
 };
 const styles = StyleSheet.create({

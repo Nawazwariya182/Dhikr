@@ -10,6 +10,7 @@ import { SearchScreen } from '../screens/SearchScreen';
 import { BookmarksScreen } from '../screens/BookmarksScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { DhikrScreen } from '../screens/DhikrScreen';
+import { CirclesScreen } from '../screens/CirclesScreen';
 import { PrayerTrackerScreen } from '../screens/PrayerTrackerScreen';
 import { SajdahTrackerScreen } from '../screens/SajdahTrackerScreen';
 import { QuizScreen } from '../screens/QuizScreen';
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   PrayerTracker: undefined;
   SajdahTracker: undefined;
   Quiz: undefined;
+  Circles: undefined;
 };
 
 export type TabParamList = {
@@ -143,6 +145,15 @@ export const AppNavigator: React.FC = () => {
         component={QuizScreen as any}
         options={() => ({
           title: 'Quranic Quiz',
+          headerShadowVisible: false,
+          animation: 'slide_from_right',
+        })}
+      />
+      <Stack.Screen
+        name="Circles"
+        component={CirclesScreen as any}
+        options={() => ({
+          title: 'Community Circles',
           headerShadowVisible: false,
           animation: 'slide_from_right',
         })}

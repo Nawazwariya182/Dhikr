@@ -1,7 +1,13 @@
 import * as SecureStore from 'expo-secure-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { GOOGLE_DRIVE_CONFIG } from '../utils/constants';
+
+let GoogleSignin: any = null;
+try {
+  GoogleSignin = require('@react-native-google-signin/google-signin').GoogleSignin;
+} catch (e) {
+  console.warn('[Auth] Native Google Sign-In SDK is not available in this build:', e);
+}
 
 export interface UserProfile {
   email: string;
@@ -42,12 +48,16 @@ class GoogleAuthService {
    */
   private async init() {
     try {
-      GoogleSignin.configure({
-        scopes: ['https://www.googleapis.com/auth/drive.appdata'],
-        webClientId: GOOGLE_DRIVE_CONFIG.webClientId || GOOGLE_DRIVE_CONFIG.clientId,
-        offlineAccess: true, // enables token refresh capabilities
-      });
-      this.isNativeAvailable = true;
+      if (GoogleSignin) {
+        GoogleSignin.configure({
+          scopes: ['https://www.googleapis.com/auth/drive.appdata'],
+          webClientId: GOOGLE_DRIVE_CONFIG.webClientId || GOOGLE_DRIVE_CONFIG.clientId,
+          offlineAccess: true, // enables token refresh capabilities
+        });
+        this.isNativeAvailable = true;
+      } else {
+        this.isNativeAvailable = false;
+      }
     } catch (e) {
       console.warn('[Auth] Native Google Sign-In SDK configuration failed:', e);
       this.isNativeAvailable = false;
@@ -328,6 +338,10 @@ class GoogleAuthService {
   }
 
   getAuthState(): AuthState {
+    return { ...this.authState };
+  }
+
+  getCurrentState(): AuthState {
     return { ...this.authState };
   }
 }

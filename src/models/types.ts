@@ -61,4 +61,6 @@ export interface BookmarkFolder {
   id: string;
   name: string;
   timestamp: number;
+  restrictedJuzs?: number[]; // If set, only bookmarks from these Juz numbers are allowed
+  circleRoomId?: string;     // Links folder to a Khatm circle room
 }

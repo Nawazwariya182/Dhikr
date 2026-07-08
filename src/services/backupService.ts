@@ -9,6 +9,7 @@ import { googleAuthService } from './googleAuthService';
 
 export interface BackupPayload {
   version: number;
+  appVersion?: string;
   createdAt: number;
   bookmarks: any[];
   folders: any[];
@@ -19,6 +20,7 @@ export interface BackupPayload {
   lastRead?: any;
   dhikrList?: any[];
   sajdahLogs?: any;
+  circleItems?: any[];
 }
 
 export interface GoogleDriveFile {
@@ -47,6 +49,7 @@ class BackupService {
     let lastRead = null;
     let dhikrList = null;
     let sajdahLogs = null;
+    let circleItems = null;
 
     try {
       const tCount = await AsyncStorage.getItem('@dhikr_widget_tasbih_count');
@@ -63,12 +66,23 @@ class BackupService {
 
       const sLogs = await AsyncStorage.getItem('@dhikr_sajdah_logs');
       if (sLogs) sajdahLogs = JSON.parse(sLogs);
+
+      const cItems = await AsyncStorage.getItem('@dhikr_circle_items');
+      if (cItems) circleItems = JSON.parse(cItems);
     } catch (e) {
       console.warn('Error reading extra backup data:', e);
     }
 
+    // Get current app version dynamically via Constants if possible
+    let appVersion = '4.0.0';
+    try {
+      const Constants = require('expo-constants').default;
+      appVersion = Constants.expoConfig?.version || Constants.manifest?.version || '4.0.0';
+    } catch (_) {}
+
     return {
       version: this.BACKUP_VERSION,
+      appVersion,
       createdAt: Date.now(),
       bookmarks,
       folders,
@@ -79,31 +93,71 @@ class BackupService {
       lastRead,
       dhikrList: dhikrList ?? undefined,
       sajdahLogs: sajdahLogs ?? undefined,
+      circleItems: circleItems ?? undefined,
     };
   }
 
   /**
    * Validates if a backup payload structure is valid and compatible
    */
+  /**
+   * Migrates older backup structures to the current standard structure.
+   */
+  public migrateBackup(payload: any): any {
+    if (!payload || typeof payload !== 'object') {
+      return payload;
+    }
+
+    console.log(`[Backup] Running migration. Original version: ${payload.version}, appVersion: ${payload.appVersion || 'legacy'}`);
+
+    // Core arrays initialization
+    if (!payload.bookmarks) payload.bookmarks = [];
+    if (!payload.folders) payload.folders = [];
+    
+    // settings (preferences) defaults
+    if (!payload.settings || typeof payload.settings !== 'object') {
+      payload.settings = {};
+    }
+    
+    // Ensure all standard preference keys are present
+    const defaultSettings = {
+      theme: 'dark',
+      notificationsEnabled: true,
+      vibrationEnabled: true,
+      soundEnabled: true,
+    };
+    payload.settings = { ...defaultSettings, ...payload.settings };
+
+    // Extra fields migration & normalization
+    if (payload.tasbihCount === undefined) payload.tasbihCount = 0;
+    if (payload.tasbihIndex === undefined) payload.tasbihIndex = 0;
+    if (!payload.dhikrList) payload.dhikrList = [];
+    if (!payload.circleItems) payload.circleItems = [];
+
+    // Upgrade the payload version to current backup version
+    payload.version = this.BACKUP_VERSION;
+    payload.migratedAt = Date.now();
+
+    return payload;
+  }
+
   validateBackup(payload: any): payload is BackupPayload {
     if (!payload || typeof payload !== 'object') {
       console.warn('[Backup] Validation failed: payload is not an object.');
       return false;
     }
 
-    // Check version
-    if (payload.version !== this.BACKUP_VERSION) {
-      console.warn(`[Backup] Validation failed: version mismatch. Expected ${this.BACKUP_VERSION}, got ${payload.version}`);
-      return false;
+    // If backup is missing a version or is from an older schema version, perform auto-migration
+    if (!payload.version || payload.version < this.BACKUP_VERSION) {
+      console.log(`[Backup] Legacy backup format detected (version ${payload.version || '0'}). Initiating migration...`);
+      this.migrateBackup(payload);
     }
 
-    // Check createdAt
-    if (typeof payload.createdAt !== 'number') {
-      console.warn('[Backup] Validation failed: createdAt is not a number.');
-      return false;
+    if (payload.version > this.BACKUP_VERSION) {
+      console.warn(`[Backup] Backup file is from a newer version (${payload.version}) than the current app (${this.BACKUP_VERSION}). Proceeding with caution.`);
     }
 
-    // Check bookmarks and folders arrays
+    // Check bookmarks and folders arrays after migration
     if (!Array.isArray(payload.bookmarks)) {
       console.warn('[Backup] Validation failed: bookmarks is not an array.');
       return false;
@@ -157,6 +211,9 @@ class BackupService {
         }
         if (payload.sajdahLogs) {
           await sajdahService.restoreData(payload.sajdahLogs);
+        }
+        if (payload.circleItems) {
+          await AsyncStorage.setItem('@dhikr_circle_items', JSON.stringify(payload.circleItems));
         }
       } catch (e) {
         console.warn('Error restoring extra backup data:', e);

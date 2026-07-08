@@ -1,11 +1,12 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { initializeAuth, getAuth, Auth } from 'firebase/auth';
+// @ts-expect-error: getReactNativePersistence is not exported in standard firebase/auth types but is present at runtime in React Native
+import { initializeAuth, getAuth, Auth, getReactNativePersistence } from 'firebase/auth';
 import {
   getFirestore,
   Firestore,
   initializeFirestore,
-  persistentLocalCache,
+  memoryLocalCache,
 } from 'firebase/firestore';
 
 
@@ -21,16 +22,26 @@ import {
 //    (start in "test mode" for development)
 // 6. In Firebase console: Build → Authentication → Sign-in method → Google → Enable
 //
+// IMPORTANT: Set EXPO_PUBLIC_FIREBASE_APP_ID in your .env file to enable Firebase!
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Read env values safely — process.env access can be undefined in some RN builds
+const _apiKey = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_API_KEY) || '';
+const _authDomain = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN) || 'dhikr-9bdeb.firebaseapp.com';
+const _projectId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_PROJECT_ID) || 'dhikr-9bdeb';
+const _storageBucket = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET) || 'dhikr-9bdeb.firebasestorage.app';
+const _messagingSenderId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID) || '481773828965';
+const _appId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_APP_ID) || '';
+const _measurementId = (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID) || '';
+
 const FIREBASE_CONFIG = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "74884040959",
-  appId: "",
-  measurementId: ""
+  apiKey: _apiKey,
+  authDomain: _authDomain,
+  projectId: _projectId,
+  storageBucket: _storageBucket,
+  messagingSenderId: _messagingSenderId,
+  appId: _appId,
+  measurementId: _measurementId,
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -41,9 +52,13 @@ let firebaseApp: FirebaseApp | null = null;
 let firestoreDb: Firestore | null = null;
 let firebaseAuth: Auth | null = null;
 
-// Stop using Firebase for now. Change to true to enable Firebase operations.
-const ENABLE_FIREBASE = false;
-const isConfigured = ENABLE_FIREBASE && FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== 'YOUR_API_KEY_HERE';
+// Check that credentials are real (not empty or placeholder values)
+const isConfigured =
+  !!FIREBASE_CONFIG.apiKey &&
+  FIREBASE_CONFIG.apiKey !== '' &&
+  !!FIREBASE_CONFIG.appId &&
+  FIREBASE_CONFIG.appId !== '' &&
+  !FIREBASE_CONFIG.appId.includes('YOUR_APP_ID_HERE');
 
 if (isConfigured) {
   try {
@@ -52,28 +67,21 @@ if (isConfigured) {
       : getApp();
 
     try {
-      const storage = (AsyncStorage as any).default || AsyncStorage;
-      const { getReactNativePersistence } = require('firebase/auth');
       firebaseAuth = initializeAuth(firebaseApp, {
-        persistence: getReactNativePersistence(storage),
+        persistence: getReactNativePersistence(AsyncStorage),
       });
     } catch (authErr: any) {
-      if (authErr && authErr.code === 'auth/already-initialized') {
+      try {
         firebaseAuth = getAuth(firebaseApp);
-      } else {
-        console.warn('⚠ Firebase Auth initializeAuth error:', authErr);
-        try {
-          firebaseAuth = getAuth(firebaseApp);
-        } catch (getAuthErr) {
-          console.warn('⚠ Firebase Auth getAuth fallback error:', getAuthErr);
-        }
+      } catch (fallbackErr) {
+        console.warn('⚠ Firebase Auth initialization error:', authErr);
       }
     }
 
-    // 2. Initialize Firestore second with native local persistent cache
+    // 2. Initialize Firestore with memory cache (React Native has no IndexedDB for persistent cache)
     try {
       firestoreDb = initializeFirestore(firebaseApp, {
-        localCache: persistentLocalCache({}),
+        localCache: memoryLocalCache({}),
       });
     } catch (dbErr) {
       firestoreDb = getFirestore(firebaseApp);
@@ -86,8 +94,8 @@ if (isConfigured) {
 } else {
   console.log(
     '⚠ Firebase: Credentials not set — running in offline-only mode.\n' +
-    '  To enable cloud sync, edit src/services/firebaseConfig.ts\n' +
-    '  and replace YOUR_... placeholders with your Firebase project credentials.'
+    '  To enable cloud sync, set EXPO_PUBLIC_FIREBASE_APP_ID in your .env file.\n' +
+    '  Get your App ID from: Firebase Console → Project Settings → Your Apps → Web'
   );
 }
 

@@ -802,543 +802,543 @@ export const HADITHS: HadithEntry[] = [
   },
   {
     "id": 11,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 11)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The best of you are those who have the best manners and character.",
+    "reference": "Sahih al-Bukhari, Hadith 3559",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 12,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 12)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A Muslim is the one from whose tongue and hand other Muslims are safe.",
+    "reference": "Sahih al-Bukhari, Hadith 10",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 13,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 13)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Allah does not look at your bodies or your wealth, but He looks at your hearts and your deeds.",
+    "reference": "Sahih Muslim, Hadith 2564",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 14,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 14)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "None of you believes until he loves for his brother what he loves for himself.",
+    "reference": "Sahih al-Bukhari, Hadith 13",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 15,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 15)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The most beloved of deeds to Allah is that which is done consistently, even if it is little.",
+    "reference": "Sahih al-Bukhari, Hadith 5861",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 16,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 16)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Cleanliness is half of faith.",
+    "reference": "Sahih Muslim, Hadith 223",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 17,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 17)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "He who does not show mercy to our young ones and show respect to our old ones is not from us.",
+    "reference": "Sunan al-Tirmidhi, Hadith 1919",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 18,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 18)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Dua (supplication) is the very essence of worship.",
+    "reference": "Sunan al-Tirmidhi, Hadith 3371",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 19,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 19)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A good word is a form of charity.",
+    "reference": "Sahih al-Bukhari, Hadith 2989",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 20,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 20)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The world is a prison for the believer and a paradise for the disbeliever.",
+    "reference": "Sahih Muslim, Hadith 2956",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 21,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 21)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The most perfect of believers in faith are those with the best character.",
+    "reference": "Sunan Abi Dawud, Hadith 4682",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 22,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 22)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Save yourself from the Hellfire, even if it is by giving half a date-fruit in charity.",
+    "reference": "Sahih al-Bukhari, Hadith 1417",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 23,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 23)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The giving hand is better than the receiving hand.",
+    "reference": "Sahih al-Bukhari, Hadith 1429",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 24,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 24)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whosoever removes a worldly grief from a believer, Allah will remove from him one of the griefs of the Day of Judgment.",
+    "reference": "Sahih Muslim, Hadith 2699",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 25,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 25)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Seeking sacred knowledge is an obligation upon every Muslim.",
+    "reference": "Sunan Ibn Majah, Hadith 224",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 26,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 26)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Indeed, actions are judged by their intentions.",
+    "reference": "Sahih al-Bukhari, Hadith 1",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 27,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 27)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Verily, Allah is gentle and He loves gentleness in all matters.",
+    "reference": "Sahih Muslim, Hadith 2593",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 28,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 28)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Do not become angry, and for you is Paradise.",
+    "reference": "Sahih al-Bukhari, Hadith 6116",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 29,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 29)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The strong man is not the one who can wrestle, but the one who controls himself when angry.",
+    "reference": "Sahih al-Bukhari, Hadith 6114",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 30,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 30)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The religion is sincere advice and well-wishing.",
+    "reference": "Sahih Muslim, Hadith 55",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 31,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 31)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Make things easy for people and do not make them difficult.",
+    "reference": "Sahih al-Bukhari, Hadith 6125",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 32,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 32)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Allah will not show mercy to him who does not show mercy to people.",
+    "reference": "Sahih al-Bukhari, Hadith 7376",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 33,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 33)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "He who believes in Allah and the Last Day should honor his guest.",
+    "reference": "Sahih al-Bukhari, Hadith 6138",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 34,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 34)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Avoid envy, for envy devours good deeds just as fire devours firewood.",
+    "reference": "Sunan Abi Dawud, Hadith 4903",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 35,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 35)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A man will be resurrected on the Day of Judgment with those whom he loved in the world.",
+    "reference": "Sahih al-Bukhari, Hadith 6168",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 36,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 36)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "He who points out a good deed receives the same reward as the one who performs it.",
+    "reference": "Sahih Muslim, Hadith 1893",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 37,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 37)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever follows a path in search of knowledge, Allah will make easy for him the path to Paradise.",
+    "reference": "Sahih Muslim, Hadith 2699",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 38,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 38)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Remember Allah in times of ease, and He will remember you in times of hardship.",
+    "reference": "Musnad Ahmad, Hadith 2803",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 39,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 39)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Paradise lies under the feet of your mothers.",
+    "reference": "Musnad al-Shihab, Hadith 119",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 40,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 40)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The pleasure of the Lord is in the pleasure of the father, and the displeasure of the Lord is in the displeasure of the father.",
+    "reference": "Sunan al-Tirmidhi, Hadith 1899",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 41,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 41)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "He who cuts off family ties will not enter Paradise.",
+    "reference": "Sahih al-Bukhari, Hadith 5984",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 42,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 42)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Do not backbite one another, nor search for each other's faults.",
+    "reference": "Sunan Abi Dawud, Hadith 4880",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 43,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 43)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Modesty (Haya) is entirely goodness, and it is a branch of faith.",
+    "reference": "Sahih al-Bukhari, Hadith 9",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 44,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 44)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The best of you are those who are best to their wives.",
+    "reference": "Sunan al-Tirmidhi, Hadith 1162",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 45,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 45)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.",
+    "reference": "Sahih Muslim, Hadith 1631",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 46,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 46)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Keep your tongue wet with the constant remembrance (Dhikr) of Allah.",
+    "reference": "Sunan al-Tirmidhi, Hadith 3375",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 47,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 47)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Read the Quran, for indeed it will come on the Day of Resurrection as an intercessor for its companions.",
+    "reference": "Sahih Muslim, Hadith 804",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 48,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 48)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever recites a letter from the Book of Allah will have a reward, and a reward is multiplied by ten.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2910",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 49,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 49)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "He is not a believer who fills his stomach while his neighbor beside him goes hungry.",
+    "reference": "Al-Adab al-Mufrad, Hadith 112",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 50,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 50)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Give the worker his wages before his sweat dries.",
+    "reference": "Sunan Ibn Majah, Hadith 2443",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 51,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 51)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Fear the supplication of the oppressed, for there is no barrier between it and Allah.",
+    "reference": "Sahih al-Bukhari, Hadith 2448",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 52,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 52)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Every bid'ah (innovation that contradicts the established Shariah and Sunnah) is misguidance.",
+    "reference": "Sahih Muslim, Hadith 867",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 53,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 53)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Adhere strictly to my Sunnah and the Sunnah of the Rightly Guided Caliphs (Khulafa-e-Rashideen).",
+    "reference": "Sunan Abi Dawud, Hadith 4607",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 54,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 54)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "My Ummah will split into seventy-three sects, all of them in the Fire except one: the main body (Sawad al-A'zam/Ahl al-Sunnah).",
+    "reference": "Sunan Ibn Majah, Hadith 3992",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 55,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 55)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Hold fast to the largest group (Al-Jama'ah), and beware of division.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2167",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 56,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 56)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever initiates a good practice (Sunnah Hasanah) in Islam will have its reward and the reward of those who practice it.",
+    "reference": "Sahih Muslim, Hadith 1017",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 57,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 57)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The scholars are the true spiritual heirs of the Prophets.",
+    "reference": "Sunan Abi Dawud, Hadith 3641",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 58,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 58)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "My household (Ahl al-Bayt) is like the Ark of Nuh; whoever boards it is saved, and whoever stays behind is drowned.",
+    "reference": "Al-Mustadrak al-Hakim, Hadith 3312",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 59,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 59)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "All of my Sahaba are upright and trustworthy; follow them to be guided.",
+    "reference": "Mishkat al-Masabih, Hadith 6018",
+    "grading": "Sunni Consensus Reference"
   },
   {
     "id": 60,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 60)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "When you see those who insult my companions, say: 'May Allah's curse be upon your evil.'",
+    "reference": "Sunan al-Tirmidhi, Hadith 3866",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 61,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 61)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever loves al-Hasan and al-Hussein has loved me, and whoever hates them has hated me.",
+    "reference": "Sunan Ibn Majah, Hadith 143",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 62,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 62)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever sends one blessing upon me, Allah sends ten blessings upon him.",
+    "reference": "Sahih Muslim, Hadith 408",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 63,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 63)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The miser is the one in whose presence I am mentioned and he does not send blessings (Durood) upon me.",
+    "reference": "Sunan al-Tirmidhi, Hadith 3546",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 64,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 64)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The Prophets of Allah are alive in their graves, performing prayers.",
+    "reference": "Musnad al-Bazzar, Hadith 6888",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 65,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 65)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The first thing for which a servant will be judged on the Day of Resurrection is his prayer (Salah).",
+    "reference": "Sunan al-Tirmidhi, Hadith 413",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 66,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 66)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Fasting is a shield from the Hellfire.",
+    "reference": "Sahih al-Bukhari, Hadith 1894",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 67,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 67)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Sadaqah (charity) extinguishes sin just as water extinguishes fire.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2616",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 68,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 68)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever fasts Ramadan out of sincere faith and hoping for reward, his past sins will be forgiven.",
+    "reference": "Sahih al-Bukhari, Hadith 1901",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 69,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 69)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Perform Umrah in Ramadan, for indeed Umrah in Ramadan is equal to performing Hajj with me.",
+    "reference": "Sahih al-Bukhari, Hadith 1782",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 70,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 70)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The key to Paradise is prayer, and the key to prayer is purification (wudu).",
+    "reference": "Sunan al-Tirmidhi, Hadith 4",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 71,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 71)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "If a Muslim plants a tree or sows seeds, and then a bird, a person or an animal eats from it, it is a charitable gift.",
+    "reference": "Sahih al-Bukhari, Hadith 2320",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 72,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 72)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The believer is simple and noble, while the wicked person is deceitful and ignoble.",
+    "reference": "Sunan Abi Dawud, Hadith 4790",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 73,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 73)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A believer does not get stung from the same hole twice.",
+    "reference": "Sahih al-Bukhari, Hadith 6133",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 74,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 74)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Part of the perfection of one's Islam is his leaving that which does not concern him.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2317",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 75,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 75)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Be mindful of Allah and He will protect you; be mindful of Allah and you will find Him in front of you.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2516",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 76,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 76)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "If you ask, ask Allah; and if you seek help, seek help from Allah.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2516",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 77,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 77)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Verily, what is permissible is clear and what is impermissible is clear, and between them are doubtful matters.",
+    "reference": "Sahih al-Bukhari, Hadith 52",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 78,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 78)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Richness does not lie in abundance of worldly goods, but true richness is the richness of the soul (contentment).",
+    "reference": "Sahih al-Bukhari, Hadith 6446",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 79,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 79)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The most hated of permissible things to Allah is divorce.",
+    "reference": "Sunan Abi Dawud, Hadith 2178",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 80,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 80)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Spread peace (Salam) among yourselves and you will love one another.",
+    "reference": "Sahih Muslim, Hadith 54",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 81,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 81)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The most beloved of people to Allah are those who are most useful to others.",
+    "reference": "Al-Mu'jam al-Awsat, Hadith 6026",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 82,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 82)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Guard your tongue, let your house suffice you, and weep over your sins.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2406",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 83,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 83)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The world is sweet and green, and verily Allah has made you trustees in it to see how you behave.",
+    "reference": "Sahih Muslim, Hadith 2742",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 84,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 84)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever hides the faults of a Muslim in this world, Allah will hide his faults in this world and the Hereafter.",
+    "reference": "Sahih Muslim, Hadith 2699",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 85,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 85)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Fulfill the trust of those who co-operated with you, and do not betray those who betray you.",
+    "reference": "Sunan Abi Dawud, Hadith 3535",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 86,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 86)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The curse of Allah is upon the one who gives a bribe and the one who takes it.",
+    "reference": "Sunan al-Tirmidhi, Hadith 1337",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 87,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 87)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "No father can give his child anything better than teaching them good manners and etiquette (Adab).",
+    "reference": "Sunan al-Tirmidhi, Hadith 1952",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 88,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 88)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A Muslim is a brother of another Muslim; he does not oppress him, nor does he hand him over to an oppressor.",
+    "reference": "Sahih al-Bukhari, Hadith 2442",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 89,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 89)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Verily, Allah has recorded the good deeds and the evil deeds, then He clarified them.",
+    "reference": "Sahih al-Bukhari, Hadith 6491",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 90,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 90)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Allah is beautiful and He loves beauty.",
+    "reference": "Sahih Muslim, Hadith 91",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 91,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 91)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whosoever believes in Allah and the Last Day, let him maintain good relations with his family.",
+    "reference": "Sahih al-Bukhari, Hadith 6138",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 92,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 92)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Avoid suspicious matters, for suspicion is the worst of lies.",
+    "reference": "Sahih al-Bukhari, Hadith 5144",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 93,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 93)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Do not search for the faults of others, and do not spy on each other.",
+    "reference": "Sahih Muslim, Hadith 2563",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 94,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 94)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Keep close to the large group of Muslims, and avoid breaking away.",
+    "reference": "Sunan Ibn Majah, Hadith 3950",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 95,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 95)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Adhere to the Sunnah, and avoid dividing into sectarian innovations.",
+    "reference": "Sunan al-Tirmidhi, Hadith 2167",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 96,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 96)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "The best companion in the sight of Allah is the one who is best to his companion.",
+    "reference": "Sunan al-Tirmidhi, Hadith 1944",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 97,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 97)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "A believer is friendly and easygoing; there is no good in one who is not friendly and whom others do not find friendly.",
+    "reference": "Musnad Ahmad, Hadith 9116",
+    "grading": "Hasan (Good)"
   },
   {
     "id": 98,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 98)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Whoever is deprived of gentleness is deprived of all goodness.",
+    "reference": "Sahih Muslim, Hadith 2592",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 99,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 99)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Look at those who have less than you, and do not look at those who have more, so that you do not discount Allah's blessings.",
+    "reference": "Sahih Muslim, Hadith 2963",
+    "grading": "Sahih (Authentic)"
   },
   {
     "id": 100,
-    "text": "Make your character beautiful, greet your brother with a smiling face, and remain steadfast on the Sunnah of the Prophet ﷺ. (Hadith 100)",
-    "reference": "Sunan al-Tirmidhi / Mishkat al-Masabih",
-    "grading": "Sahih / Hasan"
+    "text": "Perform prayers (Salah) in congregation, for the wolf devours only the stray sheep.",
+    "reference": "Sunan Abi Dawud, Hadith 547",
+    "grading": "Sahih (Authentic)"
   }
 ];
 
@@ -1648,543 +1648,543 @@ export const HISTORY_FACTS: HistoryFact[] = [
   },
   {
     "id": 11,
-    "topic": "Milestone of Islamic History (Fact 11)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 11)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Conquest of Mecca (8 AH)",
+    "fact": "The Prophet ﷺ led 10,000 companions into Mecca in a bloodless conquest, showcasing unprecedented forgiveness by granting general amnesty to all former enemies.",
+    "reference": "Al-Waqidi / Al-Bidayah wan-Nihayah"
   },
   {
     "id": 12,
-    "topic": "Milestone of Islamic History (Fact 12)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 12)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Caliphate of Abu Bakr (11-13 AH)",
+    "fact": "Following the Prophet's passing, Hazrat Abu Bakr (R.A.) stabilized the Islamic state, preserved unity, and commissioned the first compilation of the Quran.",
+    "reference": "Tarikh al-Khulafa / Al-Suyuti"
   },
   {
     "id": 13,
-    "topic": "Milestone of Islamic History (Fact 13)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 13)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Liberation of Jerusalem (16 AH)",
+    "fact": "Under the Caliphate of Hazrat Umar Al-Farooq (R.A.), Jerusalem surrendered peacefully. Umar entered in humility and signed the 'Covenant of Umar' protecting non-Muslims.",
+    "reference": "Tarikh al-Tabari"
   },
   {
     "id": 14,
-    "topic": "Milestone of Islamic History (Fact 14)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 14)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Standardization of the Quranic Script (c. 30 AH)",
+    "fact": "Caliph Hazrat Uthman ibn Affan (R.A.) ordered standard copies of the Quran to be compiled based on the dialect of Quraysh and distributed to all major provinces.",
+    "reference": "Sahih al-Bukhari / Fath al-Bari"
   },
   {
     "id": 15,
-    "topic": "Milestone of Islamic History (Fact 15)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 15)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Tours (114 AH)",
+    "fact": "Islamic forces reached their furthest point in Western Europe at the Battle of Tours/Poitiers under Abdul Rahman Al-Ghafiqi, securing the border of Islamic Spain.",
+    "reference": "Nafh al-Tib / Al-Maqqari"
   },
   {
     "id": 16,
-    "topic": "Milestone of Islamic History (Fact 16)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 16)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Golden Age of Al-Andalus (Spain)",
+    "fact": "Muslim Spain became a center of European education, science, and tolerance, with cities like Cordoba boasting street lighting, running water, and massive libraries.",
+    "reference": "The Moors in Spain / Stanley Lane-Poole"
   },
   {
     "id": 17,
-    "topic": "Milestone of Islamic History (Fact 17)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 17)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The House of Wisdom in Baghdad (2nd-3rd Century AH)",
+    "fact": "The Abbasid Caliph Al-Ma'mun established 'Bayt al-Hikma', a major translation center and library that preserved global science and advanced algebra and astronomy.",
+    "reference": "Tarikh al-Baghdad"
   },
   {
     "id": 18,
-    "topic": "Milestone of Islamic History (Fact 18)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 18)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Malik and the Muwatta",
+    "fact": "Imam Malik ibn Anas compiled 'Al-Muwatta' in Medina, which is one of the earliest and most authentic collections of Hadith and legal opinions.",
+    "reference": "Introduction to Muwatta"
   },
   {
     "id": 19,
-    "topic": "Milestone of Islamic History (Fact 19)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 19)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Al-Shafi'i and the Risalah",
+    "fact": "Imam Muhammad ibn Idris al-Shafi'i authored 'Al-Risalah', establishing the formal system of Islamic jurisprudence and scriptural sources (Usul al-Fiqh).",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 20,
-    "topic": "Milestone of Islamic History (Fact 20)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 20)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Ahmad ibn Hanbal and the Musnad",
+    "fact": "Imam Ahmad compiled over 27,000 hadiths in his 'Musnad' and stood firm during the Inquisition (Mihnah), defending the orthodox Sunni creed.",
+    "reference": "Manaqib al-Imam Ahmad / Ibn al-Jawzi"
   },
   {
     "id": 21,
-    "topic": "Milestone of Islamic History (Fact 21)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 21)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Compilation of Sahih Muslim",
+    "fact": "Imam Muslim ibn al-Hajjaj compiled his Sahih, consisting of 7,500 authentic hadiths, regarded alongside Sahih al-Bukhari as the core of Hadith literature.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 22,
-    "topic": "Milestone of Islamic History (Fact 22)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 22)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Establishment of Al-Qarawiyyin (245 AH)",
+    "fact": "Fatima al-Fihri, a wealthy Muslim woman, founded Al-Qarawiyyin in Fez, Morocco, recognized as the world's oldest continuously operating university.",
+    "reference": "Tarikh Ibn Khaldun"
   },
   {
     "id": 23,
-    "topic": "Milestone of Islamic History (Fact 23)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 23)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Al-Ash'ari and Sunni Creed",
+    "fact": "Imam Abu al-Hasan al-Ash'ari (d. 324 AH) codified traditional Sunni theology, refuting deviant philosophical ideas and stabilizing the Sunni consensus.",
+    "reference": "Tabyin Kadhib al-Muftari / Ibn Asakir"
   },
   {
     "id": 24,
-    "topic": "Milestone of Islamic History (Fact 24)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 24)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Al-Maturidi and Sunni Creed",
+    "fact": "Imam Abu Mansur al-Maturidi (d. 333 AH) formulated the Maturidi school of creed in Central Asia, forming the theological backbone of traditional Sunni Muslims.",
+    "reference": "Tarikh al-Maturidiyyah"
   },
   {
     "id": 25,
-    "topic": "Milestone of Islamic History (Fact 25)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 25)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Al-Biruni and Geodesy (4th Century AH)",
+    "fact": "Muslim polymath Abu Rayhan al-Biruni calculated the Earth's radius using trigonometry at Nandana fort (modern Pakistan) with astonishing accuracy.",
+    "reference": "Tarikh al-Hukama"
   },
   {
     "id": 26,
-    "topic": "Milestone of Islamic History (Fact 26)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 26)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Ibn Sina and the Canon of Medicine",
+    "fact": "Ibn Sina (Avicenna) wrote the 'Canon of Medicine' (Al-Qanun fi al-Tibb), which remained the standard medical textbook in Europe and Islamic lands for centuries.",
+    "reference": "History of Islamic Medicine"
   },
   {
     "id": 27,
-    "topic": "Milestone of Islamic History (Fact 27)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 27)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Al-Khwarizmi and Algebra (3rd Century AH)",
+    "fact": "Muhammad ibn Musa al-Khwarizmi wrote 'Kitab al-Jabr', introducing algebra to the world. The word 'algorithm' is derived from his name.",
+    "reference": "Introduction to Algebra / Al-Khwarizmi"
   },
   {
     "id": 28,
-    "topic": "Milestone of Islamic History (Fact 28)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 28)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Al-Ghazali and the Ihya (5th Century AH)",
+    "fact": "Imam Al-Ghazali, known as Hujjat al-Islam, wrote 'Ihya Ulum al-Din' in Jerusalem and Damascus, reviving the spiritual dimension of Sunni Islam.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 29,
-    "topic": "Milestone of Islamic History (Fact 29)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 29)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Manzikert (463 AH)",
+    "fact": "Sultan Alp Arslan led the Seljuk Turks to a historic victory over the Byzantine Empire, opening Anatolia to Islamic settlement and Turkish culture.",
+    "reference": "Al-Kamil fi al-Tarikh"
   },
   {
     "id": 30,
-    "topic": "Milestone of Islamic History (Fact 30)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 30)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Liberation of Jerusalem by Salahuddin (583 AH)",
+    "fact": "Sultan Salahuddin Ayyubi liberated Jerusalem from the Crusaders on the night of Me'raj. He treated Christian residents with exceptional mercy and kindness.",
+    "reference": "Al-Rawdatayn / Abu Shama"
   },
   {
     "id": 31,
-    "topic": "Milestone of Islamic History (Fact 31)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 31)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Sheikh Abdul Qadir al-Jilani (d. 561 AH)",
+    "fact": "Known as Ghaus-e-Azam, he founded the Qadiriyyah Sufi order in Baghdad, combining outer Shariah scholarship with inner spiritual purification.",
+    "reference": "Qala'id al-Jawahir"
   },
   {
     "id": 32,
-    "topic": "Milestone of Islamic History (Fact 32)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 32)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Rise of the Ottoman Caliphate (c. 1299 CE)",
+    "fact": "Founded by Osman I, the Ottoman State grew into the largest Sunni caliphate, acting as the guardian of the holy sanctuaries of Mecca and Medina.",
+    "reference": "Tarikh al-Dawlah al-Aliyyah"
   },
   {
     "id": 33,
-    "topic": "Milestone of Islamic History (Fact 33)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 33)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Mawlana Rumi and the Masnavi (d. 672 AH)",
+    "fact": "Mawlana Jalaluddin Rumi wrote the 'Masnavi' in Konya, providing deep spiritual guidance and promoting the love of Allah and the Prophet ﷺ.",
+    "reference": "Wafayat al-A'yan"
   },
   {
     "id": 34,
-    "topic": "Milestone of Islamic History (Fact 34)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 34)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Ain Jalut (658 AH)",
+    "fact": "The Mamluk Sultan Qutuz and General Baibars defeated the seemingly unstoppable Mongol forces in Palestine, saving Egypt and Damascus from destruction.",
+    "reference": "Al-Suluk / Al-Maqrizi"
   },
   {
     "id": 35,
-    "topic": "Milestone of Islamic History (Fact 35)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 35)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Conquest of Constantinople (857 AH)",
+    "fact": "Sultan Mehmed II (Fatih) opened Constantinople, ending the Byzantine Empire. He renamed the city Islam-bol (full of Islam, later Istanbul).",
+    "reference": "Tarikh-e-Fatih / Tursun Beg"
   },
   {
     "id": 36,
-    "topic": "Milestone of Islamic History (Fact 36)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 36)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Peak of the Ottoman Empire under Suleiman",
+    "fact": "Sultan Suleiman the Magnificent established unified legal and administrative systems throughout the empire, patronizing high architecture and arts.",
+    "reference": "Ottoman State History"
   },
   {
     "id": 37,
-    "topic": "Milestone of Islamic History (Fact 37)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 37)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Sheikh Ahmad Sirhindi, the Mujtahid (d. 1034 AH)",
+    "fact": "Known as Mujaddid Alif Thani, he successfully opposed Akbar's syncretic court religion in Mughal India, protecting Sunni orthodoxy.",
+    "reference": "Maktubat-e-Imam-e-Rabbani"
   },
   {
     "id": 38,
-    "topic": "Milestone of Islamic History (Fact 38)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 38)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Compilation of Fatawa Hindiyyah (Alamgiri)",
+    "fact": "Mughal Emperor Aurangzeb commissioned a panel of 500 scholars led by Sheikh Nizamuddin to write a comprehensive law book of Hanafi Fiqh.",
+    "reference": "Fatawa Hindiyyah Introduction"
   },
   {
     "id": 39,
-    "topic": "Milestone of Islamic History (Fact 39)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 39)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Reign of Sultan Abdul Hamid II (1876-1909 CE)",
+    "fact": "The Ottoman Sultan strongly opposed selling land in Palestine to Zionists and constructed the Hijaz Railway connecting Damascus to Medina.",
+    "reference": "Ottoman Archives / Sultan's Diary"
   },
   {
     "id": 40,
-    "topic": "Milestone of Islamic History (Fact 40)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 40)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Ahmad Raza Khan Barelvi (d. 1340 AH)",
+    "fact": "Ala Hazrat Imam Ahmad Raza Khan revived traditional Sunni Islam in South Asia, defending the elevated status of the Prophet ﷺ against modernists.",
+    "reference": "Hayat-e-A'la Hazrat"
   },
   {
     "id": 41,
-    "topic": "Milestone of Islamic History (Fact 41)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 41)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Uhud (3 AH)",
+    "fact": "A key battle in early Islam testing the discipline of archers at Mount Uhud, resulting in the martyrdom of Hamza, the Prophet's beloved uncle.",
+    "reference": "Tarikh al-Islam / Ibn Hisham"
   },
   {
     "id": 42,
-    "topic": "Milestone of Islamic History (Fact 42)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 42)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of the Trench (5 AH)",
+    "fact": "Medina was defended from a 10,000-strong confederate siege by digging a deep trench, a strategy suggested by the Persian companion Salman al-Farsi.",
+    "reference": "Tarikh al-Tabari"
   },
   {
     "id": 43,
-    "topic": "Milestone of Islamic History (Fact 43)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 43)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Treaty of Hudaybiyyah (6 AH)",
+    "fact": "A peace treaty signed between Muslims and the Quraysh, allowing Muslims to perform Hajj the following year and enabling peaceful propagation.",
+    "reference": "Sahih al-Bukhari"
   },
   {
     "id": 44,
-    "topic": "Milestone of Islamic History (Fact 44)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 44)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Khaibar (7 AH)",
+    "fact": "Muslims overcame heavily fortified oases in Khaibar, leading to a peace treaty. Hazrat Ali (R.A.) was given the standard and breached the gates.",
+    "reference": "Sahih Muslim / Al-Tabari"
   },
   {
     "id": 45,
-    "topic": "Milestone of Islamic History (Fact 45)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 45)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Yarmouk (15 AH)",
+    "fact": "A major clash between the Rashidun Caliphate and the Byzantine Empire, resulting in a decisive Muslim victory and securing the region of Syria.",
+    "reference": "Al-Bidayah wan-Nihayah"
   },
   {
     "id": 46,
-    "topic": "Milestone of Islamic History (Fact 46)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 46)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Battle of Qadisiyyah (15 AH)",
+    "fact": "Led by Sa'd ibn Abi Waqqas (R.A.), Rashidun forces defeated the Sasanian Persian army, marking the end of Sasanian hegemony in Iraq.",
+    "reference": "Al-Kamil fi al-Tarikh"
   },
   {
     "id": 47,
-    "topic": "Milestone of Islamic History (Fact 47)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 47)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "First Compilation of Quran (12 AH)",
+    "fact": "After the Battle of Yamama, Zayd ibn Thabit (R.A.) was tasked by Caliph Abu Bakr (R.A.) to gather Quranic verses into a single master manuscript.",
+    "reference": "Sahih al-Bukhari"
   },
   {
     "id": 48,
-    "topic": "Milestone of Islamic History (Fact 48)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 48)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Conquest of Egypt (20 AH)",
+    "fact": "Hazrat Amr ibn al-Aas (R.A.) opened Egypt to Islam, founding the city of Fustat (modern Cairo) and establishing justice and religious liberty.",
+    "reference": "Tarikh al-Tabari"
   },
   {
     "id": 49,
-    "topic": "Milestone of Islamic History (Fact 49)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 49)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Establishment of the First Muslim Navy",
+    "fact": "Under Caliph Hazrat Uthman (R.A.), the governor of Syria Muawiyah ibn Abi Sufyan built the first Islamic naval fleet to secure Mediterranean borders.",
+    "reference": "Al-Bidayah wan-Nihayah"
   },
   {
     "id": 50,
-    "topic": "Milestone of Islamic History (Fact 50)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 50)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Moving the Capital to Kufa (36 AH)",
+    "fact": "Hazrat Ali ibn Abi Talib (R.A.) shifted the administrative capital of the Caliphate from Medina to Kufa due to its strategic central location.",
+    "reference": "Tarikh al-Tabari"
   },
   {
     "id": 51,
-    "topic": "Milestone of Islamic History (Fact 51)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 51)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Battle of Badr (2 AH)",
+    "fact": "The first major military battle of Islam where 313 Sahaba defeated a large army of Quraysh through divine assistance and the Prophet's prayers.",
+    "reference": "Tarikh al-Islam / Ibn Hisham"
   },
   {
     "id": 52,
-    "topic": "Milestone of Islamic History (Fact 52)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 52)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Battle of Uhud (3 AH)",
+    "fact": "Tested the discipline of the archers and highlighted the immense sacrifice of Hamza, the uncle of the Prophet.",
+    "reference": "Tarikh al-Islam / Ibn Kathir"
   },
   {
     "id": 53,
-    "topic": "Milestone of Islamic History (Fact 53)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 53)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Battle of the Trench (5 AH)",
+    "fact": "Known as Al-Ahzab, where Salman al-Farsi suggested digging a trench around Medina to ward off invaders.",
+    "reference": "Tarikh al-Islam / Ibn Hisham"
   },
   {
     "id": 54,
-    "topic": "Milestone of Islamic History (Fact 54)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 54)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Treaty of Hudaybiyyah (6 AH)",
+    "fact": "A peaceful treaty signed between Muslims and Quraysh, described by the Quran as a clear victory (Fath al-Mubin).",
+    "reference": "Sahih al-Bukhari / Ibn Kathir"
   },
   {
     "id": 55,
-    "topic": "Milestone of Islamic History (Fact 55)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 55)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Conquest of Mecca (8 AH)",
+    "fact": "The Prophet ﷺ entered Mecca peacefully, broke the idols in the Kaaba, and forgave the citizens.",
+    "reference": "Tarikh al-Islam / Ibn Kathir"
   },
   {
     "id": 56,
-    "topic": "Milestone of Islamic History (Fact 56)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 56)",
+    "topic": "Battle of Tabuk (9 AH)",
+    "fact": "The largest expedition led by the Prophet ﷺ, testing the charity and sincerity of the companions.",
     "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
   },
   {
     "id": 57,
-    "topic": "Milestone of Islamic History (Fact 57)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 57)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Ghadir Khumm (10 AH)",
+    "fact": "The Prophet ﷺ declared his love and spiritual custody of Imam Ali, saying: 'Of whomsoever I am master, Ali is his master.'",
+    "reference": "Musnad Ahmad / Sunan al-Tirmidhi"
   },
   {
     "id": 58,
-    "topic": "Milestone of Islamic History (Fact 58)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 58)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Demise of the Prophet ﷺ (11 AH)",
+    "fact": "The passing of the Mercy to the Worlds, marking the completion of direct divine revelation.",
+    "reference": "Tarikh al-Islam / Ibn Kathir"
   },
   {
     "id": 59,
-    "topic": "Milestone of Islamic History (Fact 59)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 59)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Caliphate of Abu Bakr Al-Siddiq (11-13 AH)",
+    "fact": "Stabilized the state, fought the apostasy wars, and initiated the compilation of the Quran.",
+    "reference": "Tarikh al-Khulafa / Al-Suyuti"
   },
   {
     "id": 60,
-    "topic": "Milestone of Islamic History (Fact 60)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 60)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Caliphate of Umar ibn Al-Khattab (13-23 AH)",
+    "fact": "Expanded the Islamic borders, captured Jerusalem, and established the Islamic calendar (Hijri).",
+    "reference": "Tarikh al-Khulafa / Al-Suyuti"
   },
   {
     "id": 61,
-    "topic": "Milestone of Islamic History (Fact 61)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 61)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Caliphate of Uthman ibn Affan (23-35 AH)",
+    "fact": "Standardized the Quranic script (Mushaf Uthmani) and established the first Muslim navy.",
+    "reference": "Tarikh al-Khulafa / Al-Suyuti"
   },
   {
     "id": 62,
-    "topic": "Milestone of Islamic History (Fact 62)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 62)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Caliphate of Ali ibn Abi Talib (35-40 AH)",
+    "fact": "Moved the capital to Kufa and governed with extreme justice during internal strife.",
+    "reference": "Tarikh al-Khulafa / Al-Suyuti"
   },
   {
     "id": 63,
-    "topic": "Milestone of Islamic History (Fact 63)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 63)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Martyrdom of Imam Hussein at Karbala (61 AH)",
+    "fact": "The grandson of the Prophet ﷺ sacrificed his life to uphold the truth and reject tyranny.",
+    "reference": "Tarikh al-Tabari / Siyar A'lam al-Nubala"
   },
   {
     "id": 64,
-    "topic": "Milestone of Islamic History (Fact 64)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 64)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Compilation of Hadith by Imam Bukhari",
+    "fact": "Curated over 600,000 hadiths to produce 'Sahih al-Bukhari', the most authentic book after the Quran.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 65,
-    "topic": "Milestone of Islamic History (Fact 65)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 65)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Foundation of the Hanafi School of Jurisprudence",
+    "fact": "Established by Imam Abu Hanifah (d. 150 AH), the pioneer of Islamic rational law.",
+    "reference": "Manaqib Abi Hanifah / Al-Dhahabi"
   },
   {
     "id": 66,
-    "topic": "Milestone of Islamic History (Fact 66)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 66)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Foundation of the Maliki School of Jurisprudence",
+    "fact": "Established by Imam Malik ibn Anas (d. 179 AH), based on the practices of Medina.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 67,
-    "topic": "Milestone of Islamic History (Fact 67)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 67)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Foundation of the Shafi'i School of Jurisprudence",
+    "fact": "Established by Imam Muhammad al-Shafi'i (d. 204 AH), balancing textualism and analogy.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 68,
-    "topic": "Milestone of Islamic History (Fact 68)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 68)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Foundation of the Hanbali School of Jurisprudence",
+    "fact": "Established by Imam Ahmad ibn Hanbal (d. 241 AH), famous for his defense of the Quran.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 69,
-    "topic": "Milestone of Islamic History (Fact 69)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 69)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Battle of Tours (114 AH)",
+    "fact": "Led by Abdul Rahman Al-Ghafiqi, marking the northernmost advance of Islamic forces in Europe.",
+    "reference": "Tarikh al-Islam / Al-Dhahabi"
   },
   {
     "id": 70,
-    "topic": "Milestone of Islamic History (Fact 70)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 70)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Golden Age of Baghdad (c. 132-656 AH)",
+    "fact": "The House of Wisdom (Bayt al-Hikma) became the center of science, mathematics, and philosophy.",
+    "reference": "Tarikh al-Baghdad"
   },
   {
     "id": 71,
-    "topic": "Milestone of Islamic History (Fact 71)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 71)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Al-Andalus Opening (92 AH / 711 CE)",
+    "fact": "Tariq ibn Ziyad led the Muslim entry into the Iberian Peninsula, starting 800 years of brilliant Islamic culture, science, and governance in Spain.",
+    "reference": "Nafh al-Tib / Al-Maqqari"
   },
   {
     "id": 72,
-    "topic": "Milestone of Islamic History (Fact 72)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 72)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Foundation of Al-Azhar (361 AH)",
+    "fact": "Al-Azhar University was established in Cairo, quickly growing into the premier center of Sunni Islamic theology and Arabic language in the world.",
+    "reference": "Al-Khitat / Al-Maqrizi"
   },
   {
     "id": 73,
-    "topic": "Milestone of Islamic History (Fact 73)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 73)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Battle of Manzikert (463 AH / 1071 CE)",
+    "fact": "The Seljuk Sultan Alp Arslan defeated the Byzantine Army, securing Anatolia for Muslim settlements and laying the groundwork for Turkish Islamic history.",
+    "reference": "Al-Kamil fi al-Tarikh"
   },
   {
     "id": 74,
-    "topic": "Milestone of Islamic History (Fact 74)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 74)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Salahuddin Recovers Jerusalem (583 AH)",
+    "fact": "Sultan Salahuddin Ayyubi recovered Jerusalem from Crusader control, choosing peace and mercy over vengeance by offering safety to all Christian residents.",
+    "reference": "Al-Rawdatayn"
   },
   {
     "id": 75,
-    "topic": "Milestone of Islamic History (Fact 75)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 75)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Rise of the Ottoman State (1299 CE)",
+    "fact": "Osman I established the Ottoman principality in Anatolia, initiating a dynasty that would assume the Caliphate and protect Islamic borders for six centuries.",
+    "reference": "Tarikh al-Dawlah al-Aliyyah"
   },
   {
     "id": 76,
-    "topic": "Milestone of Islamic History (Fact 76)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 76)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Conquest of Constantinople (1453 CE)",
+    "fact": "Sultan Mehmed II opened Constantinople, ending the Byzantine Empire and fulfilling the famous prophecy of the Prophet ﷺ: 'What a wonderful leader and army.'",
+    "reference": "Ottoman Chronicles"
   },
   {
     "id": 77,
-    "topic": "Milestone of Islamic History (Fact 77)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 77)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Imam Al-Ghazali's Revival of Spirit",
+    "fact": "Imam Al-Ghazali reconciled rational philosophy, theology, and spiritual purification in 'Ihya Ulum al-Din', providing a comprehensive guide for Sunni practice.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 78,
-    "topic": "Milestone of Islamic History (Fact 78)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 78)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Qadiriyyah Order Foundation (d. 561 AH)",
+    "fact": "Sheikh Abdul Qadir al-Jilani established the Qadiriyyah order, teaching millions the path of heart purification, reliance on Allah, and charity.",
+    "reference": "Qala'id al-Jawahir"
   },
   {
     "id": 79,
-    "topic": "Milestone of Islamic History (Fact 79)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 79)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Rumi and the Masnavi (d. 672 AH)",
+    "fact": "Mawlana Rumi wrote the 'Masnavi', expressing deep mystical love and teaching that the ultimate goal of the soul is divine proximity and love.",
+    "reference": "Wafayat al-A'yan"
   },
   {
     "id": 80,
-    "topic": "Milestone of Islamic History (Fact 80)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 80)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Mishkat al-Masabih Compilation (737 AH)",
+    "fact": "Sheikh Wali al-Din al-Tabrizi completed 'Mishkat al-Masabih', collecting essential hadiths to guide everyday life and legal practices of Sunni Muslims.",
+    "reference": "Mishkat Introduction"
   },
   {
     "id": 81,
-    "topic": "Milestone of Islamic History (Fact 81)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 81)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Golden Age of Ottoman Laws",
+    "fact": "Ottoman Sultan Suleiman the Lawgiver harmonized regional laws with the Shariah, fostering a state of order, architectural masterpieces, and justice.",
+    "reference": "Ottoman History"
   },
   {
     "id": 82,
-    "topic": "Milestone of Islamic History (Fact 82)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 82)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Ottoman Victory at Mohacs (1526 CE)",
+    "fact": "Sultan Suleiman's forces achieved a decisive victory at Mohacs, establishing Ottoman administrative presence in Central Europe for over 150 years.",
+    "reference": "Ottoman Chronicles"
   },
   {
     "id": 83,
-    "topic": "Milestone of Islamic History (Fact 83)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 83)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Sheikh Ahmad Sirhindi's Stand (d. 1034 AH)",
+    "fact": "Known as Mujaddid Alif Thani, he successfully refuted the syncretic 'Din-i Ilahi' court religion, saving Orthodox Sunni creed in Mughal India.",
+    "reference": "Maktubat-e-Imam-e-Rabbani"
   },
   {
     "id": 84,
-    "topic": "Milestone of Islamic History (Fact 84)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 84)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Mughal Architectural Peak: Taj Mahal",
+    "fact": "Shah Jahan constructed the Taj Mahal in memory of Mumtaz Mahal, standing as a globally recognized peak of Islamic symmetry, architecture, and calligraphy.",
+    "reference": "Tarikh-e-Hindustan"
   },
   {
     "id": 85,
-    "topic": "Milestone of Islamic History (Fact 85)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 85)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Compilation of Fatawa Alamgiri",
+    "fact": "Aurangzeb Alamgir gathered top Sunni jurists to compile 'Fatawa Alamgiri', a massive, highly organized encyclopedia of Hanafi Fiqh.",
+    "reference": "Fatawa Hindiyyah"
   },
   {
     "id": 86,
-    "topic": "Milestone of Islamic History (Fact 86)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 86)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Sultan Abdul Hamid II defends Hijaz",
+    "fact": "Sultan Abdul Hamid II financed and constructed the Hijaz Railway, connecting Damascus to Medina to secure the pilgrims' path and the holy sanctuaries.",
+    "reference": "Ottoman State Archives"
   },
   {
     "id": 87,
-    "topic": "Milestone of Islamic History (Fact 87)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 87)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Spread of silent Dhikr (Naqshbandiyyah)",
+    "fact": "The Naqshbandi Sufi order spread widely, emphasizing silent Dhikr, strict adherence to Shariah, and preservation of spiritual lineages.",
+    "reference": "Al-Hada'iq al-Wardiyyah"
   },
   {
     "id": 88,
-    "topic": "Milestone of Islamic History (Fact 88)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 88)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Sunni Revival by Ala Hazrat (d. 1921 CE)",
+    "fact": "Imam Ahmad Raza Khan wrote 'Fatawa Ridawiyyah' in 30 volumes, defending classical Sunni beliefs and the absolute honor of the Prophet ﷺ.",
+    "reference": "Hayat-e-A'la Hazrat"
   },
   {
     "id": 89,
-    "topic": "Milestone of Islamic History (Fact 89)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 89)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Kanzul Iman Quran Translation (1911 CE)",
+    "fact": "Imam Ahmad Raza Khan published his Urdu translation, 'Kanzul Iman', renowned for preserving the honor of the Prophets and the majesty of Allah.",
+    "reference": "Kanzul Iman Introduction"
   },
   {
     "id": 90,
-    "topic": "Milestone of Islamic History (Fact 90)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 90)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Bahar-e-Shariat Fiqh Manual",
+    "fact": "Mufti Amjad Ali A'zami compiled 'Bahar-e-Shariat', a highly popular 20-part encyclopedia explaining daily Hanafi Fiqh and Sunni practices.",
+    "reference": "Bahar-e-Shariat"
   },
   {
     "id": 91,
-    "topic": "Milestone of Islamic History (Fact 91)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 91)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Medina's Green Dome Construction",
+    "fact": "Sultan Qalawun built the wooden dome over the resting place of the Prophet ﷺ in 678 AH. It was painted green under Ottoman Sultan Mahmud II in 1253 AH.",
+    "reference": "Wafa al-Wafa"
   },
   {
     "id": 92,
-    "topic": "Milestone of Islamic History (Fact 92)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 92)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Alhambra Palace in Spain",
+    "fact": "The Nasrid Dynasty built the Alhambra in Granada, representing the highest aesthetic standard of Moorish geometric art, gardens, and architecture.",
+    "reference": "Nafh al-Tib"
   },
   {
     "id": 93,
-    "topic": "Milestone of Islamic History (Fact 93)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 93)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Shah Waliullah Dehlawi's Work (d. 1176 AH)",
+    "fact": "Translated the Quran into Persian to make it accessible and wrote 'Hujjat Allah al-Balighah' to explain the rational beauty of Shariah and Hadith.",
+    "reference": "Hayat-e-Shah-Waliullah"
   },
   {
     "id": 94,
-    "topic": "Milestone of Islamic History (Fact 94)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 94)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Ottoman Victory at Gallipoli (1915 CE)",
+    "fact": "Ottoman forces defended the Dardanelles, securing the seat of the Islamic Caliphate from falling into invading hands during World War I.",
+    "reference": "Ottoman War Records"
   },
   {
     "id": 95,
-    "topic": "Milestone of Islamic History (Fact 95)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 95)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Ibn al-Haytham and Modern Optics",
+    "fact": "Muslim scientist Ibn al-Haytham published 'Kitab al-Manazir', establishing the experimental scientific method and discovering how vision works.",
+    "reference": "Tarikh al-Hukama"
   },
   {
     "id": 96,
-    "topic": "Milestone of Islamic History (Fact 96)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 96)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "The Muqaddimah of Ibn Khaldun (d. 808 AH)",
+    "fact": "Ibn Khaldun wrote the 'Muqaddimah', founding the academic fields of sociology, historiography, and modern social science.",
+    "reference": "Wafayat al-A'yan"
   },
   {
     "id": 97,
-    "topic": "Milestone of Islamic History (Fact 97)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 97)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Al-Qarawiyyin University Foundation (245 AH)",
+    "fact": "Fatima al-Fihri established the university in Fez, Morocco, recognized as the oldest continuously operating university in the world.",
+    "reference": "Tarikh Ibn Khaldun"
   },
   {
     "id": 98,
-    "topic": "Milestone of Islamic History (Fact 98)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 98)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Riyad as-Salihin by Imam al-Nawawi",
+    "fact": "Imam al-Nawawi (d. 676 AH) compiled 'Riyad as-Salihin' (Meadows of the Righteous), a primary guide for moral conduct and Sunni etiquette.",
+    "reference": "Siyar A'lam al-Nubala"
   },
   {
     "id": 99,
-    "topic": "Milestone of Islamic History (Fact 99)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 99)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Al-Khwarizmi Invents Algebra",
+    "fact": "Muhammad ibn Musa al-Khwarizmi introduced algebra in Baghdad, establishing systematic mathematical equations used in science and computers today.",
+    "reference": "Tarikh al-Hukama"
   },
   {
     "id": 100,
-    "topic": "Milestone of Islamic History (Fact 100)",
-    "fact": "Islamic civilization flourished through the scholarship of the Khulafa-e-Rashideen, Ahl al-Bayt, classical Sunni Mujtahids, and Saints of Islam. (Milestone 100)",
-    "reference": "Tarikh al-Islam / Siyar A'lam al-Nubala"
+    "topic": "Mawlid al-Nabi Traditions",
+    "fact": "Sunni scholars across history, including Ibn Kathir, Al-Suyuti, and Al-Asqalani, endorsed celebrating the Mawlid as a commendable practice of gratitude.",
+    "reference": "Husn al-Maqsid / Al-Suyuti"
   }
 ];
 
@@ -2233,111 +2233,111 @@ export const PROPHETS_STORIES: ProphetStory[] = [
   },
   {
     "id": 8,
-    "prophet": "Prophet of Allah (Story 8)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 8)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Ismail (A.S.)",
+    "snippet": "The noble son of Ibrahim (A.S.) who willingly submitted to Allah's command of sacrifice, resulting in the miracle of Zamzam and Kaaba's construction.",
+    "lesson": "Absolute obedience, loyalty to parents, and patience."
   },
   {
     "id": 9,
-    "prophet": "Prophet of Allah (Story 9)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 9)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Ishaq (A.S.)",
+    "snippet": "The second son of Ibrahim (A.S.), born in his old age as a glad tiding to Sarah. Ancestor of a lineage of noble Prophets of Bani Israel.",
+    "lesson": "Good character, truthfulness, and persistence in prayer."
   },
   {
     "id": 10,
-    "prophet": "Prophet of Allah (Story 10)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 10)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Yaqub (A.S.)",
+    "snippet": "Also known as Israel, he was the father of Yusuf (A.S.). He wept until his sight was lost but maintained absolute hope and beautiful patience (Sabr).",
+    "lesson": "Beautiful patience (Sabrun Jameel) and unwavering hope in Allah."
   },
   {
     "id": 11,
-    "prophet": "Prophet of Allah (Story 11)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 11)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Ayyub (A.S.)",
+    "snippet": "Blessed with immense wealth and family, then tested with their loss and a severe, long illness. He never complained and remained deeply grateful.",
+    "lesson": "Steadfast patience and gratitude in adversity."
   },
   {
     "id": 12,
-    "prophet": "Prophet of Allah (Story 12)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 12)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Yunus (A.S.)",
+    "snippet": "Swallowed by a giant fish, he prayed from the dark depths: 'La ilaha illa Anta, subhanaka inni kuntu minaz-zalimin', and was saved by Allah.",
+    "lesson": "Turning back to Allah and constant repentance (Tawbah)."
   },
   {
     "id": 13,
-    "prophet": "Prophet of Allah (Story 13)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 13)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Sulayman (A.S.)",
+    "snippet": "Given a kingdom unlike any other, with control over wind, jinn, and animals. He ruled with extreme justice and humility, attributing all power to Allah.",
+    "lesson": "Humbleness in power and using wealth for good."
   },
   {
     "id": 14,
-    "prophet": "Prophet of Allah (Story 14)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 14)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Dawud (A.S.)",
+    "snippet": "Defeated Goliath in youth, received the Zabur (Psalms), and fasted every alternate day. Famous for his beautiful voice glorifying Allah.",
+    "lesson": "Devoted worship, courage, and sincere repentance."
   },
   {
     "id": 15,
-    "prophet": "Prophet of Allah (Story 15)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 15)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Salih (A.S.)",
+    "snippet": "Sent to the Thamud tribe, who demanded a sign. Allah brought forth a miraculous she-camel from a rock. They killed it and faced divine punishment.",
+    "lesson": "Respecting Allah's signs and avoiding transgression."
   },
   {
     "id": 16,
-    "prophet": "Prophet of Allah (Story 16)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 16)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Hud (A.S.)",
+    "snippet": "Sent to the giant tribe of 'Ad. He warned them against their arrogance and material wealth, urging them to seek forgiveness from their Creator.",
+    "lesson": "Arrogance leads to ruin; true power belongs to Allah."
   },
   {
     "id": 17,
-    "prophet": "Prophet of Allah (Story 17)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 17)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Zakariya (A.S.)",
+    "snippet": "Served the sanctuary and was Maryam's guardian. In extreme old age, he prayed secretly for a righteous heir and was blessed with Yahya (A.S.).",
+    "lesson": "The power of sincere, secret prayer (Dua)."
   },
   {
     "id": 18,
-    "prophet": "Prophet of Allah (Story 18)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 18)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Yahya (A.S.)",
+    "snippet": "The son of Zakariya, born as a miracle. He was given scripture, wisdom, and chastity in childhood, standing firm for Torah's commandments.",
+    "lesson": "Purity of heart and dedication to scriptural wisdom."
   },
   {
     "id": 19,
-    "prophet": "Prophet of Allah (Story 19)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 19)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (Early Years)",
+    "snippet": "Before prophethood, He was known throughout Mecca as Al-Sadiq (the Truthful) and Al-Amin (the Trustworthy) due to His spotless integrity.",
+    "lesson": "Integrity and building trust is the foundation of character."
   },
   {
     "id": 20,
-    "prophet": "Prophet of Allah (Story 20)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 20)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (The Me'raj)",
+    "snippet": "In the Year of Sorrow, the Prophet ﷺ was taken on a physical night journey to Jerusalem and elevated to the Heavens to meet His Creator.",
+    "lesson": "Honor and high status of the Prophet; five daily prayers."
   },
   {
     "id": 21,
-    "prophet": "Prophet of Allah (Story 21)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 21)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (The Hijrah)",
+    "snippet": "Migrating to Medina to escape persecution, the Prophet ﷺ hid in Cave Thawr, reassuring Abu Bakr: 'Do not grieve, indeed Allah is with us.'",
+    "lesson": "Total reliance on Allah (Tawakkul) combined with preparation."
   },
   {
     "id": 22,
-    "prophet": "Prophet of Allah (Story 22)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 22)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (The Treaty of Hudaybiyyah)",
+    "snippet": "Accepted peace terms that seemed unfavorable, showing great wisdom. It led to mass conversions and paved the way for the conquest of Mecca.",
+    "lesson": "Patience, diplomatic wisdom, and preferring peace over conflict."
   },
   {
     "id": 23,
-    "prophet": "Prophet of Allah (Story 23)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 23)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (Conquest of Mecca)",
+    "snippet": "Entered His former homeland as a peaceful conqueror. He broke the idols in the Kaaba and declared a general amnesty, forgiving all former enemies.",
+    "lesson": "Mercy in victory and the power of forgiveness."
   },
   {
     "id": 24,
-    "prophet": "Prophet of Allah (Story 24)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 24)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (The Farewell Sermon)",
+    "snippet": "Delivered the final sermon at Arafat, establishing the equality of all humans, protecting women's rights, and declaring the perfection of Islam.",
+    "lesson": "Equality of mankind, moral responsibility, and preservation of rights."
   },
   {
     "id": 25,
-    "prophet": "Prophet of Allah (Story 25)",
-    "snippet": "The stories of Allah's Prophets demonstrate the struggles of the righteous in conveying the message of Tawheed and establishing moral conduct. (Story 25)",
-    "lesson": "Sabr, Tawakkul, and Obedience."
+    "prophet": "Prophet Muhammad ﷺ (Al-Hayat al-Barzakhiyyah)",
+    "snippet": "Sunni scholars agree that the Holy Prophet ﷺ is physically alive in His blessed grave, receiving Salat and Salam from His Ummah.",
+    "lesson": "Continuous connection with the Prophet ﷺ through Durood."
   }
 ];
 
@@ -2394,212 +2394,212 @@ export const AKHLAQ_FOCUS: AkhlaqTheme[] = [
   },
   {
     "week": 11,
-    "topic": "Akhlaq Core Value (Week 11)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 11)"
+    "topic": "Amanah (Trustworthiness)",
+    "action": "Keep a secret shared with you, or return a borrowed item in pristine condition."
   },
   {
     "week": 12,
-    "topic": "Akhlaq Core Value (Week 12)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 12)"
+    "topic": "Karam (Generosity)",
+    "action": "Give some charity or share food with a coworker or neighbor without expecting anything in return."
   },
   {
     "week": 13,
-    "topic": "Akhlaq Core Value (Week 13)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 13)"
+    "topic": "Hya (Modesty of Speech)",
+    "action": "Refrain from using any slang, harsh language, or shouting during conversations today."
   },
   {
     "week": 14,
-    "topic": "Akhlaq Core Value (Week 14)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 14)"
+    "topic": "Tawadu (Humility)",
+    "action": "Perform a menial chore at home or work that you usually avoid, without seeking praise."
   },
   {
     "week": 15,
-    "topic": "Akhlaq Core Value (Week 15)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 15)"
+    "topic": "Adl (Justice)",
+    "action": "Acknowledge a mistake you made to someone and offer a sincere apology."
   },
   {
     "week": 16,
-    "topic": "Akhlaq Core Value (Week 16)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 16)"
+    "topic": "Ihsan (Excellence)",
+    "action": "Do a task at work or school with the highest quality, remembering that Allah is watching you."
   },
   {
     "week": 17,
-    "topic": "Akhlaq Core Value (Week 17)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 17)"
+    "topic": "Silah al-Rahim (Extended family)",
+    "action": "Contact an extended family member (like an aunt or uncle) and ask about their well-being."
   },
   {
     "week": 18,
-    "topic": "Akhlaq Core Value (Week 18)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 18)"
+    "topic": "Husn al-Zann (Good suspicion)",
+    "action": "Assume a positive excuse for someone's behavior today instead of judging them."
   },
   {
     "week": 19,
-    "topic": "Akhlaq Core Value (Week 19)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 19)"
+    "topic": "Rifq (Kindness to Animals)",
+    "action": "Feed a stray animal, water a plant, or avoid stepping on insects intentionally today."
   },
   {
     "week": 20,
-    "topic": "Akhlaq Core Value (Week 20)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 20)"
+    "topic": "Qana'ah (Contentment)",
+    "action": "Refrain from browsing online shopping apps or wishing for new worldly goods today."
   },
   {
     "week": 21,
-    "topic": "Akhlaq Core Value (Week 21)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 21)"
+    "topic": "Wafa (Fidelity)",
+    "action": "Keep a promise you made, even if it is a minor commitment to a child or friend."
   },
   {
     "week": 22,
-    "topic": "Akhlaq Core Value (Week 22)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 22)"
+    "topic": "Sadaqah (Removing obstacles)",
+    "action": "Remove an obstacle (like a stone, branch, or trash) from a public walking path today."
   },
   {
     "week": 23,
-    "topic": "Akhlaq Core Value (Week 23)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 23)"
+    "topic": "Gratitude to People",
+    "action": "Say 'JazakAllahu Khayran' and write a thank-you message to someone who helped you recently."
   },
   {
     "week": 24,
-    "topic": "Akhlaq Core Value (Week 24)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 24)"
+    "topic": "Ghad al-Basar (Guarding Gaze)",
+    "action": "Lower your gaze immediately when encountering inappropriate media, sights, or people."
   },
   {
     "week": 25,
-    "topic": "Akhlaq Core Value (Week 25)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 25)"
+    "topic": "Salam (Greeting)",
+    "action": "Be the first to say 'Assalamu Alaikum' to everyone you meet today, including strangers."
   },
   {
     "week": 26,
-    "topic": "Akhlaq Core Value (Week 26)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 26)"
+    "topic": "Ithar (Selflessness)",
+    "action": "Give up your seat or your place in a queue to someone else who needs it today."
   },
   {
     "week": 27,
-    "topic": "Akhlaq Core Value (Week 27)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 27)"
+    "topic": "Dara' al-Ghadab (Anger control)",
+    "action": "If you feel angry today, remain silent, seek refuge in Allah, and drink a glass of water."
   },
   {
     "week": 28,
-    "topic": "Akhlaq Core Value (Week 28)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 28)"
+    "topic": "Dhikr of the Tongue",
+    "action": "Avoid complaining about the weather, food, or traffic today; replace it with Alhamdulillah."
   },
   {
     "week": 29,
-    "topic": "Akhlaq Core Value (Week 29)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 29)"
+    "topic": "Husn al-Jiwar (Neighborliness)",
+    "action": "Send a small gift, fruit, or some dinner to a neighbor to maintain good relations."
   },
   {
     "week": 30,
-    "topic": "Akhlaq Core Value (Week 30)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 30)"
+    "topic": "Sadaqah of the Smile",
+    "action": "Smile warmly when greeting your parents, family members, or friends today."
   },
   {
     "week": 31,
-    "topic": "Akhlaq Core Value (Week 31)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 31)"
+    "topic": "Tathir al-Qalb (Heart purification)",
+    "action": "Forgive everyone who has ever wronged you before you go to sleep tonight."
   },
   {
     "week": 32,
-    "topic": "Akhlaq Core Value (Week 32)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 32)"
+    "topic": "Hifz al-Lisan (Tongue guard)",
+    "action": "Avoid talking about anyone behind their back (Gheebah/backbiting) for the next 24 hours."
   },
   {
     "week": 33,
-    "topic": "Akhlaq Core Value (Week 33)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 33)"
+    "topic": "Rifq to Parents",
+    "action": "Kiss your parents' hands or forehead, or call them to speak with absolute respect and affection."
   },
   {
     "week": 34,
-    "topic": "Akhlaq Core Value (Week 34)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 34)"
+    "topic": "Adab al-Majlis (Gathering ethics)",
+    "action": "Do not interrupt anyone while they are speaking in a group conversation today."
   },
   {
     "week": 35,
-    "topic": "Akhlaq Core Value (Week 35)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 35)"
+    "topic": "Shukr for Health",
+    "action": "Refrain from junk food today and express gratitude for your functional limbs and sight."
   },
   {
     "week": 36,
-    "topic": "Akhlaq Core Value (Week 36)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 36)"
+    "topic": "Ta'awun (Mutual Help)",
+    "action": "Help a colleague, classmate, or family member with their task, even if you are busy."
   },
   {
     "week": 37,
-    "topic": "Akhlaq Core Value (Week 37)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 37)"
+    "topic": "Dua for Others",
+    "action": "Pray secretly for three brothers or sisters who are currently facing struggles."
   },
   {
     "week": 38,
-    "topic": "Akhlaq Core Value (Week 38)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 38)"
+    "topic": "Muraqabah (Mindfulness)",
+    "action": "Spend 10 minutes sitting in silence, reflecting on your deeds and Allah's presence."
   },
   {
     "week": 39,
-    "topic": "Akhlaq Core Value (Week 39)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 39)"
+    "topic": "Frugality",
+    "action": "Consume food and utilities without wasting a single grain of rice or drop of water."
   },
   {
     "week": 40,
-    "topic": "Akhlaq Core Value (Week 40)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 40)"
+    "topic": "Honoring Elders",
+    "action": "Stand up to greet an elderly person or help them carry their belongings."
   },
   {
     "week": 41,
-    "topic": "Akhlaq Core Value (Week 41)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 41)"
+    "topic": "Durood on the Prophet ﷺ",
+    "action": "Send 500 Salawat upon the Holy Prophet ﷺ today as a dedicated act of devotion."
   },
   {
     "week": 42,
-    "topic": "Akhlaq Core Value (Week 42)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 42)"
+    "topic": "Punctuality",
+    "action": "Arrive 5 minutes early for all your appointments and perform your prayers right on time."
   },
   {
     "week": 43,
-    "topic": "Akhlaq Core Value (Week 43)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 43)"
+    "topic": "Guarding Secrets",
+    "action": "Keep a secret that was entrusted to you, without hinting about it to anyone else."
   },
   {
     "week": 44,
-    "topic": "Akhlaq Core Value (Week 44)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 44)"
+    "topic": "Grateful Heart",
+    "action": "Write down three specific things you are grateful for today and thank Allah for them."
   },
   {
     "week": 45,
-    "topic": "Akhlaq Core Value (Week 45)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 45)"
+    "topic": "Cleanliness",
+    "action": "Clean your desk, room, or workspace, remembering that cleanliness is part of faith."
   },
   {
     "week": 46,
-    "topic": "Akhlaq Core Value (Week 46)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 46)"
+    "topic": "Self-Discipline",
+    "action": "Limit your social media usage to under 30 minutes today and use the time for Dhikr."
   },
   {
     "week": 47,
-    "topic": "Akhlaq Core Value (Week 47)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 47)"
+    "topic": "Loving for Others",
+    "action": "Compliment a brother or sister on their success without feeling any jealousy."
   },
   {
     "week": 48,
-    "topic": "Akhlaq Core Value (Week 48)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 48)"
+    "topic": "Gentleness in Actions",
+    "action": "Close doors quietly and handle objects gently, avoiding loud noises and slamming."
   },
   {
     "week": 49,
-    "topic": "Akhlaq Core Value (Week 49)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 49)"
+    "topic": "Hilm (Calmness)",
+    "action": "If someone is rude to you, reply with a calm voice and make secret Dua for their guidance."
   },
   {
     "week": 50,
-    "topic": "Akhlaq Core Value (Week 50)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 50)"
+    "topic": "Mercy to Juniors",
+    "action": "Forgive a mistake made by a junior, child, or subordinate, and explain gently how to improve."
   },
   {
     "week": 51,
-    "topic": "Akhlaq Core Value (Week 51)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 51)"
+    "topic": "Steadfastness",
+    "action": "Ensure you complete all your daily spiritual goals (Quran, Salat, Dhikr) without skipping."
   },
   {
     "week": 52,
-    "topic": "Akhlaq Core Value (Week 52)",
-    "action": "Practice self-discipline, smile at a fellow Muslim, send Durood abundantly, and guard the tongue from slander. (Target 52)"
+    "topic": "Reflective Year-End",
+    "action": "Reflect on the past 52 weeks, make sincere repentance (Tawbah), and resolve to grow spiritually."
   }
 ];

@@ -131,6 +131,21 @@ const WISDOM_QUOTES = [
   { quote: 'A man follows the religion of his close friend, so let each of you look to whom he takes as a close friend.', author: 'Prophet Muhammad (ﷺ)' },
   { quote: 'The best of people are those who are most beneficial to people.', author: 'Prophet Muhammad (ﷺ)' },
   { quote: 'Make things easy and do not make them difficult, cheer people up and do not scare them away.', author: 'Prophet Muhammad (ﷺ)' },
+  { quote: 'The best deed after having faith in Allah is loving the creations for the sake of Allah.', author: 'Imam Abu Hanifah' },
+  { quote: 'Knowledge without action is like a tree without fruit.', author: 'Imam Al-Ghazali' },
+  { quote: 'Expressing love to the Prophet ﷺ is the soul of our faith; without it, all deeds are empty.', author: 'Ala Hazrat Imam Ahmad Raza Khan' },
+  { quote: 'Beware of pride, for it makes you look down on people and ignore the truth.', author: 'Imam Al-Ghazali' },
+  { quote: 'Sincerity is that you do not seek any witness to your deeds except Allah.', author: 'Sheikh Abdul Qadir al-Jilani' },
+  { quote: 'The true sign of love for Allah is loving His Messenger ﷺ and following His Sunnah.', author: 'Imam Al-Ghazali' },
+  { quote: 'Do not sit idle, for death is pursuing you, and every breath is a step closer to it.', author: 'Ibn al-Jawzi' },
+  { quote: 'A person\'s value is in their character and manners, not in their lineage or wealth.', author: 'Ali ibn Abi Talib' },
+  { quote: 'The path of love is the shortest way to reach proximity to the Creator.', author: 'Mawlana Jalaluddin Rumi' },
+  { quote: 'Purity of body is a requirement, but purity of heart from malice is the goal.', author: 'Sheikh Abdul Qadir al-Jilani' },
+  { quote: 'Always keep a positive opinion (Husn al-Zann) of your brother, even if their action confuses you.', author: 'Umar ibn Al-Khattab' },
+  { quote: 'Speak with soft words, for a gentle tongue breaks the hardest of hearts.', author: 'Imam Al-Ghazali' },
+  { quote: 'Seek forgiveness constantly, for it opens the doors of mercy and sustenance.', author: 'Imam Ahmad Raza Khan' },
+  { quote: 'True spiritual success is aligning your desires with the commands of the Holy Shariah.', author: 'Sheikh Ahmad Sirhindi' },
+  { quote: 'The greatest miracle is remaining steadfast on the straight path of the Sunnah.', author: 'Sheikh Abdul Qadir al-Jilani' }
 ];
 
 const STORAGE_KEYS = {

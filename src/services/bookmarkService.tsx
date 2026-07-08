@@ -114,6 +114,52 @@ class BookmarkService {
     return newFolder;
   }
 
+  // Create a circle-linked bookmark folder restricted to specific Juz numbers
+  async createCircleFolder(
+    roomId: string,
+    name: string,
+    restrictedJuzs: number[]
+  ): Promise<BookmarkFolder> {
+    // If a folder for this room already exists, return it
+    const existing = this.folders.find((f) => f.circleRoomId === roomId);
+    if (existing) return existing;
+
+    const newFolder: BookmarkFolder = {
+      id: Math.random().toString(36).substring(2, 9) + Date.now().toString(36),
+      name: name.trim(),
+      timestamp: Date.now(),
+      restrictedJuzs,
+      circleRoomId: roomId,
+    };
+    this.folders.push(newFolder);
+    await this.save();
+    return newFolder;
+  }
+
+  // Returns the bookmark folder linked to a circle room, or null
+  getCircleFolderForRoom(roomId: string): BookmarkFolder | null {
+    return this.folders.find((f) => f.circleRoomId === roomId) || null;
+  }
+
+  // Check if a bookmark with the given Juz number can be added to a folder
+  canAddToFolder(folderId: string, juzNumber?: number): { allowed: boolean; reason?: string } {
+    const folder = this.folders.find((f) => f.id === folderId);
+    if (!folder) return { allowed: false, reason: 'Folder not found' };
+    if (!folder.restrictedJuzs || folder.restrictedJuzs.length === 0) {
+      return { allowed: true };
+    }
+    if (juzNumber === undefined) {
+      return { allowed: false, reason: `This folder only accepts bookmarks from Juz ${folder.restrictedJuzs.join(', ')}` };
+    }
+    if (!folder.restrictedJuzs.includes(juzNumber)) {
+      return {
+        allowed: false,
+        reason: `This circle folder only accepts bookmarks from Juz ${folder.restrictedJuzs.join(', ')}. This verse is from Juz ${juzNumber}.`,
+      };
+    }
+    return { allowed: true };
+  }
+
   async renameFolder(folderId: string, newName: string): Promise<void> {
     this.folders = this.folders.map((f) =>
       f.id === folderId ? { ...f, name: newName.trim() } : f
@@ -161,6 +207,14 @@ class BookmarkService {
 
   // Add a bookmark directly
   async addBookmark(surah: number, ayah: number, juzNumber?: number, folderId?: string): Promise<void> {
+    // Validate against folder Juz restrictions
+    if (folderId) {
+      const check = this.canAddToFolder(folderId, juzNumber);
+      if (!check.allowed) {
+        throw new Error(check.reason || 'Cannot add bookmark to this folder');
+      }
+    }
+
     // Remove if already exists first
     this.bookmarks = this.bookmarks.filter(b => !(b.surah === surah && b.ayah === ayah));
     

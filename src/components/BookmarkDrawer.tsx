@@ -9,6 +9,7 @@ import {
   TextInput,
   Dimensions,
   Platform,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { bookmarkService } from '../services/bookmarkService';
@@ -63,9 +64,13 @@ export const BookmarkDrawer: React.FC<BookmarkDrawerProps> = ({
   };
 
   const handleAddToFolder = async (folderId: string, folderName: string) => {
-    await bookmarkService.addBookmark(surahId, ayahNumber, juzNumber, folderId);
-    onBookmarkSaved('folder', folderName);
-    onClose();
+    try {
+      await bookmarkService.addBookmark(surahId, ayahNumber, juzNumber, folderId);
+      onBookmarkSaved('folder', folderName);
+      onClose();
+    } catch (err: any) {
+      Alert.alert('Cannot Save Here', err?.message || 'This bookmark cannot be added to this folder');
+    }
   };
 
   const handleCreateFolderAndAdd = async () => {
@@ -188,25 +193,52 @@ export const BookmarkDrawer: React.FC<BookmarkDrawerProps> = ({
 
               {/* Folders List */}
               {folders.length > 0 ? (
-                folders.map((folder) => (
-                  <Pressable
-                    key={folder.id}
-                    onPress={() => handleAddToFolder(folder.id, folder.name)}
-                    style={({ pressed }) => [
-                      styles.folderRow,
-                      { borderBottomColor: colors.border + '33' },
-                      pressed && { backgroundColor: colors.background },
-                    ]}
-                  >
-                    <View style={styles.folderRowLeft}>
-                      <Ionicons name="folder-outline" size={20} color={colors.primary} />
-                      <Text style={[styles.folderRowText, { color: colors.textPrimary }]}>
-                        {folder.name}
-                      </Text>
-                    </View>
-                    <Ionicons name="chevron-forward" size={16} color={colors.textMuted} />
-                  </Pressable>
-                ))
+                folders.map((folder) => {
+                  const isCircleFolder = !!folder.circleRoomId;
+                  const check = bookmarkService.canAddToFolder(folder.id, juzNumber);
+                  const isDisabled = !check.allowed;
+                  return (
+                    <Pressable
+                      key={folder.id}
+                      onPress={() => {
+                        if (isDisabled) {
+                          Alert.alert('Juz Restricted', check.reason || 'Cannot add to this folder');
+                        } else {
+                          handleAddToFolder(folder.id, folder.name);
+                        }
+                      }}
+                      style={({ pressed }) => [
+                        styles.folderRow,
+                        { borderBottomColor: colors.border + '33' },
+                        pressed && !isDisabled && { backgroundColor: colors.background },
+                        isDisabled && { opacity: 0.45 },
+                      ]}
+                    >
+                      <View style={styles.folderRowLeft}>
+                        <Ionicons
+                          name={isCircleFolder ? 'shield-half-outline' : 'folder-outline'}
+                          size={20}
+                          color={isDisabled ? colors.textMuted : colors.primary}
+                        />
+                        <View style={{ flex: 1, marginLeft: 12 }}>
+                          <Text style={[styles.folderRowText, { color: isDisabled ? colors.textMuted : colors.textPrimary }]}>
+                            {folder.name}
+                          </Text>
+                          {isCircleFolder && folder.restrictedJuzs && folder.restrictedJuzs.length > 0 && (
+                            <Text style={{ fontSize: 10, color: isDisabled ? colors.textMuted : colors.primary, marginTop: 1 }}>
+                              📿 Circle • Juz {folder.restrictedJuzs.join(', ')}
+                            </Text>
+                          )}
+                        </View>
+                      </View>
+                      <Ionicons
+                        name={isDisabled ? 'lock-closed' : 'chevron-forward'}
+                        size={16}
+                        color={colors.textMuted}
+                      />
+                    </Pressable>
+                  );
+                })
               ) : (
                 !showNewFolderInput && (
                   <Text style={[styles.noFoldersText, { color: colors.textMuted }]}>

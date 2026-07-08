@@ -1,0 +1,2 @@
+npx expo run:android
+npm run start
