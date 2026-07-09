@@ -196,3 +196,10 @@ console.log(`Lines      : ${totalLines.toLocaleString()}`);
 console.log(`Words      : ${totalWords.toLocaleString()}`);
 console.log(`Characters : ${totalChars.toLocaleString()}`);
 console.log("================================================");
+
+// ================================================
+// Files      : 51,260
+// Lines      : 15,784,503
+// Words      : 90,696,454
+// Characters : 2,964,465,757
+// ================================================

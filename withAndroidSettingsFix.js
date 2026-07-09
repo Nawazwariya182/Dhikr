@@ -78,12 +78,18 @@ const withAndroidSettingsFix = (config) => {
     const dbSizeKey = 'AsyncStorage_db_size_in_MB';
     const dbSizeVal = '50';
     
-    // Org Java Home
-    const javaHomeExists = config.modResults.some(item => item.key === javaHomeKey);
-    if (!javaHomeExists) {
-      config.modResults.push({ key: javaHomeKey, value: javaHomeVal, type: 'property' });
+    // Org Java Home - Only set on Windows local builds
+    const isWindows = process.platform === 'win32';
+    if (isWindows) {
+      const javaHomeExists = config.modResults.some(item => item.key === javaHomeKey);
+      if (!javaHomeExists) {
+        config.modResults.push({ key: javaHomeKey, value: javaHomeVal, type: 'property' });
+      } else {
+        config.modResults = config.modResults.map(item => item.key === javaHomeKey ? { ...item, value: javaHomeVal } : item);
+      }
     } else {
-      config.modResults = config.modResults.map(item => item.key === javaHomeKey ? { ...item, value: javaHomeVal } : item);
+      // Remove java home property if running on EAS/non-Windows
+      config.modResults = config.modResults.filter(item => item.key !== javaHomeKey);
     }
 
     // AsyncStorage DB size
