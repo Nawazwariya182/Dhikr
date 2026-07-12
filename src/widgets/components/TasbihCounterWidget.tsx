@@ -32,7 +32,6 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
     >
       {/* Title Header */}
       <FlexWidget
-        clickAction="OPEN_APP"
         style={{
           flexDirection: 'row',
           alignItems: 'center',
@@ -88,6 +87,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             fontSize: 22,
             textAlign: 'center',
             fontFamily: 'UthmanicHafs1Ver18',
+            width: 'match_parent',
           }}
         />
         <TextWidget
@@ -97,17 +97,19 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             fontSize: 12,
             textAlign: 'center',
             marginTop: 4,
+            width: 'match_parent',
           }}
         />
       </FlexWidget>
 
       {/* Counter */}
       <TextWidget
-        text={`${count} / ${target}`}
+        text={target > 0 ? `${count} / ${target}` : `${count}`}
         style={{
           color: '#3b82f6',
           fontSize: 24,
           fontWeight: 'bold',
+          textAlign: 'center',
         }}
       />
 
@@ -148,7 +150,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
         <FlexWidget
           clickAction="INCREMENT"
           style={{
-            flex: 1.8,
+            flex: 2,
             backgroundColor: '#2563eb',
             borderRadius: 10,
             paddingVertical: 7,

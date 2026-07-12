@@ -82,7 +82,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
         </FlexWidget>
 
         <TextWidget
-          text={`${streak} Day Streak 🔥`}
+          text={`${streak} Day Streak`}
           style={{
             color: '#f59e0b',
             fontSize: 12,
@@ -126,7 +126,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
                   width: 42,
                   height: 42,
                   borderRadius: 21,
-                  backgroundColor: (isPrayed ? color + '20' : '#111827') as any,
+                  backgroundColor: (isPrayed ? (color + '20') : '#111827') as any,
                   borderColor: color as any,
                   borderWidth: 2,
                   justifyContent: 'center',

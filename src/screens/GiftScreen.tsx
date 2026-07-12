@@ -1,0 +1,732 @@
+import React, { useState, useRef, useEffect } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  TextInput,
+  ScrollView,
+  ImageBackground,
+  Alert,
+  ActivityIndicator,
+  Animated,
+  Dimensions,
+  Modal,
+  FlatList,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
+import ViewShot from 'react-native-view-shot';
+import * as MediaLibrary from 'expo-media-library';
+import * as Sharing from 'expo-sharing';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { useAppPreferences } from '../context/AppPreferencesContext';
+import { FONTS } from '../utils/constants';
+import quranData from '../../assets/json/quran.json';
+import surahMetaData from '../../assets/json/surah_meta.json';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+// ── Types ──
+type GiftThemeId = 'ramadan' | 'eid' | 'healing' | 'blessings' | 'gratitude';
+type GiftAnimation = 'lanterns' | 'stars' | 'rain' | 'petals';
+
+interface GiftTheme {
+  id: GiftThemeId;
+  name: string;
+  colors: string[]; // Gradient
+  isDark: boolean;
+  bgSource?: any;
+  accent: string;
+}
+
+interface PresetDua {
+  id: string;
+  title: string;
+  arabic: string;
+  english: string;
+}
+
+// ── Constants ──
+const THEMES: GiftTheme[] = [
+  { id: 'ramadan', name: 'Ramadan Moon', colors: ['#0b0c1b', '#1a1b3a', '#060714'], isDark: true, bgSource: require('../../assets/backgrounds/bg_indigo_stars.jpg'), accent: '#f59e0b' },
+  { id: 'eid', name: 'Eid Mubarak', colors: ['#120120', '#2d0a42', '#08000f'], isDark: true, bgSource: require('../../assets/backgrounds/bg_mosque_night_sky.jpg'), accent: '#d946ef' },
+  { id: 'healing', name: 'Olive Peace', colors: ['#0f1710', '#1c2e20', '#0a0f0a'], isDark: true, bgSource: require('../../assets/backgrounds/bg_olive_gold.jpg'), accent: '#84cc16' },
+  { id: 'blessings', name: 'Daily Ivory', colors: ['#FCFBF7', '#F5F2E9', '#EAE4D3'], isDark: false, bgSource: require('../../assets/backgrounds/bg_parchment.jpg'), accent: '#b45309' },
+  { id: 'gratitude', name: 'Emerald Gold', colors: ['#03180b', '#0e3a1f', '#010c05'], isDark: true, bgSource: require('../../assets/backgrounds/bg_arabesque_emerald.jpg'), accent: '#fbbf24' },
+];
+
+const PRESET_DUAS: PresetDua[] = [
+  {
+    id: 'protection',
+    title: 'Dua for Protection',
+    arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',
+    english: 'In the name of Allah, with whose name nothing can cause harm on earth or in the heaven, and He is the All-Hearing, the All-Knowing.'
+  },
+  {
+    id: 'anxiety',
+    title: 'Dua for Anxiety & Grief',
+    arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ',
+    english: 'O Allah, I seek refuge in You from anxiety, grief, incapacity, laziness, cowardice, miserliness, the burden of debt and control of men.'
+  },
+  {
+    id: 'ease',
+    title: 'Dua for Ease & Trials',
+    arabic: 'اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا وَأَنْتَ تَجْعَلُ الْحَزَنَ إِذَا شِئْتَ سَهْلًا',
+    english: 'O Allah, there is no ease except in what You make easy, and You make the difficulty easy if You will.'
+  },
+  {
+    id: 'health',
+    title: 'Dua for Health & Well-being',
+    arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي لَا إِلَهَ إِلَّا أَنْتَ',
+    english: 'O Allah, grant health to my body; O Allah, grant health to my hearing; O Allah, grant health to my sight; there is no deity except You.'
+  },
+];
+
+export const GiftScreen: React.FC = () => {
+  const { colors } = useAppPreferences();
+  const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
+  const route = useRoute<RouteProp<{ params: { giftData?: string } }, 'params'>>();
+  const viewShotRef = useRef<ViewShot>(null);
+
+  // Mode: 'create' | 'receive'
+  const [mode, setMode] = useState<'create' | 'receive'>('create');
+  
+  // Received state
+  const [giftOpened, setGiftOpened] = useState(false);
+  const [receivedMessage, setReceivedMessage] = useState('');
+  const [receivedArabic, setReceivedArabic] = useState('');
+  const [receivedEnglish, setReceivedEnglish] = useState('');
+  const [receivedRef, setReceivedRef] = useState('');
+  const [receivedTheme, setReceivedTheme] = useState<GiftTheme>(THEMES[0]);
+  const [receivedAnimation, setReceivedAnimation] = useState<GiftAnimation>('lanterns');
+
+  // Creator state
+  const [selectedThemeId, setSelectedThemeId] = useState<GiftThemeId>('ramadan');
+  const [selectedAnimation, setSelectedAnimation] = useState<GiftAnimation>('lanterns');
+  const [customMsg, setCustomMsg] = useState('May Allah accept all your deeds, answer your prayers, and bless you with infinite happiness.');
+  const [toName, setToName] = useState('');
+  const [fromName, setFromName] = useState('');
+
+  // Quran Verse picker
+  const [selectedSurahId, setSelectedSurahId] = useState(1);
+  const [ayahNum, setAyahNum] = useState('1');
+  const [verseArabic, setVerseArabic] = useState('');
+  const [verseEnglish, setVerseEnglish] = useState('');
+  const [verseRef, setVerseRef] = useState('');
+  const [surahModalVisible, setSurahModalVisible] = useState(false);
+  const [surahSearch, setSurahSearch] = useState('');
+
+  // Dua Picker
+  const [selectedDuaId, setSelectedDuaId] = useState<string>('protection');
+
+  // Sharing states
+  const [generating, setGenerating] = useState(false);
+  const [sharing, setSharing] = useState(false);
+
+  // Animations
+  const boxScale = useRef(new Animated.Value(1)).current;
+  const boxOpacity = useRef(new Animated.Value(1)).current;
+  const contentFade = useRef(new Animated.Value(0)).current;
+  const particleAnims = useRef(Array.from({ length: 15 }, () => new Animated.Value(0))).current;
+
+  // Load verse details
+  useEffect(() => {
+    loadVerse();
+  }, [selectedSurahId, ayahNum]);
+
+  const loadVerse = () => {
+    try {
+      const num = parseInt(ayahNum, 10);
+      if (isNaN(num) || num < 1) return;
+      const flat = quranData as any[];
+      const entry = flat.find((v: any) => v.surah === selectedSurahId && v.ayah === num);
+      const surah = surahMetaData.find(s => s.id === selectedSurahId);
+      if (entry && surah) {
+        setVerseArabic(entry.arabic || '');
+        setVerseEnglish(entry.english || '');
+        setVerseRef(`${surah.name_en} — ${selectedSurahId}:${num}`);
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  // Check if we received a gift via deep link / route params on mount
+  useEffect(() => {
+    if (route.params?.giftData) {
+      try {
+        const decoded = JSON.parse(decodeURIComponent(escape(atob(route.params.giftData))));
+        setReceivedMessage(decoded.msg || '');
+        setReceivedArabic(decoded.ar || '');
+        setReceivedEnglish(decoded.en || '');
+        setReceivedRef(decoded.ref || '');
+        const theme = THEMES.find(t => t.id === decoded.theme) || THEMES[0];
+        setReceivedTheme(theme);
+        setReceivedAnimation(decoded.anim || 'lanterns');
+        setMode('receive');
+        setGiftOpened(false);
+      } catch (e) {
+        Alert.alert('Invalid Gift', 'Could not open this digital gift package.');
+      }
+    } else {
+      setMode('create');
+    }
+  }, [route.params?.giftData]);
+
+  // Open Gift Action
+  const handleOpenGift = () => {
+    // Trigger animations
+    Animated.parallel([
+      // Shrink and fade gift box
+      Animated.timing(boxScale, {
+        toValue: 0.1,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+      Animated.timing(boxOpacity, {
+        toValue: 0,
+        duration: 700,
+        useNativeDriver: true,
+      }),
+      // Fade in digital content card
+      Animated.timing(contentFade, {
+        toValue: 1,
+        duration: 1000,
+        delay: 500,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      setGiftOpened(true);
+    });
+
+    // Animate bursting stars/particles
+    particleAnims.forEach((anim, i) => {
+      Animated.timing(anim, {
+        toValue: 1,
+        duration: 1200 + Math.random() * 600,
+        useNativeDriver: true,
+      }).start();
+    });
+  };
+
+  // Build gift object and encode in Base64
+  const buildGiftLink = () => {
+    const chosenDua = PRESET_DUAS.find(d => d.id === selectedDuaId);
+    const giftObj = {
+      to: toName.trim() || 'My Dear Friend',
+      from: fromName.trim() || 'Well Wisher',
+      msg: customMsg.trim(),
+      ar: chosenDua ? chosenDua.arabic : verseArabic,
+      en: chosenDua ? chosenDua.english : verseEnglish,
+      ref: chosenDua ? chosenDua.title : verseRef,
+      theme: selectedThemeId,
+      anim: selectedAnimation,
+    };
+    
+    // Convert to JSON and encode to Base64 (supporting Unicode characters)
+    const jsonStr = JSON.stringify(giftObj);
+    const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
+    
+    // We point to our public universal landing page (which hosts gift_viewer.html)
+    // The user can host this page on Github Pages or Firebase
+    const hostedLandingPage = 'https://nawazwariya182.github.io/dhikr-gift/viewer.html';
+    return `${hostedLandingPage}?data=${encodeURIComponent(b64)}`;
+  };
+
+  const handleShareGift = async () => {
+    setSharing(true);
+    try {
+      const shareUrl = buildGiftLink();
+      const cardUri = await viewShotRef.current?.capture?.();
+      
+      const shareMessage = `🎁 Assalamu Alaikum! I have packaged a spiritual digital gift for you.\n\nClick the link below to open your gift (no app installation required!):\n${shareUrl}`;
+
+      if (cardUri && await Sharing.isAvailableAsync()) {
+        await Sharing.shareAsync(cardUri, {
+          dialogTitle: 'Send Spiritual Gift',
+          mimeType: 'image/png',
+          UTI: 'public.png',
+        });
+      } else {
+        // Plain share if ViewShot fails
+        await Sharing.shareAsync(shareUrl, {
+          dialogTitle: 'Send Spiritual Gift Link',
+        });
+      }
+    } catch (e) {
+      Alert.alert('Error', 'Could not share the digital gift.');
+    } finally {
+      setSharing(false);
+    }
+  };
+
+  const filteredSurahs = surahSearch.trim()
+    ? surahMetaData.filter(s =>
+        (s.name_en || '').toLowerCase().includes(surahSearch.toLowerCase()) ||
+        (s.name_translit || '').toLowerCase().includes(surahSearch.toLowerCase()) ||
+        (s.id || '').toString().includes(surahSearch)
+      )
+    : surahMetaData;
+
+  const selectedSurah = surahMetaData.find(s => s.id === selectedSurahId) ?? surahMetaData[0];
+  const activeTheme = THEMES.find(t => t.id === selectedThemeId) ?? THEMES[0];
+
+  return (
+    <View style={[styles.root, { backgroundColor: colors.background, paddingTop: insets.top }]}>
+      
+      {/* ── MODE: RECEIVE GIFT (Interactive Opening Card) ── */}
+      {mode === 'receive' && (
+        <ImageBackground
+          source={receivedTheme.bgSource}
+          style={StyleSheet.absoluteFillObject}
+          resizeMode="cover"
+        >
+          <View style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.45)' }]} />
+
+          {!giftOpened ? (
+            <View style={styles.openingContainer}>
+              <Animated.View style={{ transform: [{ scale: boxScale }], opacity: boxOpacity, alignItems: 'center' }}>
+                <Text style={styles.giftTitle}>You have received a Gift!</Text>
+                <Text style={styles.giftSubtitle}>A spiritual gift was sent to bless your day.</Text>
+
+                {/* Animated Glowing Gift Box */}
+                <Pressable onPress={handleOpenGift} style={styles.giftBoxWrapper}>
+                  <View style={[styles.glowRing, { borderColor: receivedTheme.accent }]} />
+                  <Ionicons name="gift" size={100} color={receivedTheme.accent} />
+                  <Text style={styles.tapPrompt}>Tap to Open Gift</Text>
+                </Pressable>
+              </Animated.View>
+
+              {/* Particle Burst Effects */}
+              {particleAnims.map((anim, i) => {
+                const angle = (i / particleAnims.length) * 2 * Math.PI;
+                const distX = Math.cos(angle) * 200;
+                const distY = Math.sin(angle) * 200 - 100;
+                
+                const translateX = anim.interpolate({ inputRange: [0, 1], outputRange: [0, distX] });
+                const translateY = anim.interpolate({ inputRange: [0, 1], outputRange: [0, distY] });
+                const scale = anim.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0, 1.5, 0] });
+
+                return (
+                  <Animated.View
+                    key={i}
+                    style={[
+                      styles.particle,
+                      {
+                        backgroundColor: receivedTheme.accent,
+                        transform: [{ translateX }, { translateY }, { scale }],
+                      }
+                    ]}
+                  />
+                );
+              })}
+            </View>
+          ) : (
+            <Animated.View style={[styles.contentCardContainer, { opacity: contentFade }]}>
+              <ScrollView contentContainerStyle={styles.openedScroll}>
+                <View style={[styles.giftPaper, { borderColor: receivedTheme.accent }]}>
+                  {/* Decorative Border Corner Icons */}
+                  <Ionicons name="heart" size={16} color={receivedTheme.accent} style={styles.cardCornerTL} />
+                  <Ionicons name="star" size={16} color={receivedTheme.accent} style={styles.cardCornerTR} />
+
+                  <Text style={[styles.openedGreeting, { color: receivedTheme.accent }]}>✨ Assalamu Alaikum ✨</Text>
+                  
+                  <Text style={styles.openedMsg}>"{receivedMessage}"</Text>
+
+                  <View style={styles.openedDivider} />
+
+                  {/* Arabic Text */}
+                  <Text style={styles.openedArabicText}>
+                    {receivedArabic}
+                  </Text>
+
+                  {/* English Text */}
+                  <Text style={styles.openedEnglishText}>
+                    {receivedEnglish}
+                  </Text>
+
+                  <Text style={[styles.openedRef, { color: receivedTheme.accent }]}>
+                    — {receivedRef}
+                  </Text>
+
+                  <Pressable
+                    onPress={() => setMode('create')}
+                    style={[styles.replyBtn, { backgroundColor: colors.primary }]}
+                  >
+                    <Ionicons name="paper-plane" size={18} color="#fff" />
+                    <Text style={styles.replyBtnText}>Send a Gift Back</Text>
+                  </Pressable>
+                </View>
+              </ScrollView>
+            </Animated.View>
+          )}
+        </ImageBackground>
+      )}
+
+      {/* ── MODE: CREATE GIFT (Packaging Interface) ── */}
+      {mode === 'create' && (
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={[styles.scrollContent, { paddingBottom: insets.bottom + 20 }]}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View style={styles.header}>
+            <Text style={[styles.title, { color: colors.textPrimary }]}>Spiritual Gift Dispatcher</Text>
+            <Text style={[styles.subtitle, { color: colors.textMuted }]}>
+              Package custom blessings, Quran verses, or Duas in an elegant, interactive web landing page card to share with friends.
+            </Text>
+          </View>
+
+          {/* ── Card Design Preview (ViewShot) ── */}
+          <View style={styles.previewWrapper}>
+            <ViewShot
+              ref={viewShotRef}
+              options={{ format: 'png', quality: 1.0 }}
+              style={styles.viewShotCard}
+            >
+              <ImageBackground
+                source={activeTheme.bgSource}
+                style={StyleSheet.absoluteFillObject}
+                resizeMode="cover"
+              >
+                <View style={[StyleSheet.absoluteFillObject, { backgroundColor: activeTheme.isDark ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.1)' }]} />
+                
+                <View style={[styles.previewPaper, { borderColor: activeTheme.accent }]}>
+                  <Text style={[styles.previewGreeting, { color: activeTheme.accent }]}>🌙 A Gift For You</Text>
+                  
+                  <Text style={[styles.previewMsg, { color: activeTheme.isDark ? '#fff' : '#111' }]} numberOfLines={3}>
+                    "{customMsg || 'May Allah bless you.'}"
+                  </Text>
+
+                  <View style={[styles.previewDivider, { backgroundColor: activeTheme.accent }]} />
+
+                  {/* Previewing selected verse or Dua */}
+                  <Text style={[styles.previewArabic, { color: activeTheme.isDark ? '#fff' : '#111' }]} numberOfLines={3}>
+                    {selectedDuaId ? PRESET_DUAS.find(d => d.id === selectedDuaId)?.arabic : verseArabic}
+                  </Text>
+
+                  <Text style={[styles.previewRef, { color: activeTheme.accent }]}>
+                    — {selectedDuaId ? PRESET_DUAS.find(d => d.id === selectedDuaId)?.title : verseRef}
+                  </Text>
+                </View>
+              </ImageBackground>
+            </ViewShot>
+          </View>
+
+          {/* ── Form Inputs ── */}
+          <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>1. Personalized Message</Text>
+            
+            <View style={styles.row}>
+              <View style={{ flex: 1, marginRight: 8 }}>
+                <Text style={[styles.label, { color: colors.textSecondary }]}>To (optional)</Text>
+                <TextInput
+                  style={[styles.input, { backgroundColor: colors.background, borderColor: colors.border, color: colors.textPrimary }]}
+                  value={toName}
+                  onChangeText={setToName}
+                  placeholder="Friend name..."
+                  placeholderTextColor={colors.textMuted}
+                />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.label, { color: colors.textSecondary }]}>From (optional)</Text>
+                <TextInput
+                  style={[styles.input, { backgroundColor: colors.background, borderColor: colors.border, color: colors.textPrimary }]}
+                  value={fromName}
+                  onChangeText={setFromName}
+                  placeholder="Your name..."
+                  placeholderTextColor={colors.textMuted}
+                />
+              </View>
+            </View>
+
+            <Text style={[styles.label, { color: colors.textSecondary, marginTop: 10 }]}>Greeting message</Text>
+            <TextInput
+              style={[styles.textArea, { backgroundColor: colors.background, borderColor: colors.border, color: colors.textPrimary }]}
+              value={customMsg}
+              onChangeText={setCustomMsg}
+              multiline
+              maxLength={150}
+              placeholder="Write a custom blessing/greeting..."
+              placeholderTextColor={colors.textMuted}
+            />
+          </View>
+
+          {/* ── Content Type Selection ── */}
+          <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>2. Select Sacred Content</Text>
+            
+            <View style={styles.choiceRow}>
+              <Pressable
+                onPress={() => setSelectedDuaId('')}
+                style={[styles.choiceBtn, !selectedDuaId && { backgroundColor: colors.primary }]}
+              >
+                <Text style={[styles.choiceBtnText, { color: !selectedDuaId ? '#fff' : colors.textSecondary }]}>
+                  Quran Verse
+                </Text>
+              </Pressable>
+              <Pressable
+                onPress={() => setSelectedDuaId('protection')}
+                style={[styles.choiceBtn, selectedDuaId !== '' && { backgroundColor: colors.primary }]}
+              >
+                <Text style={[styles.choiceBtnText, { color: selectedDuaId !== '' ? '#fff' : colors.textSecondary }]}>
+                  Prophetic Dua
+                </Text>
+              </Pressable>
+            </View>
+
+            {/* Quran Verse Selector */}
+            {!selectedDuaId ? (
+              <View style={{ marginTop: 12 }}>
+                <Text style={[styles.label, { color: colors.textSecondary }]}>Select Surah</Text>
+                <Pressable
+                  onPress={() => setSurahModalVisible(true)}
+                  style={[styles.dropdownBtn, { backgroundColor: colors.background, borderColor: colors.border }]}
+                >
+                  <Text style={[styles.dropdownText, { color: colors.textPrimary }]}>
+                    {selectedSurah.id}. {selectedSurah.name_en}
+                  </Text>
+                  <Ionicons name="chevron-down" size={16} color={colors.textSecondary} />
+                </Pressable>
+
+                <Text style={[styles.label, { color: colors.textSecondary, marginTop: 10 }]}>Ayah Number</Text>
+                <TextInput
+                  style={[styles.input, { backgroundColor: colors.background, borderColor: colors.border, color: colors.textPrimary }]}
+                  value={ayahNum}
+                  onChangeText={setAyahNum}
+                  keyboardType="number-pad"
+                  placeholder={`1 – ${selectedSurah.ayahs}`}
+                  placeholderTextColor={colors.textMuted}
+                />
+              </View>
+            ) : (
+              // Preset Dua Selector
+              <View style={{ marginTop: 12 }}>
+                <Text style={[styles.label, { color: colors.textSecondary }]}>Choose Dua Preset</Text>
+                {PRESET_DUAS.map(d => (
+                  <Pressable
+                    key={d.id}
+                    onPress={() => setSelectedDuaId(d.id)}
+                    style={[styles.duaPresetItem, {
+                      borderColor: selectedDuaId === d.id ? colors.primary : colors.border,
+                      backgroundColor: selectedDuaId === d.id ? colors.primary + '10' : colors.background
+                    }]}
+                  >
+                    <Text style={[styles.duaPresetTitle, { color: colors.textPrimary }]}>{d.title}</Text>
+                    <Text style={[styles.duaPresetSub, { color: colors.textMuted }]} numberOfLines={1}>{d.english}</Text>
+                  </Pressable>
+                ))}
+              </View>
+            )}
+          </View>
+
+          {/* ── Theme Customization ── */}
+          <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>3. Theme Presets</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.themePalette}>
+              {THEMES.map(theme => (
+                <Pressable
+                  key={theme.id}
+                  onPress={() => setSelectedThemeId(theme.id)}
+                  style={[styles.themePill, {
+                    borderColor: selectedThemeId === theme.id ? colors.primary : colors.border,
+                    backgroundColor: colors.background
+                  }]}
+                >
+                  <View style={[styles.colorDot, { backgroundColor: theme.accent }]} />
+                  <Text style={[styles.themeLabel, { color: colors.textPrimary }]}>{theme.name}</Text>
+                </Pressable>
+              ))}
+            </ScrollView>
+          </View>
+
+          {/* ── Share / Send Action ── */}
+          <Pressable
+            onPress={handleShareGift}
+            disabled={sharing}
+            style={[styles.dispatchBtn, { backgroundColor: colors.primary }]}
+          >
+            {sharing ? (
+              <ActivityIndicator color="#fff" size="small" />
+            ) : (
+              <>
+                <Ionicons name="paper-plane-outline" size={20} color="#fff" />
+                <Text style={styles.dispatchBtnText}>Send Spiritual Gift Link</Text>
+              </>
+            )}
+          </Pressable>
+
+        </ScrollView>
+      )}
+
+      {/* ── Surah Dropdown Modal ── */}
+      <Modal
+        visible={surahModalVisible}
+        animationType="slide"
+        transparent
+        onRequestClose={() => setSurahModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalSheet, { backgroundColor: colors.surface }]}>
+            <View style={styles.modalHeader}>
+              <Text style={[styles.modalTitle, { color: colors.textPrimary }]}>Select Surah</Text>
+              <Pressable onPress={() => setSurahModalVisible(false)}>
+                <Ionicons name="close" size={24} color={colors.textSecondary} />
+              </Pressable>
+            </View>
+            <TextInput
+              style={[styles.searchInput, { backgroundColor: colors.background, borderColor: colors.border, color: colors.textPrimary }]}
+              value={surahSearch}
+              onChangeText={setSurahSearch}
+              placeholder="Search surah..."
+              placeholderTextColor={colors.textMuted}
+            />
+            <FlatList
+              data={filteredSurahs}
+              keyExtractor={item => String(item.id)}
+              renderItem={({ item }) => (
+                <Pressable
+                  onPress={() => {
+                    setSelectedSurahId(item.id);
+                    setAyahNum('1');
+                    setSurahModalVisible(false);
+                    setSurahSearch('');
+                  }}
+                  style={[styles.surahRow, { borderBottomColor: colors.border, backgroundColor: item.id === selectedSurahId ? colors.primary + '15' : 'transparent' }]}
+                >
+                  <View style={[styles.surahNumBadge, { backgroundColor: item.id === selectedSurahId ? colors.primary : colors.background }]}>
+                    <Text style={[styles.surahNum, { color: item.id === selectedSurahId ? '#fff' : colors.textMuted }]}>{item.id}</Text>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.surahName, { color: colors.textPrimary }]}>{item.name_en}</Text>
+                  </View>
+                  <Text style={[styles.surahArabicName, { color: item.id === selectedSurahId ? colors.primary : colors.textSecondary }]}>{item.name_ar}</Text>
+                </Pressable>
+              )}
+              showsVerticalScrollIndicator={false}
+              style={{ flex: 1 }}
+            />
+          </View>
+        </View>
+      </Modal>
+
+    </View>
+  );
+};
+
+// ── Styles ──
+const styles = StyleSheet.create({
+  root: { flex: 1 },
+  scroll: { flex: 1 },
+  scrollContent: { paddingHorizontal: 16, paddingTop: 12, gap: 12 },
+
+  header: { paddingHorizontal: 4, marginVertical: 6 },
+  title: { fontFamily: FONTS.english, fontSize: 24, fontWeight: '800' },
+  subtitle: { fontFamily: FONTS.english, fontSize: 13, lineHeight: 18, marginTop: 4 },
+
+  previewWrapper: { alignItems: 'center', marginVertical: 10 },
+  viewShotCard: {
+    width: 320,
+    height: 400,
+    borderRadius: 20,
+    overflow: 'hidden',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+  },
+  previewPaper: {
+    flex: 1,
+    margin: 20,
+    borderWidth: 1.5,
+    borderRadius: 14,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.18)',
+  },
+  previewGreeting: { fontSize: 13, fontWeight: '700', letterSpacing: 2, marginBottom: 8 },
+  previewMsg: { fontFamily: FONTS.english, fontSize: 12, textAlign: 'center', lineHeight: 18 },
+  previewDivider: { height: 1.5, width: 40, marginVertical: 12 },
+  previewArabic: { fontFamily: 'UthmanicHafs', fontSize: 18, textAlign: 'center', lineHeight: 28, marginVertical: 4 },
+  previewRef: { fontFamily: FONTS.english, fontSize: 10, fontWeight: '700', marginTop: 8 },
+
+  card: { borderRadius: 16, borderWidth: 1, padding: 14 },
+  sectionTitle: { fontFamily: FONTS.english, fontSize: 14, fontWeight: '700', marginBottom: 12 },
+  row: { flexDirection: 'row', gap: 10 },
+  label: { fontFamily: FONTS.english, fontSize: 11, fontWeight: '600', marginBottom: 4 },
+  input: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, fontSize: 14, fontFamily: FONTS.english },
+  textArea: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, fontSize: 14, minHeight: 64, textAlignVertical: 'top', fontFamily: FONTS.english },
+  
+  choiceRow: { flexDirection: 'row', gap: 8, marginBottom: 4 },
+  choiceBtn: { flex: 1, paddingVertical: 8, borderRadius: 8, alignItems: 'center', borderWidth: 1, borderColor: '#e5e7eb' },
+  choiceBtnText: { fontFamily: FONTS.english, fontSize: 12, fontWeight: '600' },
+  
+  duaPresetItem: { borderWidth: 1, padding: 10, borderRadius: 10, marginBottom: 8 },
+  duaPresetTitle: { fontFamily: FONTS.english, fontSize: 12, fontWeight: '700' },
+  duaPresetSub: { fontFamily: FONTS.english, fontSize: 10, marginTop: 2 },
+  
+  dropdownBtn: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 12 },
+  dropdownText: { fontFamily: FONTS.english, fontSize: 14 },
+
+  themePalette: { flexDirection: 'row', paddingVertical: 4 },
+  themePill: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: 20, paddingHorizontal: 12, paddingVertical: 8, marginRight: 8 },
+  colorDot: { width: 12, height: 12, borderRadius: 6, marginRight: 6 },
+  themeLabel: { fontFamily: FONTS.english, fontSize: 12, fontWeight: '700' },
+
+  dispatchBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 14, borderRadius: 14, gap: 8, marginTop: 4 },
+  dispatchBtnText: { color: '#fff', fontFamily: FONTS.english, fontSize: 14, fontWeight: '700' },
+
+  // Opening screen received
+  openingContainer: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
+  giftTitle: { color: '#fff', fontSize: 24, fontWeight: '800', fontFamily: FONTS.english, textAlign: 'center' },
+  giftSubtitle: { color: 'rgba(255,255,255,0.7)', fontSize: 13, marginTop: 4, fontFamily: FONTS.english, textAlign: 'center' },
+  giftBoxWrapper: { marginTop: 40, alignItems: 'center' },
+  glowRing: { position: 'absolute', width: 140, height: 140, borderRadius: 70, borderWidth: 2, opacity: 0.3, top: -20 },
+  tapPrompt: { color: '#fff', fontSize: 12, fontWeight: '700', marginTop: 14, letterSpacing: 2, textTransform: 'uppercase' },
+
+  particle: { position: 'absolute', width: 8, height: 8, borderRadius: 4, top: '50%', left: '50%' },
+
+  // Content Card received
+  contentCardContainer: { flex: 1, justifyContent: 'center', padding: 20 },
+  openedScroll: { flexGrow: 1, justifyContent: 'center' },
+  giftPaper: {
+    backgroundColor: '#0a0d14',
+    borderWidth: 2,
+    borderRadius: 24,
+    padding: 24,
+    alignItems: 'center',
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    position: 'relative',
+  },
+  cardCornerTL: { position: 'absolute', top: 16, left: 16, opacity: 0.6 },
+  cardCornerTR: { position: 'absolute', top: 16, right: 16, opacity: 0.6 },
+  openedGreeting: { fontSize: 15, fontWeight: '800', letterSpacing: 2, marginBottom: 12 },
+  openedMsg: { color: '#fff', fontFamily: FONTS.english, fontSize: 14, textAlign: 'center', lineHeight: 22 },
+  openedDivider: { height: 1.5, width: 80, backgroundColor: 'rgba(255,255,255,0.1)', marginVertical: 20 },
+  openedArabicText: { fontFamily: 'UthmanicHafs', fontSize: 26, color: '#fff', textAlign: 'center', lineHeight: 46, marginBottom: 16 },
+  openedEnglishText: { fontFamily: FONTS.english, fontSize: 13, color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 20 },
+  openedRef: { fontFamily: FONTS.english, fontSize: 11, fontWeight: '700', marginTop: 14 },
+  replyBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12, gap: 8, marginTop: 24 },
+  replyBtnText: { color: '#fff', fontFamily: FONTS.english, fontWeight: '700', fontSize: 13 },
+
+  // Modal
+  modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'flex-end' },
+  modalSheet: { borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: 16, height: '82%', flexDirection: 'column' },
+  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  modalTitle: { fontFamily: FONTS.english, fontSize: 18, fontWeight: '700' },
+  searchInput: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, fontFamily: FONTS.english, fontSize: 14, marginBottom: 8 },
+  surahRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12, paddingHorizontal: 4, borderBottomWidth: 1, gap: 10 },
+  surahNumBadge: { width: 34, height: 34, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
+  surahNum: { fontFamily: FONTS.english, fontSize: 13, fontWeight: '700' },
+  surahName: { fontFamily: FONTS.english, fontSize: 14, fontWeight: '600' },
+  surahArabicName: { fontFamily: 'UthmanicHafs', fontSize: 18 },
+});

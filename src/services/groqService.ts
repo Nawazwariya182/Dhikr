@@ -57,8 +57,10 @@ class GroqService {
     }
     try {
       const today = new Date().toISOString().split('T')[0];
-      const lastDate = await AsyncStorage.getItem('@dhikr_last_quiz_date');
-      return lastDate !== today;
+      const key = `@dhikr_quiz_count_${today}`;
+      const countStr = await AsyncStorage.getItem(key);
+      const count = countStr ? parseInt(countStr, 10) : 0;
+      return count < 2; // Allow 2 quizzes per day
     } catch {
       return true;
     }
@@ -67,9 +69,12 @@ class GroqService {
   async recordQuizGeneration(): Promise<void> {
     try {
       const today = new Date().toISOString().split('T')[0];
-      await AsyncStorage.setItem('@dhikr_last_quiz_date', today);
+      const key = `@dhikr_quiz_count_${today}`;
+      const countStr = await AsyncStorage.getItem(key);
+      const count = countStr ? parseInt(countStr, 10) : 0;
+      await AsyncStorage.setItem(key, String(count + 1));
     } catch (e) {
-      console.warn('Error saving quiz generation date:', e);
+      console.warn('Error saving quiz generation count:', e);
     }
   }
 

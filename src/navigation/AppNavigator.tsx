@@ -14,6 +14,9 @@ import { CirclesScreen } from '../screens/CirclesScreen';
 import { PrayerTrackerScreen } from '../screens/PrayerTrackerScreen';
 import { SajdahTrackerScreen } from '../screens/SajdahTrackerScreen';
 import { QuizScreen } from '../screens/QuizScreen';
+import { WisdomCardScreen } from '../screens/WisdomCardScreen';
+import { WallpaperScreen } from '../screens/WallpaperScreen';
+import { GiftScreen } from '../screens/GiftScreen';
 import { FONTS } from '../utils/constants';
 import { useAppPreferences } from '../context/AppPreferencesContext';
 
@@ -24,6 +27,9 @@ export type RootStackParamList = {
   SajdahTracker: undefined;
   Quiz: undefined;
   Circles: undefined;
+  WisdomCard: undefined;
+  Wallpaper: undefined;
+  Gift: { giftData?: string } | undefined;
 };
 
 export type TabParamList = {
@@ -156,6 +162,32 @@ export const AppNavigator: React.FC = () => {
           title: 'Community Circles',
           headerShadowVisible: false,
           animation: 'slide_from_right',
+        })}
+      />
+      <Stack.Screen
+        name="WisdomCard"
+        component={WisdomCardScreen as any}
+        options={() => ({
+          title: 'Wisdom Cards',
+          headerShadowVisible: false,
+          animation: 'slide_from_right',
+        })}
+      />
+      <Stack.Screen
+        name="Wallpaper"
+        component={WallpaperScreen as any}
+        options={() => ({
+          title: 'AI Wallpapers',
+          headerShadowVisible: false,
+          animation: 'slide_from_right',
+        })}
+      />
+      <Stack.Screen
+        name="Gift"
+        component={GiftScreen as any}
+        options={() => ({
+          headerShown: false,
+          animation: 'fade',
         })}
       />
     </Stack.Navigator>

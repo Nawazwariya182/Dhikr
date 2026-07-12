@@ -51,11 +51,12 @@ export const ProphetsStoriesWidget: React.FC<ProphetsStoriesWidgetProps> = ({
             />
           </FlexWidget>
           <TextWidget
-            text={prophet.toUpperCase()}
+            text={(prophet || '').toUpperCase()}
             style={{
               color: '#f59e0b',
               fontSize: 13,
               fontWeight: 'bold',
+              width: 'match_parent',
             }}
           />
         </FlexWidget>

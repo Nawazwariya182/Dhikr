@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Spiritual Gift Package 🎁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Amiri&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-color: #f59e0b;
+      --bg-gradient: linear-gradient(135deg, #0b0c1b 0%, #1a1b3a 50%, #060714 100%);
+      --paper-bg: rgba(10, 13, 20, 0.95);
+      --text-color: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      color: var(--text-color);
+      perspective: 1000px;
+    }
+
+    /* ── Floating Particles Background ── */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: floatUp 8s infinite linear;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* ── Gift Box Screen ── */
+    .gift-box-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      text-align: center;
+      padding: 24px;
+      transition: all 0.8s ease-in-out;
+    }
+
+    .gift-box-screen.hidden {
+      opacity: 0;
+      transform: scale(0.3) rotate(360deg);
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .gift-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .gift-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .gift-box-wrapper {
+      position: relative;
+      cursor: pointer;
+      width: 160px;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .gift-box-wrapper:hover {
+      transform: scale(1.08);
+    }
+
+    .gift-box-wrapper::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 2px dashed var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: spin 12s infinite linear;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .gift-box-svg {
+      width: 100px;
+      height: 100px;
+      fill: var(--accent-color);
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .tap-prompt {
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.9; }
+    }
+
+    /* ── Opened Card Content ── */
+    .content-screen {
+      width: 90%;
+      max-width: 480px;
+      z-index: 10;
+      opacity: 0;
+      transform: translateY(40px) scale(0.9);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      display: none;
+    }
+
+    .content-screen.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .gift-paper {
+      background: var(--paper-bg);
+      border: 2px solid var(--accent-color);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+      position: relative;
+    }
+
+    .card-decorator {
+      position: absolute;
+      font-size: 16px;
+      color: var(--accent-color);
+      opacity: 0.5;
+    }
+
+    .decor-tl { top: 20px; left: 20px; }
+    .decor-tr { top: 20px; right: 20px; }
+
+    .opened-greeting {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 24px;
+    }
+
+    .opened-msg {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-style: italic;
+      color: var(--text-color);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+      width: 60%;
+      margin: 28px auto;
+    }
+
+    .arabic-text {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      direction: rtl;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .english-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .ref-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .app-prompt {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .app-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .app-link:hover {
+      background: var(--accent-color);
+      color: #000;
+      border-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Particles -->
+  <div class="particles" id="particle-container"></div>
+
+  <!-- Screen 1: Unopened Gift Box -->
+  <div class="gift-box-screen" id="unopened-screen">
+    <h1 class="gift-title" id="gift-from-title">A Spiritual Gift for You</h1>
+    <p class="gift-subtitle">You have received a beautiful digital blessing card</p>
+    
+    <div class="gift-box-wrapper" onclick="openGift()">
+      <svg class="gift-box-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35-.54-.81-1.45-1.35-2.5-1.35-1.66 0-3 1.34-3 3 0 .35.07.69.18 1h-2.18c-1.1 0-2 .9-2 2v2c0 .55.45 1 1 1h1v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-10h1c.55 0 1-.45 1-1v-2c0-1.1-.9-2-2-2zm-5-3c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-6 1c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm-5 5h8v2h-8v-2zm14 12h-12v-10h12v10zm2-10h-8v-2h8v-2z"/>
+      </svg>
+    </div>
+
+    <div class="tap-prompt">Tap to Open Gift</div>
+  </div>
+
+  <!-- Screen 2: Opened Card Content -->
+  <div class="content-screen" id="opened-screen">
+    <div class="gift-paper">
+      <div class="card-decorator decor-tl">✦</div>
+      <div class="card-decorator decor-tr">✦</div>
+
+      <div class="opened-greeting" id="greeting-header">Assalamu Alaikum</div>
+      
+      <p class="opened-msg" id="custom-message">"May this reminder bless your heart and fill your day with peace."</p>
+
+      <div class="divider"></div>
+
+      <div class="arabic-text" id="arabic-verse">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <p class="english-text" id="english-verse">In the name of Allah, the Gracious, the Merciful</p>
+      <div class="ref-text" id="reference-text">Surah Al-Fatiha — 1:1</div>
+
+      <div class="app-prompt">
+        <p>Sent via Dhikr App. Create & share your own spiritual gift cards.</p>
+        <a href="https://play.google.com/store" class="app-link" target="_blank">Get Dhikr App</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Generate Background Particles ──
+    const container = document.getElementById('particle-container');
+    const particleCount = 18;
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDelay = Math.random() * 8 + 's';
+      p.style.animationDuration = 5 + Math.random() * 6 + 's';
+      container.appendChild(p);
+    }
+
+    // ── Theme Mapping ──
+    const THEMES = {
+      ramadan: { accent: '#f59e0b', bg: 'linear-gradient(135deg, #0b0c1b 0%, #1a1b3a 50%, #060714 100%)', paper: 'rgba(10, 13, 20, 0.95)' },
+      eid: { accent: '#d946ef', bg: 'linear-gradient(135deg, #120120 0%, #2d0a42 50%, #08000f 100%)', paper: 'rgba(12, 10, 24, 0.95)' },
+      healing: { accent: '#84cc16', bg: 'linear-gradient(135deg, #0f1710 0%, #1c2e20 50%, #0a0f0a 100%)', paper: 'rgba(12, 18, 14, 0.95)' },
+      blessings: { accent: '#b45309', bg: 'linear-gradient(135deg, #FCFBF7 0%, #F5F2E9 50%, #EAE4D3 100%)', paper: 'rgba(255, 255, 255, 0.98)', text: '#1a1a1a', muted: 'rgba(0, 0, 0, 0.65)' },
+      gratitude: { accent: '#fbbf24', bg: 'linear-gradient(135deg, #03180b 0%, #0e3a1f 50%, #010c05 100%)', paper: 'rgba(8, 15, 10, 0.95)' }
+    };
+
+    // ── Global parsed data state ──
+    let giftData = null;
+
+    // ── Parse Base64 query parameter ──
+    function parseQuery() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const encodedData = params.get('data');
+        if (!encodedData) return;
+        
+        // Decode Base64 string supporting UTF-8 correctly
+        const decodedStr = decodeURIComponent(escape(atob(encodedData)));
+        giftData = JSON.parse(decodedStr);
+        
+        // Update values in DOM
+        if (giftData.from) {
+          document.getElementById('gift-from-title').innerText = `A Gift from ${giftData.from}`;
+        }
+        if (giftData.msg) {
+          document.getElementById('custom-message').innerText = `"${giftData.msg}"`;
+        }
+        if (giftData.ar) {
+          document.getElementById('arabic-verse').innerText = giftData.ar;
+        }
+        if (giftData.en) {
+          document.getElementById('english-verse').innerText = giftData.en;
+        }
+        if (giftData.ref) {
+          document.getElementById('reference-text').innerText = giftData.ref;
+        }
+
+        // Apply theme styles
+        const themeConfig = THEMES[giftData.theme] || THEMES.ramadan;
+        document.documentElement.style.setProperty('--accent-color', themeConfig.accent);
+        document.documentElement.style.setProperty('--bg-gradient', themeConfig.bg);
+        document.documentElement.style.setProperty('--paper-bg', themeConfig.paper);
+        
+        if (themeConfig.text) {
+          document.documentElement.style.setProperty('--text-color', themeConfig.text);
+          document.documentElement.style.setProperty('--text-muted', themeConfig.muted);
+        }
+      } catch (e) {
+        console.error('Failed to parse gift data', e);
+      }
+    }
+
+    // ── Open Gift Animation ──
+    function openGift() {
+      const unopened = document.getElementById('unopened-screen');
+      const opened = document.getElementById('opened-screen');
+
+      // Play click scale bounce
+      unopened.classList.add('hidden');
+      
+      setTimeout(() => {
+        opened.style.display = 'block';
+        // force reflow
+        opened.offsetHeight;
+        opened.classList.add('visible');
+      }, 500);
+    }
+
+    // Initialize parsing
+    parseQuery();
+  </script>
+</body>
+</html>

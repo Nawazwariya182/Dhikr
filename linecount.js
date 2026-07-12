@@ -6,21 +6,21 @@ const path = require("path");
  * Leave empty if you want to scan everything.
  */
 const EXCLUDED_DIRS = new Set([
-//   "node_modules",
-//   ".next",
-//   ".git",
-//   "graphify-out",
-//   "dist",
-//   "build",
-//   "documents",
-//   "coverage",
-//   ".vercel",
-//   "out",
-//   "public",
-//   "documents",
-//   "assets",
-//   "android",
-//   ".expo"
+  "node_modules",
+  ".next",
+  ".git",
+  "graphify-out",
+  "dist",
+  "build",
+  "documents",
+  "coverage",
+  ".vercel",
+  "out",
+  "public",
+  "documents",
+  "assets",
+  "android",
+  ".expo"
 ]);
 
 /*
@@ -28,28 +28,28 @@ const EXCLUDED_DIRS = new Set([
  * Leave empty if you want to scan everything.
  */
 const EXCLUDED_FILES = new Set([
-//   "package-lock.json",
-//   "package.json",
-//   "next-env.d.ts",
-//   "next.config.ts",
-//   "tsconfig.json",
-//   "components.json",
-//   "README.md",
-//   "AGENTS.md",
-//   "AUDIT.md",
-//   "CLAUDE.md",
-//   "improvement.md",
-//   "index.ts",
-//   "app.json",
-//   "eas.json",
-//   ".gitignore",
-//   "linecount.js",
-//   "replace-png.js",
-//   "resize-images.js",
-//   "subset-fonts.js",
-//   "convert-to-avif.js",
-//   "manifest.json",
-//   "design.md"
+  "package-lock.json",
+  "package.json",
+  "next-env.d.ts",
+  "next.config.ts",
+  "tsconfig.json",
+  "components.json",
+  "README.md",
+  "AGENTS.md",
+  "AUDIT.md",
+  "CLAUDE.md",
+  "improvement.md",
+  "index.ts",
+  "app.json",
+  "eas.json",
+  ".gitignore",
+  "linecount.js",
+  "replace-png.js",
+  "resize-images.js",
+  "subset-fonts.js",
+  "convert-to-avif.js",
+  "manifest.json",
+  "design.md"
 ]);
 
 /*
@@ -62,8 +62,8 @@ const EXCLUDED_FILES = new Set([
  * "app/api/generated"
  */
 const EXCLUDED_PATHS = [
-//   "components/icons",
-//   "src/generated"
+  "components/icons",
+  "src/generated"
 ];
 
 /*
@@ -77,14 +77,14 @@ const EXCLUDED_PATHS = [
  * ".tsx"
  */
 const ALLOWED_EXTENSIONS = new Set([
-//   ".js",
-//   ".jsx",
-//   ".ts",
-//   ".tsx",
-//   ".css",
-//   ".scss",
-//   ".html",
-//   ".json",
+  ".js",
+  ".jsx",
+  ".ts",
+  ".tsx",
+  ".css",
+  ".scss",
+  ".html",
+  ".json",
 ]);
 
 let totalFiles = 0;
@@ -202,4 +202,11 @@ console.log("================================================");
 // Lines      : 15,784,503
 // Words      : 90,696,454
 // Characters : 2,964,465,757
+// ================================================
+
+// ================================================
+// Files      : 68
+// Lines      : 25,799
+// Words      : 84,391
+// Characters : 907,943
 // ================================================

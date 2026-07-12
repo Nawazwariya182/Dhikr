@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, ScrollView, Pressable, Switch, Alert, ActivityIndicator, TextInput, Linking, Modal, Share, Platform, Image, Animated } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 import { Ionicons } from '@expo/vector-icons';
@@ -74,6 +75,7 @@ const AnimatedSegmentButton: React.FC<{
 
 export const SettingsScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
   const {
     preferences,
     setTranslationLanguage,
@@ -559,7 +561,7 @@ export const SettingsScreen: React.FC = () => {
             <Ionicons name="book" size={55} color={colors.primary} />
           </View>
           <Text style={[styles.appName, { color: colors.textPrimary }]}>Dhikr</Text>
-          <Text style={[styles.appVersion, { color: colors.textMuted }]}>Quran Reader • Version 3.0.0 </Text>
+          <Text style={[styles.appVersion, { color: colors.textMuted }]}>Quran Reader • Version 3.4.2 </Text>
         </View>
       </View>
 
@@ -641,67 +643,65 @@ export const SettingsScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* Sunni Features paused for now */}
-
-
-
-      {/* Backup & Restore
+      {/* Creative Tools */}
       <View style={styles.section}>
-        <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>Backup & Restore</Text>
-        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-          <Text style={[styles.prefDesc, { color: colors.textMuted, marginBottom: 16 }]}>
-            Export your bookmarks and settings locally, or restore them from a previously exported backup string.
-          </Text>
-          <View style={styles.backupButtons}>
-            <Pressable
-              onPress={handleExportBackup}
-              disabled={backingUp || restoring}
-              style={[styles.backupBtn, { backgroundColor: colors.primary }]}
-            >
-              {backingUp ? (
-                <ActivityIndicator size="small" color="#fff" />
-              ) : (
-                <>
-                  <Ionicons name="share-outline" size={18} color="#fff" />
-                  <Text style={styles.backupBtnText}>Export Backup</Text>
-                </>
-              )}
-            </Pressable>
+        <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>Creative Tools</Text>
+        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, padding: 0, overflow: 'hidden' }]}>
+          <Pressable
+            onPress={() => (navigation as any).navigate('WisdomCard')}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: '#f59e0b20', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="color-wand-outline" size={22} color="#f59e0b" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>Wisdom Card Creator</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Create beautiful shareable Ayah, Hadith & Dua cards</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
 
-            <Pressable
-              onPress={() => setImportModalVisible(true)}
-              disabled={backingUp || restoring}
-              style={[styles.restoreBtn, { borderColor: colors.primary }]}
-            >
-              {restoring ? (
-                <ActivityIndicator size="small" color={colors.primary} />
-              ) : (
-                <>
-                  <Ionicons name="download-outline" size={18} color={colors.primary} />
-                  <Text style={[styles.restoreBtnText, { color: colors.primary }]}>Import Backup</Text>
-                </>
-              )}
-            </Pressable>
-          </View>
+          {/* Divider */}
+          <View style={{ height: 1, backgroundColor: colors.border, marginHorizontal: 16 }} />
 
-          {/* Storage warning + clear cache */}
-          {/* <View style={{ marginTop: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-            padding: 10, borderRadius: 8, backgroundColor: colors.background }}>
-            <Text style={{ color: colors.textMuted, fontSize: 11, flex: 1, marginRight: 8 }}>
-              If Drive export fails with a storage error, clear cache first.
-            </Text>
-            <Pressable
-              onPress={handleClearCache}
-              style={({ pressed }) => ([
-                { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8,
-                  backgroundColor: colors.error + '18', opacity: pressed ? 0.7 : 1 },
-              ])}
-            >
-              <Text style={{ color: colors.error, fontWeight: '700', fontSize: 12 }}>Free Storage</Text>
-            </Pressable>
-          </View>
+          <Pressable
+            onPress={() => (navigation as any).navigate('Wallpaper')}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: '#3b82f620', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="image-outline" size={22} color="#3b82f6" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>AI Islamic Wallpapers</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Browse & download 20+ stunning mobile wallpapers</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
+
+          {/* Divider */}
+          <View style={{ height: 1, backgroundColor: colors.border, marginHorizontal: 16 }} />
+
+          <Pressable
+            onPress={() => (navigation as any).navigate('Gift')}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: '#10b98120', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="gift-outline" size={22} color="#10b981" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>Spiritual Gift Dispatcher</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Package & send digital blessings, Quran verses & Duas</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
         </View>
-      </View> */}
+      </View>
 
       {/* Google Drive Backup */}
       <View style={styles.section}>

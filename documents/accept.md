@@ -5,6 +5,12 @@
 * Sajdah Tracker
 A logger specifically for tracking Sujud al-Tilawah (prostrations of recitation) and their references, ensuring users do not forget them.
 
+* AI Islamic Wallpaper generator + presets ..
+
+* Spiritual Gift Dispatcher
+Package a selection of Quran verses, Duas, and animations and send them to friends as a digital gift.
+but here some user will not have the app so we need to figure it out .. 
+
 * Daily Quranic Quiz Generator
 Multiple-choice questions generated from translations, vocabulary, and historical contexts of recently read Surahs.
 uses groq api for quiz and it will be generate for the ayah between 2 section like 2 100 and 2 105 so quiz will be based on these ayat only the ayat will be choose by the users
@@ -18,7 +24,12 @@ A dedicated sub-tracker celebrating Durood/Salawat, especially optimized with al
 * Dhikr Speed Tracker
 Analyzes target pacing to alert users if they are reciting too fast, encouraging mindful, slow recitation.
 
+* Prophetic Wisdom Cards Creator
+Generate beautiful, stylized, shareable typography graphics of Hadith or Ayahs using modern templates. ..
+
 * we need sunnah of the prophet muhammed pbuh according to ahl e sunnat ..
+
+* redevelop the quran circle + the dhikr circle as we have skipped it ..
 
 2. Remains:
 
@@ -36,16 +47,7 @@ also add the dhikr streak
 * Spiritual Heart Monitor (Self-Reflection Check-in)
 A daily 3-question survey checking spiritual focus, tongue safety, and heart intentions, charting the results weekly.
 
-* redevelop the quran circle + the dhikr circle as we have skipped it ..
 
-* Prophetic Wisdom Cards Creator
-Generate beautiful, stylized, shareable typography graphics of Hadith or Ayahs using modern templates. ..
-
-* AI Islamic Wallpaper generator + presets ..
-
-* Spiritual Gift Dispatcher
-Package a selection of Quran verses, Duas, and animations and send them to friends as a digital gift.
-but here some user will not have the app so we need to figure it out .. 
 
 * Dynamic Font Scaler
 Double-pinch gestures directly on the Quran text to scale fonts instantly.

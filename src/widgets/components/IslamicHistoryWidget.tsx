@@ -51,11 +51,12 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
         </FlexWidget>
         <FlexWidget style={{ flexDirection: 'column', flex: 1 }}>
           <TextWidget
-            text={topic.toUpperCase()}
+            text={(topic || '').toUpperCase()}
             style={{
               color: '#f59e0b',
               fontSize: 11,
               fontWeight: 'bold',
+              width: 'match_parent',
             }}
           />
           <TextWidget
@@ -64,8 +65,8 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
               color: '#ffffff',
               fontSize: 12,
               marginTop: 2,
+              width: 'match_parent',
             }}
-            
           />
         </FlexWidget>
       </FlexWidget>
