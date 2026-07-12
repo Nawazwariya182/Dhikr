@@ -43,7 +43,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe8b5)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -52,7 +52,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="ALLAH'S NAME"
             style={{
               color: '#f59e0b',
@@ -63,7 +63,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
         </FlexWidget>
 
         {/* Name in Arabic */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={arabic}
           style={{
             color: '#ffffff',
@@ -76,7 +76,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
           }}
         />
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={name}
           style={{
             color: '#3b82f6',
@@ -88,7 +88,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
           }}
         />
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={meaning}
           style={{
             color: '#9ca3af',
@@ -101,7 +101,7 @@ export const NamesOfAllahWidget: React.FC<NamesOfAllahWidgetProps> = ({
       </FlexWidget>
 
       {/* Benefit */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={benefit}
         style={{
           color: '#10b981',

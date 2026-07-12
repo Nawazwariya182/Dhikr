@@ -187,6 +187,139 @@ const BACKGROUNDS: BackgroundOption[] = [
     source: require('../../assets/backgrounds/bg_amethyst_gold.jpg'),
     textLight: true,
   },
+  {
+    id: 'wp_01_geom_gold',
+    label: 'Geometry Gold',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_01_geometry_gold_1783750733413.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_02_mosque_sunset',
+    label: 'Mosque Sunset',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_02_mosque_sunset_1783750743061.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_04_kaaba_stars',
+    label: 'Kaaba Cosmos',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_04_kaaba_stars.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_07_madinah_green',
+    label: 'Madinah Starlight',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_07_madinah_green.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_16_flower_mosque',
+    label: 'Pastel Floral',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_16_flower_mosque.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_17_lantern_glow',
+    label: 'Ramadan Lantern',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_17_lantern_glow.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_18_watercolor_kaaba',
+    label: 'Kaaba Watercolor',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_18_watercolor_kaaba.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_19_moroccan_emerald',
+    label: 'Emerald Star Pattern',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_19_moroccan_emerald.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_20_gold_line_arabesque',
+    label: 'Gold Line Arabesque',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_20_gold_line_arabesque.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_21_madinah_dome',
+    label: 'Madinah Green Dome',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_21_madinah_dome.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_22_floral_cream',
+    label: 'Cream Watercolor Floral',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_22_floral_cream.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_23_arch_sunset',
+    label: 'Archway Sunset',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_23_arch_sunset.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_24_geometry_emerald',
+    label: 'Teal Gold Geometry',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_24_geometry_emerald.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_25_moon_clouds',
+    label: 'Crescent Moon & Clouds',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_25_moon_clouds.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_26_mosque_silhouette',
+    label: 'Mosque Sage Green',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_26_mosque_silhouette.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_27_abstract_waves',
+    label: 'Ink Waves Blue Gold',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_27_abstract_waves.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_28_stars_pattern',
+    label: 'Navy Gold Stars',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_28_stars_pattern.jpg'),
+    textLight: true,
+  },
+  {
+    id: 'wp_29_light_leaves',
+    label: 'Olive Marble Gold',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_29_light_leaves.jpg'),
+    textLight: false,
+  },
+  {
+    id: 'wp_30_rose_gold_islamic',
+    label: 'Rose Gold Mandala',
+    type: 'image',
+    source: require('../../assets/backgrounds/wp_30_rose_gold_islamic.jpg'),
+    textLight: false,
+  },
 
   // ── 20 vibrant gradient backgrounds ──
   { id: 'midnight',      label: 'Midnight Blue',type: 'gradient', colors: ['#050B1A', '#0F1E36', '#1A3254'], textLight: true },
@@ -434,7 +567,7 @@ function WisdomCard({
 
       {/* App watermark */}
       <View style={cardStyles.watermark}>
-        <Text style={[cardStyles.watermarkText, { color: mutedColor }]}>✦ Dikhr App</Text>
+        <Text style={[cardStyles.watermarkText, { color: mutedColor }]}>✦ Dhikr App</Text>
       </View>
     </View>
   );
@@ -861,12 +994,12 @@ export const WisdomCardScreen: React.FC = () => {
   // Ayah tab state
   const [surahModalVisible, setSurahModalVisible] = useState(false);
   const [selectedSurahId, setSelectedSurahId] = useState(1);
-  const [ayahInput, setAyahInput] = useState('1');
+  const [ayahInput, setAyahInput] = useState('2');
   const [surahSearch, setSurahSearch] = useState('');
 
   // Card text state
-  const [arabicText, setArabicText] = useState('ٱلْحَمْدُ Lِلَّٰهِ رَبِّ ٱلْعَٰلَمِينَ');
-  const [translationText, setTranslationText] = useState('All praise is due to Allah, Lord of all the worlds.');
+  const [arabicText, setArabicText] = useState('الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ');
+  const [translationText, setTranslationText] = useState('All praise is to Allah, the Lord Of The Creation.');
   const [referenceText, setReferenceText] = useState('Surah Al-Fatiha — 1:2');
 
   // Hadith/Dua free inputs

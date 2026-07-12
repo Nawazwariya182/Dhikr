@@ -48,7 +48,7 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe865)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -57,7 +57,7 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="AYAH OF THE DAY"
             style={{
               color: '#f59e0b',
@@ -68,7 +68,7 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
         </FlexWidget>
 
         {/* Arabic Verse */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={arabic}
           style={{
             color: '#ffffff',
@@ -81,7 +81,7 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
         />
 
         {/* Translation */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={translation}
           style={{
             color: '#9ca3af',
@@ -93,7 +93,7 @@ export const AyahOfDayWidget: React.FC<AyahOfDayWidgetProps> = ({
       </FlexWidget>
 
       {/* Footer Reference */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`- ${surahName} (${ayah})`}
         style={{
           color: '#3b82f6',

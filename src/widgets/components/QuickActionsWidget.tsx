@@ -35,7 +35,7 @@ export const QuickActionsWidget: React.FC = () => {
           borderWidth: 1,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={String.fromCharCode(0xe865)}
           style={{
             fontFamily: 'MaterialIcons',
@@ -44,7 +44,7 @@ export const QuickActionsWidget: React.FC = () => {
             marginRight: 6,
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text="READ"
           style={{
             color: '#ffffff',
@@ -72,7 +72,7 @@ export const QuickActionsWidget: React.FC = () => {
           borderWidth: 1,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={String.fromCharCode(0xe8b6)}
           style={{
             fontFamily: 'MaterialIcons',
@@ -81,7 +81,7 @@ export const QuickActionsWidget: React.FC = () => {
             marginRight: 6,
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text="SEARCH"
           style={{
             color: '#ffffff',
@@ -109,7 +109,7 @@ export const QuickActionsWidget: React.FC = () => {
           borderWidth: 1,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={String.fromCharCode(0xe866)}
           style={{
             fontFamily: 'MaterialIcons',
@@ -118,7 +118,7 @@ export const QuickActionsWidget: React.FC = () => {
             marginRight: 6,
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text="BOOKMARKS"
           style={{
             color: '#ffffff',

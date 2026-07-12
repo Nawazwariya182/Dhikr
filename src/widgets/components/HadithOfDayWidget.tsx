@@ -41,7 +41,7 @@ export const HadithOfDayWidget: React.FC<HadithOfDayWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe865)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -50,7 +50,7 @@ export const HadithOfDayWidget: React.FC<HadithOfDayWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="HADITH OF THE DAY"
             style={{
               color: '#f59e0b',
@@ -61,7 +61,7 @@ export const HadithOfDayWidget: React.FC<HadithOfDayWidgetProps> = ({
         </FlexWidget>
 
         {/* Hadith Content */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={text}
           style={{
             color: '#ffffff',
@@ -82,7 +82,7 @@ export const HadithOfDayWidget: React.FC<HadithOfDayWidgetProps> = ({
           marginTop: 8,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`Grading: ${grading}`}
           style={{
             color: '#10b981',
@@ -90,7 +90,7 @@ export const HadithOfDayWidget: React.FC<HadithOfDayWidgetProps> = ({
             fontWeight: 'bold',
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`- ${reference}`}
           style={{
             color: '#3b82f6',

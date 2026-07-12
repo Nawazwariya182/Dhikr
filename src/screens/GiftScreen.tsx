@@ -13,6 +13,7 @@ import {
   Dimensions,
   Modal,
   FlatList,
+  Share,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -28,7 +29,7 @@ import surahMetaData from '../../assets/json/surah_meta.json';
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 // ── Types ──
-type GiftThemeId = 'ramadan' | 'eid' | 'healing' | 'blessings' | 'gratitude';
+type GiftThemeId = 'ramadan' | 'eid' | 'healing' | 'blessings' | 'gratitude' | 'royal_indigo' | 'midnight_mosque' | 'amber_victory' | 'violet_mercy';
 type GiftAnimation = 'lanterns' | 'stars' | 'rain' | 'petals';
 
 interface GiftTheme {
@@ -54,6 +55,10 @@ const THEMES: GiftTheme[] = [
   { id: 'healing', name: 'Olive Peace', colors: ['#0f1710', '#1c2e20', '#0a0f0a'], isDark: true, bgSource: require('../../assets/backgrounds/bg_olive_gold.jpg'), accent: '#84cc16' },
   { id: 'blessings', name: 'Daily Ivory', colors: ['#FCFBF7', '#F5F2E9', '#EAE4D3'], isDark: false, bgSource: require('../../assets/backgrounds/bg_parchment.jpg'), accent: '#b45309' },
   { id: 'gratitude', name: 'Emerald Gold', colors: ['#03180b', '#0e3a1f', '#010c05'], isDark: true, bgSource: require('../../assets/backgrounds/bg_arabesque_emerald.jpg'), accent: '#fbbf24' },
+  { id: 'royal_indigo', name: 'Royal Indigo', colors: ['#09091e', '#1e1b4b', '#030712'], isDark: true, bgSource: require('../../assets/backgrounds/bg_charcoal_gold.jpg'), accent: '#818cf8' },
+  { id: 'midnight_mosque', name: 'Midnight Mosque', colors: ['#020617', '#0f172a', '#090d16'], isDark: true, bgSource: require('../../assets/backgrounds/wp_17_lantern_glow.jpg'), accent: '#a78bfa' },
+  { id: 'amber_victory', name: 'Amber Victory', colors: ['#1c1917', '#44403c', '#0c0a09'], isDark: true, bgSource: require('../../assets/backgrounds/bg_desert_gold.jpg'), accent: '#f59e0b' },
+  { id: 'violet_mercy', name: 'Violet Mercy', colors: ['#1e1b4b', '#3b0764', '#090514'], isDark: true, bgSource: require('../../assets/backgrounds/bg_amethyst_gold.jpg'), accent: '#c084fc' },
 ];
 
 const PRESET_DUAS: PresetDua[] = [
@@ -81,6 +86,42 @@ const PRESET_DUAS: PresetDua[] = [
     arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي لَا إِلَهَ إِلَّا أَنْتَ',
     english: 'O Allah, grant health to my body; O Allah, grant health to my hearing; O Allah, grant health to my sight; there is no deity except You.'
   },
+  {
+    id: 'forgiveness',
+    title: 'Dua for Forgiveness',
+    arabic: 'رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الْأَبْرَارِ',
+    english: 'Our Lord, forgive us our sins and wipe out from us our evil deeds and make us die with the righteous.'
+  },
+  {
+    id: 'parents',
+    title: 'Dua for Parents',
+    arabic: 'رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا',
+    english: 'My Lord, have mercy upon them as they brought me up [when I was] small.'
+  },
+  {
+    id: 'patience',
+    title: 'Dua for Patience',
+    arabic: 'رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+    english: 'Our Lord, pour upon us patience and plant firmly our feet and give us victory over the disbelieving people.'
+  },
+  {
+    id: 'guidance',
+    title: 'Dua for Guidance',
+    arabic: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ الْوَهَّابُ',
+    english: 'Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower.'
+  },
+  {
+    id: 'gratitude_dua',
+    title: 'Dua for Gratitude',
+    arabic: 'رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ',
+    english: 'My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents.'
+  },
+  {
+    id: 'steadfastness',
+    title: 'Dua for Steadfastness',
+    arabic: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَىٰ دِينِكَ',
+    english: 'O Controller of the hearts, make my heart steadfast in Your religion.'
+  },
 ];
 
 export const GiftScreen: React.FC = () => {
@@ -101,6 +142,8 @@ export const GiftScreen: React.FC = () => {
   const [receivedRef, setReceivedRef] = useState('');
   const [receivedTheme, setReceivedTheme] = useState<GiftTheme>(THEMES[0]);
   const [receivedAnimation, setReceivedAnimation] = useState<GiftAnimation>('lanterns');
+  const [receivedTo, setReceivedTo] = useState('');
+  const [receivedFrom, setReceivedFrom] = useState('');
 
   // Creator state
   const [selectedThemeId, setSelectedThemeId] = useState<GiftThemeId>('ramadan');
@@ -165,6 +208,8 @@ export const GiftScreen: React.FC = () => {
         const theme = THEMES.find(t => t.id === decoded.theme) || THEMES[0];
         setReceivedTheme(theme);
         setReceivedAnimation(decoded.anim || 'lanterns');
+        setReceivedTo(decoded.to || '');
+        setReceivedFrom(decoded.from || '');
         setMode('receive');
         setGiftOpened(false);
       } catch (e) {
@@ -239,22 +284,11 @@ export const GiftScreen: React.FC = () => {
     setSharing(true);
     try {
       const shareUrl = buildGiftLink();
-      const cardUri = await viewShotRef.current?.capture?.();
-      
-      const shareMessage = `🎁 Assalamu Alaikum! I have packaged a spiritual digital gift for you.\n\nClick the link below to open your gift (no app installation required!):\n${shareUrl}`;
+      const shareMessage = `🎁 Assalamu Alaikum! I have packaged a spiritual digital gift for you.\n\nClick the link below to open your gift (no app installation required!):\n${shareUrl}\n\nJoin us on the Dhikr App at https://dhikr.contentify.studio to track your prayers, daily dhikr circles, and send gifts to others!`;
 
-      if (cardUri && await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(cardUri, {
-          dialogTitle: 'Send Spiritual Gift',
-          mimeType: 'image/png',
-          UTI: 'public.png',
-        });
-      } else {
-        // Plain share if ViewShot fails
-        await Sharing.shareAsync(shareUrl, {
-          dialogTitle: 'Send Spiritual Gift Link',
-        });
-      }
+      await Share.share({
+        message: shareMessage,
+      });
     } catch (e) {
       Alert.alert('Error', 'Could not share the digital gift.');
     } finally {
@@ -331,6 +365,12 @@ export const GiftScreen: React.FC = () => {
                   <Ionicons name="heart" size={16} color={receivedTheme.accent} style={styles.cardCornerTL} />
                   <Ionicons name="star" size={16} color={receivedTheme.accent} style={styles.cardCornerTR} />
 
+                  {receivedTo ? (
+                    <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', alignSelf: 'flex-start', marginBottom: 4 }} numberOfLines={1}>
+                      To: {receivedTo}
+                    </Text>
+                  ) : null}
+
                   <Text style={[styles.openedGreeting, { color: receivedTheme.accent }]}>✨ Assalamu Alaikum ✨</Text>
                   
                   <Text style={styles.openedMsg}>"{receivedMessage}"</Text>
@@ -350,6 +390,12 @@ export const GiftScreen: React.FC = () => {
                   <Text style={[styles.openedRef, { color: receivedTheme.accent }]}>
                     — {receivedRef}
                   </Text>
+
+                  {receivedFrom ? (
+                    <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', alignSelf: 'flex-end', marginTop: 12 }} numberOfLines={1}>
+                      From: {receivedFrom}
+                    </Text>
+                  ) : null}
 
                   <Pressable
                     onPress={() => setMode('create')}
@@ -395,6 +441,12 @@ export const GiftScreen: React.FC = () => {
                 <View style={[StyleSheet.absoluteFillObject, { backgroundColor: activeTheme.isDark ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.1)' }]} />
                 
                 <View style={[styles.previewPaper, { borderColor: activeTheme.accent }]}>
+                  {toName ? (
+                    <Text style={{ color: activeTheme.accent, alignSelf: 'flex-start', fontSize: 10, fontWeight: 'bold', marginBottom: 4 }} numberOfLines={1}>
+                      To: {toName}
+                    </Text>
+                  ) : null}
+
                   <Text style={[styles.previewGreeting, { color: activeTheme.accent }]}>🌙 A Gift For You</Text>
                   
                   <Text style={[styles.previewMsg, { color: activeTheme.isDark ? '#fff' : '#111' }]} numberOfLines={3}>
@@ -411,6 +463,12 @@ export const GiftScreen: React.FC = () => {
                   <Text style={[styles.previewRef, { color: activeTheme.accent }]}>
                     — {selectedDuaId ? PRESET_DUAS.find(d => d.id === selectedDuaId)?.title : verseRef}
                   </Text>
+
+                  {fromName ? (
+                    <Text style={{ color: activeTheme.accent, alignSelf: 'flex-end', fontSize: 10, fontWeight: 'bold', marginTop: 8 }} numberOfLines={1}>
+                      From: {fromName}
+                    </Text>
+                  ) : null}
                 </View>
               </ImageBackground>
             </ViewShot>

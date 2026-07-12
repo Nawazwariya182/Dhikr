@@ -41,7 +41,7 @@ export const DuaOfDayWidget: React.FC<DuaOfDayWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe0f0)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -50,7 +50,7 @@ export const DuaOfDayWidget: React.FC<DuaOfDayWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="DUA OF THE DAY"
             style={{
               color: '#f59e0b',
@@ -61,7 +61,7 @@ export const DuaOfDayWidget: React.FC<DuaOfDayWidgetProps> = ({
         </FlexWidget>
 
         {/* Supplication text */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={arabic}
           style={{
             color: '#ffffff',
@@ -74,7 +74,7 @@ export const DuaOfDayWidget: React.FC<DuaOfDayWidgetProps> = ({
         />
 
         {/* Translation */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={translation}
           style={{
             color: '#9ca3af',
@@ -86,7 +86,7 @@ export const DuaOfDayWidget: React.FC<DuaOfDayWidgetProps> = ({
       </FlexWidget>
 
       {/* Reference footer */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`- ${reference}`}
         style={{
           color: '#3b82f6',

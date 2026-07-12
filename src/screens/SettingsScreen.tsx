@@ -857,7 +857,7 @@ export const SettingsScreen: React.FC = () => {
         <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>About</Text>
         <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}> 
           <Text style={[styles.aboutText, { color: colors.textSecondary }]}> 
-            Dikhr is a clean, respectful Quran reading application designed for daily recitation and study. It provides a distraction-free interface to read the Quran in Arabic along with English and Urdu translations By Ahmed Raza Khan. Dikhr is built with love and respect for the Holy Quran, aiming to make it easy for everyone to access and read the Quran on their mobile devices. May this app be a means of bringing us closer to the words of Allah. Ameen.
+            Dhikr is a clean, respectful Quran reading application designed for daily recitation and study. It provides a distraction-free interface to read the Quran in Arabic along with English and Urdu translations By Ahmed Raza Khan. Dhikr is built with love and respect for the Holy Quran, aiming to make it easy for everyone to access and read the Quran on their mobile devices. May this app be a means of bringing us closer to the words of Allah. Ameen.
           </Text>
         </View>
       </View>

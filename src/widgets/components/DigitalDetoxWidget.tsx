@@ -43,7 +43,7 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe8b5)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -52,7 +52,7 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="DETOX TRACKER"
             style={{
               color: '#3b82f6',
@@ -64,7 +64,7 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
 
         {/* Time statistics */}
         <FlexWidget style={{ flexDirection: 'column', marginTop: 4 }}>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={`${spiritualTime} mins`}
             style={{
               color: '#ffffff',
@@ -72,7 +72,7 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
               fontWeight: 'bold',
             }}
           />
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="Quran & Remembrance"
             style={{
               color: '#9ca3af',
@@ -83,11 +83,11 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
 
         {/* Other screen time estimate */}
         <FlexWidget style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 }}>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="Goal Progress:"
             style={{ color: '#9ca3af', fontSize: 11 }}
           />
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={`${percent}%`}
             style={{ color: '#f59e0b', fontSize: 11, fontWeight: 'bold' }}
           />
@@ -124,7 +124,7 @@ export const DigitalDetoxWidget: React.FC<DigitalDetoxWidgetProps> = ({
       </FlexWidget>
 
       {/* Footer */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text="Stay connected to Allah!"
         style={{
           color: '#10b981',

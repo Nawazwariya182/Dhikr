@@ -36,7 +36,7 @@ export const CharacterFocusWidget: React.FC<CharacterFocusWidgetProps> = ({
           marginRight: 10,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={String.fromCharCode(0xe8b5)}
           style={{
             fontFamily: 'MaterialIcons',
@@ -47,7 +47,7 @@ export const CharacterFocusWidget: React.FC<CharacterFocusWidgetProps> = ({
       </FlexWidget>
 
       <FlexWidget style={{ flexDirection: 'column', flex: 1 }}>
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`AKHLAQ: ${topic.toUpperCase()}`}
           style={{
             color: '#10b981',
@@ -55,7 +55,7 @@ export const CharacterFocusWidget: React.FC<CharacterFocusWidgetProps> = ({
             fontWeight: 'bold',
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={action}
           style={{
             color: '#ffffff',

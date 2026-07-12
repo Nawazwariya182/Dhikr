@@ -39,7 +39,7 @@ export const WisdomQuoteWidget: React.FC<WisdomQuoteWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe0f0)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -48,7 +48,7 @@ export const WisdomQuoteWidget: React.FC<WisdomQuoteWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="ISLAMIC WISDOM"
             style={{
               color: '#f59e0b',
@@ -59,7 +59,7 @@ export const WisdomQuoteWidget: React.FC<WisdomQuoteWidgetProps> = ({
         </FlexWidget>
 
         {/* Quote */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`"${quote}"`}
           style={{
             color: '#ffffff',
@@ -71,7 +71,7 @@ export const WisdomQuoteWidget: React.FC<WisdomQuoteWidgetProps> = ({
       </FlexWidget>
 
       {/* Author reference */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`- ${author}`}
         style={{
           color: '#3b82f6',

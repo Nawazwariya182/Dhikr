@@ -62,7 +62,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe8b5)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -71,7 +71,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="DAILY PRAYERS"
             style={{
               color: '#ffffff',
@@ -81,7 +81,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
           />
         </FlexWidget>
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`${streak} Day Streak`}
           style={{
             color: '#f59e0b',
@@ -134,7 +134,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
                   marginBottom: 6,
                 }}
               >
-                <TextWidget
+                <TextWidget allowFontScaling={false}
                   text={isCompleted ? String.fromCharCode(0xe5ca) : (isQaza ? String.fromCharCode(0xe86c) : p.label)}
                   style={{
                     fontFamily: isPrayed ? 'MaterialIcons' : undefined,
@@ -145,7 +145,7 @@ export const PrayerTrackerWidget: React.FC<PrayerTrackerWidgetProps> = ({
                 />
               </FlexWidget>
 
-              <TextWidget
+              <TextWidget allowFontScaling={false}
                 text={p.name}
                 style={{
                   color: isPrayed ? '#ffffff' : '#6b7280',

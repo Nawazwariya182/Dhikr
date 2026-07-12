@@ -50,125 +50,150 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   scrollContainer: {
-    padding: 20,
+    padding: 16,
     paddingBottom: 40,
   },
   authCard: {
     alignItems: 'center',
-    padding: 24,
-    borderRadius: 24,
+    padding: 28,
+    borderRadius: 28,
+    borderWidth: 1.5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 16,
+    elevation: 4,
   },
   authIconCircle: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 16,
   },
   authTitle: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '900',
     fontFamily: FONTS.english,
-    marginBottom: 8,
+    marginBottom: 6,
+    textAlign: 'center',
   },
   authSubtitle: {
-    fontSize: 14,
+    fontSize: 13,
     textAlign: 'center',
-    lineHeight: 20,
-    marginBottom: 24,
-    paddingHorizontal: 10,
+    lineHeight: 18,
+    marginBottom: 20,
+    paddingHorizontal: 16,
   },
   inputGroup: {
     width: '100%',
-    gap: 8,
-    marginTop: 10,
+    gap: 6,
+    marginTop: 8,
   },
   inputLabel: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   textInput: {
-    height: 48,
-    borderRadius: 14,
+    height: 46,
+    borderRadius: 12,
     borderWidth: 1.5,
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
     fontSize: 14,
     fontWeight: '600',
     width: '100%',
   },
   btn: {
-    height: 48,
-    borderRadius: 14,
+    height: 46,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 1,
   },
   btnText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '800',
+    letterSpacing: 0.5,
   },
   dividerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 16,
     width: '100%',
   },
   dividerLine: {
     flex: 1,
-    height: 1,
+    height: 1.2,
   },
   dividerText: {
-    fontSize: 12,
-    marginHorizontal: 12,
+    fontSize: 11,
+    marginHorizontal: 10,
+    fontWeight: '700',
+    textTransform: 'uppercase',
   },
   googleBtn: {
-    height: 48,
-    borderRadius: 14,
+    height: 46,
+    borderRadius: 12,
     borderWidth: 1.5,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: 8,
     width: '100%',
   },
   googleBtnText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
   },
   profileHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
   },
   avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1.2,
   },
   avatarText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '900',
   },
   profileName: {
-    fontSize: 15,
-    fontWeight: 'bold',
+    fontSize: 14,
+    fontWeight: '800',
   },
   profileSub: {
-    fontSize: 11,
+    fontSize: 10,
     marginTop: 1,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   logoutBtn: {
-    padding: 6,
+    padding: 8,
   },
   tabBar: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    borderRadius: 16,
+    marginHorizontal: 16,
+    marginVertical: 12,
+    padding: 4,
+    borderWidth: 1.2,
   },
   tabItem: {
     flex: 1,
@@ -176,116 +201,120 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 6,
-    paddingVertical: 14,
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
+    paddingVertical: 10,
+    borderRadius: 12,
   },
   tabText: {
-    fontSize: 13,
-    fontWeight: '700',
+    fontSize: 12,
+    fontWeight: '800',
   },
   sectionCard: {
-    padding: 20,
+    padding: 16,
     borderRadius: 20,
-    borderWidth: 1,
+    borderWidth: 1.2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '800',
     marginBottom: 4,
   },
   sectionSubtitle: {
-    fontSize: 12,
-    lineHeight: 18,
-    marginBottom: 16,
+    fontSize: 11,
+    lineHeight: 16,
+    marginBottom: 12,
   },
   activeHeaderCard: {
-    padding: 20,
+    padding: 16,
     borderBottomWidth: 1,
   },
   activeTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '800',
   },
   activeSubtitle: {
-    fontSize: 12,
+    fontSize: 11,
     marginTop: 2,
   },
   leaveBtn: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     borderRadius: 8,
     borderWidth: 1.5,
   },
   progressBarBg: {
-    height: 8,
-    borderRadius: 4,
+    height: 6,
+    borderRadius: 3,
     width: '100%',
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 4,
+    borderRadius: 3,
   },
   juzRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
-    borderRadius: 14,
+    padding: 14,
+    borderRadius: 12,
     borderWidth: 1,
-    marginBottom: 10,
+    marginBottom: 8,
   },
   juzNumText: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   juzClaimedText: {
-    fontSize: 12,
+    fontSize: 11,
     marginTop: 2,
   },
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    borderRadius: 10,
-  },
-  actionBtnText: {
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  badge: {
-    paddingVertical: 4,
+    paddingVertical: 6,
     paddingHorizontal: 10,
     borderRadius: 8,
   },
-  badgeText: {
+  actionBtnText: {
     fontSize: 11,
+    fontWeight: '800',
+  },
+  badge: {
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 6,
+  },
+  badgeText: {
+    fontSize: 10,
     fontWeight: 'bold',
   },
   giantCircleBtn: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    borderWidth: 3,
+    width: 170,
+    height: 170,
+    borderRadius: 85,
+    borderWidth: 2.5,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
     elevation: 3,
   },
   modeToggleBtn: {
     flex: 1,
-    height: 40,
+    height: 38,
     borderRadius: 10,
     borderWidth: 1.5,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 6,
+    gap: 4,
   },
 });
 
@@ -711,13 +740,16 @@ export const CirclesScreen: React.FC = () => {
       </View>
 
       {/* Tabs */}
-      <View style={[styles.tabBar, { borderBottomColor: colors.border }]}>
+      <View style={[styles.tabBar, { backgroundColor: colors.surface + '60', borderColor: colors.border }]}>
         <Pressable
           onPress={() => {
             setActiveTab('quran');
             setShowCreateJoinForm(false);
           }}
-          style={[styles.tabItem, activeTab === 'quran' && { borderBottomColor: colors.primary }]}
+          style={[
+            styles.tabItem,
+            activeTab === 'quran' && { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }
+          ]}
         >
           <Ionicons
             name="book"
@@ -733,7 +765,10 @@ export const CirclesScreen: React.FC = () => {
             setActiveTab('dhikr');
             setShowCreateJoinForm(false);
           }}
-          style={[styles.tabItem, activeTab === 'dhikr' && { borderBottomColor: colors.primary }]}
+          style={[
+            styles.tabItem,
+            activeTab === 'dhikr' && { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }
+          ]}
         >
           <Ionicons
             name="heart"

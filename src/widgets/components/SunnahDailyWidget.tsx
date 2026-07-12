@@ -41,7 +41,7 @@ export const SunnahDailyWidget: React.FC<SunnahDailyWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe838)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -50,7 +50,7 @@ export const SunnahDailyWidget: React.FC<SunnahDailyWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="DAILY SUNNAH"
             style={{
               color: '#10b981',
@@ -60,7 +60,7 @@ export const SunnahDailyWidget: React.FC<SunnahDailyWidgetProps> = ({
           />
         </FlexWidget>
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={title}
           style={{
             color: '#ffffff',
@@ -71,7 +71,7 @@ export const SunnahDailyWidget: React.FC<SunnahDailyWidgetProps> = ({
           }}
         />
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={detail}
           style={{
             color: '#9ca3af',
@@ -83,7 +83,7 @@ export const SunnahDailyWidget: React.FC<SunnahDailyWidgetProps> = ({
       </FlexWidget>
 
       {/* Sunni Reference */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`Ref: ${reference}`}
         style={{
           color: '#3b82f6',

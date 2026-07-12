@@ -53,7 +53,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
                 marginRight: 8,
               }}
             >
-              <TextWidget
+              <TextWidget allowFontScaling={false}
                 text={String.fromCharCode(0xe866)}
                 style={{
                   fontFamily: 'MaterialIcons',
@@ -62,7 +62,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
                 }}
               />
             </FlexWidget>
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text="JUZ PROGRESS"
               style={{
                 color: '#ffffff',
@@ -72,7 +72,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
             />
           </FlexWidget>
 
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="Tap to choose folder"
             style={{
               color: '#f59e0b',
@@ -149,7 +149,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe866)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -158,7 +158,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={`JUZ ${juzNumber} PROGRESS`}
             style={{
               color: '#ffffff',
@@ -168,7 +168,7 @@ export const JuzProgressWidget: React.FC<JuzProgressWidgetProps> = ({
           />
         </FlexWidget>
 
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={`${pct}% (${versesRead}/${totalVerses})`}
           style={{
             color: '#f59e0b',

@@ -2033,7 +2033,6 @@ const styles = StyleSheet.create({
   arabicDisplay: {
     fontSize: 32,
     textAlign: 'center',
-    lineHeight: 48,
     marginBottom: 6,
   },
   translationDisplay: {

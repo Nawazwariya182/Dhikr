@@ -41,7 +41,7 @@ export const ProphetsStoriesWidget: React.FC<ProphetsStoriesWidgetProps> = ({
               marginRight: 8,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe838)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -50,7 +50,7 @@ export const ProphetsStoriesWidget: React.FC<ProphetsStoriesWidgetProps> = ({
               }}
             />
           </FlexWidget>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={(prophet || '').toUpperCase()}
             style={{
               color: '#f59e0b',
@@ -62,7 +62,7 @@ export const ProphetsStoriesWidget: React.FC<ProphetsStoriesWidgetProps> = ({
         </FlexWidget>
 
         {/* Snippet */}
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={snippet}
           style={{
             color: '#ffffff',
@@ -74,7 +74,7 @@ export const ProphetsStoriesWidget: React.FC<ProphetsStoriesWidgetProps> = ({
       </FlexWidget>
 
       {/* Lesson */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`Lesson: ${lesson}`}
         style={{
           color: '#10b981',

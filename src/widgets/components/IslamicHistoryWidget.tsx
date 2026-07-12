@@ -40,7 +40,7 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
             marginRight: 10,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={String.fromCharCode(0xe8b6)}
             style={{
               fontFamily: 'MaterialIcons',
@@ -50,7 +50,7 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
           />
         </FlexWidget>
         <FlexWidget style={{ flexDirection: 'column', flex: 1 }}>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={(topic || '').toUpperCase()}
             style={{
               color: '#f59e0b',
@@ -59,7 +59,7 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
               width: 'match_parent',
             }}
           />
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={fact}
             style={{
               color: '#ffffff',
@@ -72,7 +72,7 @@ export const IslamicHistoryWidget: React.FC<IslamicHistoryWidgetProps> = ({
       </FlexWidget>
 
       {/* Reference label */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={`Ref: ${reference}`}
         style={{
           color: '#9ca3af',

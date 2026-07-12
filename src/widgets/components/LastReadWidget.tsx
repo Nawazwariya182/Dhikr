@@ -47,7 +47,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
               marginRight: 10,
             }}
           >
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text={String.fromCharCode(0xe866)}
               style={{
                 fontFamily: 'MaterialIcons',
@@ -57,7 +57,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
             />
           </FlexWidget>
           <FlexWidget style={{ flexDirection: 'column', flex: 1 }}>
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text="NO PRIMARY FOLDER"
               style={{
                 color: '#f59e0b',
@@ -65,7 +65,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
                 fontWeight: 'bold',
               }}
             />
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text="Assign a Folder"
               style={{
                 color: '#ffffff',
@@ -74,7 +74,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
                 marginTop: 2,
               }}
             />
-            <TextWidget
+            <TextWidget allowFontScaling={false}
               text="Tap to select in Bookmarks"
               style={{
                 color: '#9ca3af',
@@ -96,7 +96,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
             borderWidth: 1,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="CHOOSE"
             style={{
               color: '#ffffff',
@@ -138,7 +138,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
             marginRight: 10,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={String.fromCharCode(0xe865)}
             style={{
               fontFamily: 'MaterialIcons',
@@ -148,7 +148,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
           />
         </FlexWidget>
         <FlexWidget style={{ flexDirection: 'column' }}>
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="RESUME READING"
             style={{
               color: '#f59e0b',
@@ -156,7 +156,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
               fontWeight: 'bold',
             }}
           />
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={surahName}
             style={{
               color: '#ffffff',
@@ -165,7 +165,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
               marginTop: 2,
             }}
           />
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={`Ayah ${ayahNumber}`}
             style={{
               color: '#9ca3af',
@@ -188,7 +188,7 @@ export const LastReadWidget: React.FC<LastReadWidgetProps> = ({
           borderWidth: 1,
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text="RESUME"
           style={{
             color: '#ffffff',

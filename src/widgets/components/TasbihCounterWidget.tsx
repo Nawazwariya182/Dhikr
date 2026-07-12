@@ -51,7 +51,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             marginRight: 8,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text={String.fromCharCode(0xe863)}
             style={{
               fontFamily: 'MaterialIcons',
@@ -60,7 +60,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             }}
           />
         </FlexWidget>
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text="TASBIH COUNTER"
           style={{
             color: '#f59e0b',
@@ -80,7 +80,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
           width: 'match_parent',
         }}
       >
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={phrase}
           style={{
             color: '#ffffff',
@@ -90,7 +90,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             width: 'match_parent',
           }}
         />
-        <TextWidget
+        <TextWidget allowFontScaling={false}
           text={phraseTranslation}
           style={{
             color: '#9ca3af',
@@ -103,7 +103,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
       </FlexWidget>
 
       {/* Counter */}
-      <TextWidget
+      <TextWidget allowFontScaling={false}
         text={target > 0 ? `${count} / ${target}` : `${count}`}
         style={{
           color: '#3b82f6',
@@ -137,7 +137,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             marginRight: 6,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="Reset"
             style={{
               color: '#d1d5db',
@@ -160,7 +160,7 @@ export const TasbihCounterWidget: React.FC<TasbihCounterWidgetProps> = ({
             borderWidth: 1,
           }}
         >
-          <TextWidget
+          <TextWidget allowFontScaling={false}
             text="+1"
             style={{
               color: '#ffffff',
