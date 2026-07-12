@@ -8,6 +8,7 @@ import { FONTS, SIZES, getArabicFontFamily } from '../utils/constants';
 import { MarkerBadge } from './MarkerBadge';
 import { TranslationLanguage, ArabicFont } from '../services/preferencesService';
 import { AppColors } from '../utils/theme';
+import { useAppPreferences } from '../context/AppPreferencesContext';
 
 interface AyahWidgetProps {
   ayah: Ayah;
@@ -80,6 +81,74 @@ export const AyahWidget: React.FC<AyahWidgetProps> = ({
   enableHifzBlur: enableHifzBlurProp = false,
 }) => {
   const enableHifzBlur = false; // Feature paused for now
+  const { preferences } = useAppPreferences();
+  const fontSizeMode = preferences.fontSizeMode || 'medium';
+
+  const [tempScale, setTempScale] = useState(1);
+  const initialTouchDistance = useRef<number | null>(null);
+
+  // Auto-reset scaled font after 3.5 seconds
+  useEffect(() => {
+    if (tempScale !== 1) {
+      const timer = setTimeout(() => {
+        setTempScale(1);
+      }, 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [tempScale]);
+
+  const handleTouchStart = (e: any) => {
+    const touches = e.nativeEvent.touches;
+    if (touches && touches.length === 2) {
+      const dx = touches[0].pageX - touches[1].pageX;
+      const dy = touches[0].pageY - touches[1].pageY;
+      initialTouchDistance.current = Math.sqrt(dx * dx + dy * dy);
+    }
+  };
+
+  const handleTouchMove = (e: any) => {
+    const touches = e.nativeEvent.touches;
+    if (touches && touches.length === 2 && initialTouchDistance.current !== null) {
+      const dx = touches[0].pageX - touches[1].pageX;
+      const dy = touches[0].pageY - touches[1].pageY;
+      const currentDistance = Math.sqrt(dx * dx + dy * dy);
+      const ratio = currentDistance / initialTouchDistance.current;
+      
+      if (ratio > 1.15) {
+        setTempScale(Math.min(1.6, ratio)); // Max 60% larger
+      } else if (ratio < 0.85) {
+        setTempScale(Math.max(0.65, ratio)); // Min 35% smaller
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    initialTouchDistance.current = null;
+  };
+
+  // Base font sizes depending on user preference
+  let baseArabic = SIZES.arabicFont; // 32
+  let baseTranslation = SIZES.translationFont; // 16
+  let arabicLineHeight = 56;
+  let translationLineHeight = 24;
+
+  if (fontSizeMode === 'small') {
+    baseArabic = 26;
+    baseTranslation = 13;
+    arabicLineHeight = 44;
+    translationLineHeight = 20;
+  } else if (fontSizeMode === 'big') {
+    baseArabic = 40;
+    baseTranslation = 20;
+    arabicLineHeight = 68;
+    translationLineHeight = 30;
+  }
+
+  const finalArabicFontSize = baseArabic * tempScale;
+  const finalTranslationFontSize = baseTranslation * tempScale;
+  const finalArabicLineHeight = arabicLineHeight * tempScale;
+  const finalTranslationLineHeight = translationLineHeight * tempScale;
+
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isHifzRevealed, setIsHifzRevealed] = useState(false);
   const scaleAnim = useRef(new Animated.Value(1)).current;
@@ -121,7 +190,17 @@ export const AyahWidget: React.FC<AyahWidgetProps> = ({
 
   const renderArabicText = () => {
     return (
-      <Text style={[styles.arabic, { color: colors.textPrimary, fontFamily: getArabicFontFamily(arabicFont) }]}>
+      <Text
+        style={[
+          styles.arabic,
+          {
+            color: colors.textPrimary,
+            fontFamily: getArabicFontFamily(arabicFont),
+            fontSize: finalArabicFontSize,
+            lineHeight: finalArabicLineHeight,
+          },
+        ]}
+      >
         {ayah.arabic}
       </Text>
     );
@@ -132,13 +211,32 @@ export const AyahWidget: React.FC<AyahWidgetProps> = ({
       return (
         <View style={styles.stackedTranslations}>
           <Pressable onLongPress={() => handleLongPressTranslation(ayah.english, 'en')} delayLongPress={350} style={styles.translationPressable}>
-            <Text style={[styles.translation, { color: colors.textSecondary }]}>
+            <Text
+              style={[
+                styles.translation,
+                {
+                  color: colors.textSecondary,
+                  fontSize: finalTranslationFontSize,
+                  lineHeight: finalTranslationLineHeight,
+                },
+              ]}
+            >
               {ayah.english}
             </Text>
           </Pressable>
           <View style={[styles.translationDivider, { backgroundColor: colors.border }]} />
           <Pressable onLongPress={() => handleLongPressTranslation(ayah.urdu, 'ur')} delayLongPress={350} style={styles.translationPressable}>
-            <Text style={[styles.translation, styles.translationUrdu, { color: colors.textSecondary }]}>
+            <Text
+              style={[
+                styles.translation,
+                styles.translationUrdu,
+                {
+                  color: colors.textSecondary,
+                  fontSize: finalTranslationFontSize,
+                  lineHeight: finalTranslationLineHeight,
+                },
+              ]}
+            >
               {ayah.urdu}
             </Text>
           </Pressable>
@@ -153,7 +251,11 @@ export const AyahWidget: React.FC<AyahWidgetProps> = ({
         <Text
           style={[
             styles.translation,
-            { color: colors.textSecondary },
+            {
+              color: colors.textSecondary,
+              fontSize: finalTranslationFontSize,
+              lineHeight: finalTranslationLineHeight,
+            },
             isUrdu ? styles.translationUrdu : null,
           ]}
         >
@@ -165,6 +267,9 @@ export const AyahWidget: React.FC<AyahWidgetProps> = ({
 
   return (
     <View
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       style={[
         styles.container,
         { borderBottomColor: colors.border },

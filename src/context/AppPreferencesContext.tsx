@@ -21,6 +21,7 @@ interface AppPreferencesContextValue {
   setRemindersEnabled: (enabled: boolean) => Promise<void>;
   setReminderStartHour: (hour: number) => Promise<void>;
   setReminderEndHour: (hour: number) => Promise<void>;
+  setFontSizeMode: (sizeMode: 'small' | 'medium' | 'big') => Promise<void>;
 }
 
 const defaultPrefs: AppPreferences = {
@@ -33,6 +34,7 @@ const defaultPrefs: AppPreferences = {
   remindersEnabled: false,
   reminderStartHour: 8,
   reminderEndHour: 22,
+  fontSizeMode: 'medium',
 };
 
 const AppPreferencesContext = createContext<AppPreferencesContextValue>({
@@ -48,6 +50,7 @@ const AppPreferencesContext = createContext<AppPreferencesContextValue>({
   setRemindersEnabled: async () => undefined,
   setReminderStartHour: async () => undefined,
   setReminderEndHour: async () => undefined,
+  setFontSizeMode: async () => undefined,
 });
 
 export const AppPreferencesProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -119,6 +122,10 @@ export const AppPreferencesProvider: React.FC<{ children: React.ReactNode }> = (
       setReminderEndHour: async (hour: number) => {
         setPreferences(prev => ({ ...prev, reminderEndHour: hour }));
         await preferencesService.save({ reminderEndHour: hour });
+      },
+      setFontSizeMode: async (sizeMode: 'small' | 'medium' | 'big') => {
+        setPreferences(prev => ({ ...prev, fontSizeMode: sizeMode }));
+        await preferencesService.save({ fontSizeMode: sizeMode });
       },
     };
   }, [preferences, isLoaded]);

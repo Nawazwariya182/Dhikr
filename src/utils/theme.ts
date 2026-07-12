@@ -1,4 +1,4 @@
-export type ThemeMode = 'dark' | 'light';
+export type ThemeMode = 'dark' | 'light' | 'high_contrast_light' | 'high_contrast_dark';
 
 export interface AppColors {
   background: string;
@@ -57,6 +57,54 @@ const lightColors: AppColors = {
   error: '#dc2626',
 };
 
+const highContrastLightColors: AppColors = {
+  background: '#ffffff',
+  surface: '#ffffff',
+  surfaceLight: '#e5e7eb',
+  primary: '#1d4ed8',
+  primaryDark: '#000000',
+  accent: '#7c2d12',
+  white: '#ffffff',
+  textPrimary: '#000000',
+  textSecondary: '#000000',
+  textMuted: '#1f2937',
+  border: '#000000',
+  sajdah: '#4c1d95',
+  juz: '#1e3a8a',
+  ruku: '#064e3b',
+  manzil: '#78350f',
+  error: '#991b1b',
+};
+
+const highContrastDarkColors: AppColors = {
+  background: '#000000',
+  surface: '#000000',
+  surfaceLight: '#1f2937',
+  primary: '#3b82f6',
+  primaryDark: '#ffffff',
+  accent: '#f59e0b',
+  white: '#ffffff',
+  textPrimary: '#ffffff',
+  textSecondary: '#ffffff',
+  textMuted: '#e5e7eb',
+  border: '#ffffff',
+  sajdah: '#a78bfa',
+  juz: '#60a5fa',
+  ruku: '#34d399',
+  manzil: '#fbbf24',
+  error: '#f87171',
+};
+
 export function getColors(mode: ThemeMode): AppColors {
-  return mode === 'dark' ? darkColors : lightColors;
+  switch (mode) {
+    case 'light':
+      return lightColors;
+    case 'high_contrast_light':
+      return highContrastLightColors;
+    case 'high_contrast_dark':
+      return highContrastDarkColors;
+    case 'dark':
+    default:
+      return darkColors;
+  }
 }

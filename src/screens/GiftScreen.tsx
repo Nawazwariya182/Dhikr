@@ -29,7 +29,7 @@ import surahMetaData from '../../assets/json/surah_meta.json';
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 // ── Types ──
-type GiftThemeId = 'ramadan' | 'eid' | 'healing' | 'blessings' | 'gratitude' | 'royal_indigo' | 'midnight_mosque' | 'amber_victory' | 'violet_mercy';
+type GiftThemeId = 'ramadan' | 'eid' | 'healing' | 'blessings' | 'gratitude' | 'royal_indigo' | 'midnight_mosque' | 'amber_victory' | 'violet_mercy' | 'gold_royal' | 'silver_pearl' | 'bronze_earth' | 'platinum_sky';
 type GiftAnimation = 'lanterns' | 'stars' | 'rain' | 'petals';
 
 interface GiftTheme {
@@ -39,6 +39,8 @@ interface GiftTheme {
   isDark: boolean;
   bgSource?: any;
   accent: string;
+  metallic?: boolean;
+  metalGradient?: [string, string, ...string[]];
 }
 
 interface PresetDua {
@@ -50,6 +52,7 @@ interface PresetDua {
 
 // ── Constants ──
 const THEMES: GiftTheme[] = [
+  // ── Standard Themes ──
   { id: 'ramadan', name: 'Ramadan Moon', colors: ['#0b0c1b', '#1a1b3a', '#060714'], isDark: true, bgSource: require('../../assets/backgrounds/bg_indigo_stars.jpg'), accent: '#f59e0b' },
   { id: 'eid', name: 'Eid Mubarak', colors: ['#120120', '#2d0a42', '#08000f'], isDark: true, bgSource: require('../../assets/backgrounds/bg_mosque_night_sky.jpg'), accent: '#d946ef' },
   { id: 'healing', name: 'Olive Peace', colors: ['#0f1710', '#1c2e20', '#0a0f0a'], isDark: true, bgSource: require('../../assets/backgrounds/bg_olive_gold.jpg'), accent: '#84cc16' },
@@ -59,6 +62,47 @@ const THEMES: GiftTheme[] = [
   { id: 'midnight_mosque', name: 'Midnight Mosque', colors: ['#020617', '#0f172a', '#090d16'], isDark: true, bgSource: require('../../assets/backgrounds/wp_17_lantern_glow.jpg'), accent: '#a78bfa' },
   { id: 'amber_victory', name: 'Amber Victory', colors: ['#1c1917', '#44403c', '#0c0a09'], isDark: true, bgSource: require('../../assets/backgrounds/bg_desert_gold.jpg'), accent: '#f59e0b' },
   { id: 'violet_mercy', name: 'Violet Mercy', colors: ['#1e1b4b', '#3b0764', '#090514'], isDark: true, bgSource: require('../../assets/backgrounds/bg_amethyst_gold.jpg'), accent: '#c084fc' },
+  // ── Metallic Premium Themes ──
+  {
+    id: 'gold_royal',
+    name: '🥇 Gold Royal',
+    colors: ['#1a1200', '#2e1f00', '#0c0900'],
+    isDark: true,
+    bgSource: require('../../assets/backgrounds/bg_gold_black.jpg'),
+    accent: '#f6c90e',
+    metallic: true,
+    metalGradient: ['#bf953f', '#fcf6ba', '#b38728', '#ffd700', '#aa771c'],
+  },
+  {
+    id: 'silver_pearl',
+    name: '🥈 Silver Pearl',
+    colors: ['#0d0d0d', '#1a1a1a', '#050505'],
+    isDark: true,
+    bgSource: require('../../assets/backgrounds/bg_marble_dark.jpg'),
+    accent: '#c8cdd4',
+    metallic: true,
+    metalGradient: ['#bdc3c7', '#f5f5f5', '#8e9eab', '#ffffff', '#b0b8be'],
+  },
+  {
+    id: 'bronze_earth',
+    name: '🥉 Bronze Earth',
+    colors: ['#160b04', '#2a1406', '#0a0502'],
+    isDark: true,
+    bgSource: require('../../assets/backgrounds/bg_rust_gold.jpg'),
+    accent: '#cd7f32',
+    metallic: true,
+    metalGradient: ['#a87c53', '#e3c08d', '#8f6034', '#caa278', '#7a4b26'],
+  },
+  {
+    id: 'platinum_sky',
+    name: '✨ Platinum Sky',
+    colors: ['#050a12', '#0f1924', '#020509'],
+    isDark: true,
+    bgSource: require('../../assets/backgrounds/wp_25_moon_clouds.jpg'),
+    accent: '#e8eaf0',
+    metallic: true,
+    metalGradient: ['#e8eaf0', '#ffffff', '#c5cae9', '#e8eaf0', '#9fa8da'],
+  },
 ];
 
 const PRESET_DUAS: PresetDua[] = [
@@ -160,6 +204,7 @@ export const GiftScreen: React.FC = () => {
   const [verseRef, setVerseRef] = useState('');
   const [surahModalVisible, setSurahModalVisible] = useState(false);
   const [surahSearch, setSurahSearch] = useState('');
+  const [duaModalVisible, setDuaModalVisible] = useState(false);
 
   // Dua Picker
   const [selectedDuaId, setSelectedDuaId] = useState<string>('protection');
@@ -280,21 +325,60 @@ export const GiftScreen: React.FC = () => {
     return `${hostedLandingPage}?data=${encodeURIComponent(b64)}`;
   };
 
-  const handleShareGift = async () => {
+  // ── Share as Image ──
+  const handleShareAsImage = async () => {
     setSharing(true);
     try {
-      const shareUrl = buildGiftLink();
-      const shareMessage = `🎁 Assalamu Alaikum! I have packaged a spiritual digital gift for you.\n\nClick the link below to open your gift (no app installation required!):\n${shareUrl}\n\nJoin us on the Dhikr App at https://dhikr.contentify.studio to track your prayers, daily dhikr circles, and send gifts to others!`;
-
-      await Share.share({
-        message: shareMessage,
+      const uri = await (viewShotRef.current as any)?.capture?.();
+      if (!uri) {
+        Alert.alert('Error', 'Could not capture gift card. Please wait for the preview to fully load.');
+        return;
+      }
+      await Sharing.shareAsync(uri, {
+        mimeType: 'image/png',
+        dialogTitle: 'Share Spiritual Gift Card',
+        UTI: 'public.png',
       });
     } catch (e) {
-      Alert.alert('Error', 'Could not share the digital gift.');
+      Alert.alert('Error', 'Failed to share gift card image.');
     } finally {
       setSharing(false);
     }
   };
+
+  // ── Share Text/Link (for friends without the app) ──
+  const handleShareTextLink = async () => {
+    setSharing(true);
+    try {
+      const chosenDua = PRESET_DUAS.find(d => d.id === selectedDuaId);
+      const arabicText = chosenDua ? chosenDua.arabic : verseArabic;
+      const englishText = chosenDua ? chosenDua.english : verseEnglish;
+      const refText = chosenDua ? chosenDua.title : verseRef;
+      const toText = toName.trim() || 'you';
+      const fromText = fromName.trim() || 'a friend';
+      const msgText = customMsg.trim() || 'May Allah bless you.';
+
+      const shareUrl = buildGiftLink();
+
+      // Rich text gift — works in WhatsApp, SMS, Telegram, etc.
+      const shareMessage =
+        `🎁 A Spiritual Gift for ${toText} — from ${fromText}\n\n` +
+        `"${msgText}"\n\n` +
+        `${arabicText}\n\n` +
+        `${englishText}\n` +
+        `— ${refText}\n\n` +
+        `✨ Open your interactive gift card here (no app needed):\n${shareUrl}\n\n` +
+        `📲 Get the Dhikr App to send your own gifts:\nhttps://dhikr.contentify.studio`;
+
+      await Share.share({ message: shareMessage });
+    } catch (e) {
+      Alert.alert('Error', 'Could not share the digital gift text.');
+    } finally {
+      setSharing(false);
+    }
+  };
+
+
 
   const filteredSurahs = surahSearch.trim()
     ? surahMetaData.filter(s =>
@@ -366,9 +450,20 @@ export const GiftScreen: React.FC = () => {
                   <Ionicons name="star" size={16} color={receivedTheme.accent} style={styles.cardCornerTR} />
 
                   {receivedTo ? (
-                    <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', alignSelf: 'flex-start', marginBottom: 4 }} numberOfLines={1}>
-                      To: {receivedTo}
-                    </Text>
+                    <View style={{
+                      backgroundColor: receivedTheme.accent + '20',
+                      borderColor: receivedTheme.accent,
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      paddingHorizontal: 10,
+                      paddingVertical: 3,
+                      alignSelf: 'flex-start',
+                      marginBottom: 8,
+                    }}>
+                      <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', fontStyle: 'italic' }} numberOfLines={1}>
+                        For: {receivedTo}
+                      </Text>
+                    </View>
                   ) : null}
 
                   <Text style={[styles.openedGreeting, { color: receivedTheme.accent }]}>✨ Assalamu Alaikum ✨</Text>
@@ -392,9 +487,20 @@ export const GiftScreen: React.FC = () => {
                   </Text>
 
                   {receivedFrom ? (
-                    <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', alignSelf: 'flex-end', marginTop: 12 }} numberOfLines={1}>
-                      From: {receivedFrom}
-                    </Text>
+                    <View style={{
+                      backgroundColor: receivedTheme.accent + '20',
+                      borderColor: receivedTheme.accent,
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      paddingHorizontal: 10,
+                      paddingVertical: 3,
+                      alignSelf: 'flex-end',
+                      marginTop: 12,
+                    }}>
+                      <Text style={{ color: receivedTheme.accent, fontSize: 12, fontWeight: 'bold', fontStyle: 'italic' }} numberOfLines={1}>
+                        With Duas: {receivedFrom}
+                      </Text>
+                    </View>
                   ) : null}
 
                   <Pressable
@@ -440,11 +546,31 @@ export const GiftScreen: React.FC = () => {
               >
                 <View style={[StyleSheet.absoluteFillObject, { backgroundColor: activeTheme.isDark ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.1)' }]} />
                 
-                <View style={[styles.previewPaper, { borderColor: activeTheme.accent }]}>
+                <View style={[styles.previewPaper, {
+                    borderColor: activeTheme.metallic
+                      ? (activeTheme.metalGradient?.[1] ?? activeTheme.accent)
+                      : activeTheme.accent,
+                    borderWidth: activeTheme.metallic ? 2.5 : 1.5,
+                    shadowColor: activeTheme.metallic ? activeTheme.accent : 'transparent',
+                    shadowOpacity: activeTheme.metallic ? 0.6 : 0,
+                    shadowRadius: activeTheme.metallic ? 12 : 0,
+                    elevation: activeTheme.metallic ? 8 : 2,
+                  }]}>
                   {toName ? (
-                    <Text style={{ color: activeTheme.accent, alignSelf: 'flex-start', fontSize: 10, fontWeight: 'bold', marginBottom: 4 }} numberOfLines={1}>
-                      To: {toName}
-                    </Text>
+                    <View style={{
+                      backgroundColor: activeTheme.accent + '20',
+                      borderColor: activeTheme.accent,
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      paddingHorizontal: 10,
+                      paddingVertical: 3,
+                      alignSelf: 'flex-start',
+                      marginBottom: 8,
+                    }}>
+                      <Text style={{ color: activeTheme.accent, fontSize: 11, fontWeight: 'bold', fontStyle: 'italic' }} numberOfLines={1}>
+                        For: {toName}
+                      </Text>
+                    </View>
                   ) : null}
 
                   <Text style={[styles.previewGreeting, { color: activeTheme.accent }]}>🌙 A Gift For You</Text>
@@ -465,9 +591,20 @@ export const GiftScreen: React.FC = () => {
                   </Text>
 
                   {fromName ? (
-                    <Text style={{ color: activeTheme.accent, alignSelf: 'flex-end', fontSize: 10, fontWeight: 'bold', marginTop: 8 }} numberOfLines={1}>
-                      From: {fromName}
-                    </Text>
+                    <View style={{
+                      backgroundColor: activeTheme.accent + '20',
+                      borderColor: activeTheme.accent,
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      paddingHorizontal: 10,
+                      paddingVertical: 3,
+                      alignSelf: 'flex-end',
+                      marginTop: 10,
+                    }}>
+                      <Text style={{ color: activeTheme.accent, fontSize: 11, fontWeight: 'bold', fontStyle: 'italic' }} numberOfLines={1}>
+                        With Duas: {fromName}
+                      </Text>
+                    </View>
                   ) : null}
                 </View>
               </ImageBackground>
@@ -564,19 +701,15 @@ export const GiftScreen: React.FC = () => {
               // Preset Dua Selector
               <View style={{ marginTop: 12 }}>
                 <Text style={[styles.label, { color: colors.textSecondary }]}>Choose Dua Preset</Text>
-                {PRESET_DUAS.map(d => (
-                  <Pressable
-                    key={d.id}
-                    onPress={() => setSelectedDuaId(d.id)}
-                    style={[styles.duaPresetItem, {
-                      borderColor: selectedDuaId === d.id ? colors.primary : colors.border,
-                      backgroundColor: selectedDuaId === d.id ? colors.primary + '10' : colors.background
-                    }]}
-                  >
-                    <Text style={[styles.duaPresetTitle, { color: colors.textPrimary }]}>{d.title}</Text>
-                    <Text style={[styles.duaPresetSub, { color: colors.textMuted }]} numberOfLines={1}>{d.english}</Text>
-                  </Pressable>
-                ))}
+                <Pressable
+                  onPress={() => setDuaModalVisible(true)}
+                  style={[styles.dropdownBtn, { backgroundColor: colors.background, borderColor: colors.border }]}
+                >
+                  <Text style={[styles.dropdownText, { color: colors.textPrimary }]}>
+                    {PRESET_DUAS.find(d => d.id === selectedDuaId)?.title || 'Select a Prophetic Dua'}
+                  </Text>
+                  <Ionicons name="chevron-down" size={16} color={colors.textSecondary} />
+                </Pressable>
               </View>
             )}
           </View>
@@ -590,32 +723,70 @@ export const GiftScreen: React.FC = () => {
                   key={theme.id}
                   onPress={() => setSelectedThemeId(theme.id)}
                   style={[styles.themePill, {
-                    borderColor: selectedThemeId === theme.id ? colors.primary : colors.border,
-                    backgroundColor: colors.background
+                    borderColor: selectedThemeId === theme.id
+                      ? (theme.metallic ? theme.accent : colors.primary)
+                      : colors.border,
+                    borderWidth: selectedThemeId === theme.id ? 2 : 1,
+                    backgroundColor: colors.background,
                   }]}
                 >
-                  <View style={[styles.colorDot, { backgroundColor: theme.accent }]} />
+                  {/* Color dot — metallic uses a multi-stop gradient visual */}
+                  {theme.metallic && theme.metalGradient ? (
+                    <View style={{ width: 14, height: 14, borderRadius: 7, overflow: 'hidden', marginRight: 2 }}>
+                      <View style={[styles.colorDot, {
+                        backgroundColor: theme.metalGradient[1],
+                        borderWidth: 1.5,
+                        borderColor: theme.metalGradient[2],
+                      }]} />
+                    </View>
+                  ) : (
+                    <View style={[styles.colorDot, { backgroundColor: theme.accent }]} />
+                  )}
                   <Text style={[styles.themeLabel, { color: colors.textPrimary }]}>{theme.name}</Text>
+                  {theme.metallic && (
+                    <View style={{ backgroundColor: theme.accent + '30', borderRadius: 4, paddingHorizontal: 4, paddingVertical: 1, marginLeft: 4 }}>
+                      <Text style={{ color: theme.accent, fontSize: 9, fontWeight: '800' }}>PREMIUM</Text>
+                    </View>
+                  )}
                 </Pressable>
               ))}
             </ScrollView>
           </View>
 
-          {/* ── Share / Send Action ── */}
-          <Pressable
-            onPress={handleShareGift}
-            disabled={sharing}
-            style={[styles.dispatchBtn, { backgroundColor: colors.primary }]}
-          >
-            {sharing ? (
-              <ActivityIndicator color="#fff" size="small" />
-            ) : (
-              <>
-                <Ionicons name="paper-plane-outline" size={20} color="#fff" />
-                <Text style={styles.dispatchBtnText}>Send Spiritual Gift Link</Text>
-              </>
-            )}
-          </Pressable>
+          {/* ── Share / Send Action ── Two explicit buttons ── */}
+          <View style={{ flexDirection: 'row', gap: 10, marginHorizontal: 16, marginBottom: 8, marginTop: 4 }}>
+            {/* Image Share Button */}
+            <Pressable
+              onPress={handleShareAsImage}
+              disabled={sharing}
+              style={[styles.dispatchBtn, { backgroundColor: activeTheme.accent, flex: 1, minHeight: 52 }]}
+            >
+              {sharing ? (
+                <ActivityIndicator color="#000" size="small" />
+              ) : (
+                <>
+                  <Ionicons name="image-outline" size={20} color="#000" />
+                  <Text style={[styles.dispatchBtnText, { color: '#000', fontSize: 13 }]}>Share as Image</Text>
+                </>
+              )}
+            </Pressable>
+
+            {/* Text / Link Share Button */}
+            <Pressable
+              onPress={handleShareTextLink}
+              disabled={sharing}
+              style={[styles.dispatchBtn, { backgroundColor: colors.surface, borderWidth: 1.5, borderColor: activeTheme.accent, flex: 1, minHeight: 52 }]}
+            >
+              {sharing ? (
+                <ActivityIndicator color={activeTheme.accent} size="small" />
+              ) : (
+                <>
+                  <Ionicons name="paper-plane-outline" size={20} color={activeTheme.accent} />
+                  <Text style={[styles.dispatchBtnText, { color: activeTheme.accent, fontSize: 13 }]}>Share Text/Link</Text>
+                </>
+              )}
+            </Pressable>
+          </View>
 
         </ScrollView>
       )}
@@ -662,6 +833,52 @@ export const GiftScreen: React.FC = () => {
                     <Text style={[styles.surahName, { color: colors.textPrimary }]}>{item.name_en}</Text>
                   </View>
                   <Text style={[styles.surahArabicName, { color: item.id === selectedSurahId ? colors.primary : colors.textSecondary }]}>{item.name_ar}</Text>
+                </Pressable>
+              )}
+              showsVerticalScrollIndicator={false}
+              style={{ flex: 1 }}
+            />
+          </View>
+        </View>
+      </Modal>
+
+      {/* ── Dua Dropdown Modal ── */}
+      <Modal
+        visible={duaModalVisible}
+        animationType="slide"
+        transparent
+        onRequestClose={() => setDuaModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalSheet, { backgroundColor: colors.surface }]}>
+            <View style={styles.modalHeader}>
+              <Text style={[styles.modalTitle, { color: colors.textPrimary }]}>Select Prophetic Dua</Text>
+              <Pressable onPress={() => setDuaModalVisible(false)}>
+                <Ionicons name="close" size={24} color={colors.textSecondary} />
+              </Pressable>
+            </View>
+            <FlatList
+              data={PRESET_DUAS}
+              keyExtractor={item => item.id}
+              renderItem={({ item }) => (
+                <Pressable
+                  onPress={() => {
+                    setSelectedDuaId(item.id);
+                    setDuaModalVisible(false);
+                  }}
+                  style={[styles.surahRow, { borderBottomColor: colors.border, backgroundColor: item.id === selectedDuaId ? colors.primary + '15' : 'transparent' }]}
+                >
+                  <View style={{ flex: 1, paddingVertical: 4 }}>
+                    <Text style={[styles.surahName, { color: colors.textPrimary }]}>{item.title}</Text>
+                    <Text style={{ fontFamily: FONTS.english, fontSize: 11, color: colors.textMuted, marginTop: 3 }} numberOfLines={1}>
+                      {item.english}
+                    </Text>
+                  </View>
+                  <Ionicons
+                    name={item.id === selectedDuaId ? "checkmark-circle" : "ellipse-outline"}
+                    size={20}
+                    color={item.id === selectedDuaId ? colors.primary : colors.textMuted}
+                  />
                 </Pressable>
               )}
               showsVerticalScrollIndicator={false}

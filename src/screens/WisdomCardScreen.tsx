@@ -972,6 +972,34 @@ const cardStyles = StyleSheet.create({
   },
 });
 
+const BgChip = React.memo(({ bg, isSelected, onPress, colors, styles }: any) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={[
+        styles.bgChip,
+        isSelected && { borderColor: colors.primary, borderWidth: 2.5 }
+      ]}
+    >
+      {bg.type === 'image' ? (
+        <Image source={bg.source} style={styles.bgChipImage} />
+      ) : (
+        <SafeLinearGradient
+          colors={bg.colors}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={[styles.bgChipImage, { borderRadius: 8, overflow: 'hidden' }]}
+        />
+      )}
+      <Text style={[styles.bgChipLabel, { color: colors.textSecondary }]} numberOfLines={1}>
+        {bg.label}
+      </Text>
+    </Pressable>
+  );
+}, (prev, next) => {
+  return prev.isSelected === next.isSelected && prev.colors === next.colors;
+});
+
 // ──────────────────────────────────────────────────────────────
 // Main Screen
 // ──────────────────────────────────────────────────────────────
@@ -1282,27 +1310,26 @@ export const WisdomCardScreen: React.FC = () => {
         {/* ── Background Selector ── */}
         <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>Background</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.hScroll}>
-            {BACKGROUNDS.map(bg => (
-              <Pressable
-                key={bg.id}
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.hScroll}
+            data={BACKGROUNDS}
+            keyExtractor={item => item.id}
+            initialNumToRender={6}
+            maxToRenderPerBatch={6}
+            windowSize={3}
+            removeClippedSubviews={Platform.OS === 'android'}
+            renderItem={({ item: bg }) => (
+              <BgChip
+                bg={bg}
+                isSelected={selectedBgId === bg.id}
                 onPress={() => handleBgSelect(bg.id)}
-                style={[styles.bgChip, selectedBgId === bg.id && { borderColor: colors.primary, borderWidth: 2.5 }]}
-              >
-                {bg.type === 'image' ? (
-                  <Image source={bg.source} style={styles.bgChipImage} />
-                ) : (
-                  <SafeLinearGradient
-                    colors={bg.colors!}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
-                    style={[styles.bgChipImage, { borderRadius: 8, overflow: 'hidden' }]}
-                  />
-                )}
-                <Text style={[styles.bgChipLabel, { color: colors.textSecondary }]} numberOfLines={1}>{bg.label}</Text>
-              </Pressable>
-            ))}
-          </ScrollView>
+                colors={colors}
+                styles={styles}
+              />
+            )}
+          />
         </View>
 
         {/* ── Custom Font Color & Size Customization ── */}

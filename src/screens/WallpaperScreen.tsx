@@ -23,7 +23,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAppPreferences } from '../context/AppPreferencesContext';
-import { FONTS } from '../utils/constants';
+import { FONTS, getArabicFontFamily } from '../utils/constants';
 
 const { width: screenWidth } = Dimensions.get('window');
 const columnWidth = (screenWidth - 48) / 2;
@@ -489,6 +489,8 @@ export const WallpaperScreen: React.FC = () => {
   const [textSize, setTextSize] = useState(30);
   const [textColor, setTextColor] = useState('#ffffff');
   const [textShadowEnabled, setTextShadowEnabled] = useState(true);
+  const [englishTypography, setEnglishTypography] = useState<'sans-serif' | 'serif' | 'light' | 'monospace'>('sans-serif');
+  const [arabicFontFamily, setArabicFontFamily] = useState<'uthmani' | 'indopak'>('uthmani');
 
   const handleSelectWp = (wp: WallpaperOption) => {
     setSelectedWp(wp);
@@ -499,6 +501,8 @@ export const WallpaperScreen: React.FC = () => {
     setTextShadowEnabled(wp.isDark);
     setIsEditing(false);
     setIncludeCalligraphy(true);
+    setEnglishTypography('sans-serif');
+    setArabicFontFamily('uthmani');
   };
 
   const captureWallpaper = async (): Promise<string | null> => {
@@ -660,15 +664,13 @@ export const WallpaperScreen: React.FC = () => {
               </View>
 
               {/* Centered 9:16 aspect ratio ViewShot container */}
-              <View style={styles.previewCardContainer}>
+              <View style={[styles.previewCardContainer, { borderRadius: 20, overflow: 'hidden' }]}>
                 <ViewShot
                   ref={viewShotRef}
                   options={{ format: 'png', quality: 1.0 }}
                   style={{
                     width: previewWidth,
                     height: previewHeight,
-                    borderRadius: 20,
-                    overflow: 'hidden',
                     backgroundColor: '#090d16',
                   }}
                 >
@@ -704,6 +706,7 @@ export const WallpaperScreen: React.FC = () => {
                           styles.modalArabicText, 
                           { 
                             color: textColor, 
+                            fontFamily: getArabicFontFamily(arabicFontFamily),
                             fontSize: Math.min(textSize, previewWidth * 0.12),
                             lineHeight: Math.min(textSize * 1.4, previewWidth * 0.16),
                             textShadowColor: textShadowEnabled ? 'rgba(0,0,0,0.85)' : 'transparent',
@@ -723,6 +726,8 @@ export const WallpaperScreen: React.FC = () => {
                           styles.modalEnglishSub, 
                           { 
                             color: textColor === '#ffffff' || textColor === '#fef08a' ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.75)',
+                            fontFamily: englishTypography === 'serif' ? (Platform.OS === 'ios' ? 'Georgia' : 'serif') : englishTypography === 'monospace' ? (Platform.OS === 'ios' ? 'Courier' : 'monospace') : FONTS.english,
+                            fontWeight: englishTypography === 'light' ? '300' : 'normal',
                             fontSize: Math.min(12, previewWidth * 0.045),
                             lineHeight: Math.min(16, previewWidth * 0.06),
                             textShadowColor: textShadowEnabled ? 'rgba(0,0,0,0.6)' : 'transparent',
@@ -821,6 +826,58 @@ export const WallpaperScreen: React.FC = () => {
                               textColor === item.color && { borderColor: '#fff', borderWidth: 2.5 }
                             ]}
                           />
+                        ))}
+                      </View>
+
+                      {/* English Typography Selector */}
+                      <Text style={styles.editorInputLabel}>English Typography Style</Text>
+                      <View style={{ flexDirection: 'row', gap: 6, marginBottom: 12 }}>
+                        {[
+                          { id: 'sans-serif', label: 'Modern' },
+                          { id: 'serif', label: 'Classic' },
+                          { id: 'light', label: 'Elegant' },
+                          { id: 'monospace', label: 'Minimalist' }
+                        ].map((t) => (
+                          <Pressable
+                            key={t.id}
+                            onPress={() => setEnglishTypography(t.id as any)}
+                            style={{
+                              flex: 1,
+                              paddingVertical: 8,
+                              borderRadius: 8,
+                              backgroundColor: englishTypography === t.id ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)',
+                              borderWidth: 1,
+                              borderColor: englishTypography === t.id ? '#fff' : 'rgba(255,255,255,0.15)',
+                              alignItems: 'center'
+                            }}
+                          >
+                            <Text style={{ color: '#fff', fontSize: 11, fontWeight: 'bold' }}>{t.label}</Text>
+                          </Pressable>
+                        ))}
+                      </View>
+
+                      {/* Arabic Font Selector */}
+                      <Text style={styles.editorInputLabel}>Arabic Font Style</Text>
+                      <View style={{ flexDirection: 'row', gap: 8, marginBottom: 20 }}>
+                        {[
+                          { id: 'uthmani', label: 'Uthmani' },
+                          { id: 'indopak', label: 'IndoPak' }
+                        ].map((f) => (
+                          <Pressable
+                            key={f.id}
+                            onPress={() => setArabicFontFamily(f.id as any)}
+                            style={{
+                              flex: 1,
+                              paddingVertical: 8,
+                              borderRadius: 8,
+                              backgroundColor: arabicFontFamily === f.id ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)',
+                              borderWidth: 1,
+                              borderColor: arabicFontFamily === f.id ? '#fff' : 'rgba(255,255,255,0.15)',
+                              alignItems: 'center'
+                            }}
+                          >
+                            <Text style={{ color: '#fff', fontSize: 11, fontWeight: 'bold' }}>{f.label}</Text>
+                          </Pressable>
                         ))}
                       </View>
 

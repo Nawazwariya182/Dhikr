@@ -6,6 +6,7 @@ import * as FileSystem from 'expo-file-system/legacy';
 import { Share, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { googleAuthService } from './googleAuthService';
+import CryptoJS from 'crypto-js';
 
 export interface BackupPayload {
   version: number;
@@ -35,7 +36,7 @@ class BackupService {
   /**
    * Helper: fetches the local backup payload representing all user data
    */
-  private async getBackupPayload(): Promise<BackupPayload> {
+  async getBackupPayload(): Promise<BackupPayload> {
     // Force load/sync services to get fresh values from AsyncStorage
     await bookmarkService.load();
     const loadedPrefs = await preferencesService.load();
@@ -110,6 +111,28 @@ class BackupService {
 
     console.log(`[Backup] Running migration. Original version: ${payload.version}, appVersion: ${payload.appVersion || 'legacy'}`);
 
+    // Map V2 structure aliases to modern V3/V4 keys
+    if (!payload.bookmarks && payload.bookmarksList) payload.bookmarks = payload.bookmarksList;
+    if (!payload.bookmarks && payload.favoriteDuas) payload.bookmarks = payload.favoriteDuas;
+    if (!payload.folders && payload.bookmarkFolders) payload.folders = payload.bookmarkFolders;
+    
+    if (!payload.settings && payload.preferences) payload.settings = payload.preferences;
+    if (!payload.settings && payload.appSettings) payload.settings = payload.appSettings;
+    
+    if (!payload.prayerTimes && payload.prayer_times) payload.prayerTimes = payload.prayer_times;
+    if (!payload.prayerTimes && payload.prayers) payload.prayerTimes = payload.prayers;
+    
+    if (payload.tasbihCount === undefined && payload.tasbih_count !== undefined) {
+      payload.tasbihCount = payload.tasbih_count;
+    }
+    if (payload.tasbihIndex === undefined && payload.tasbih_index !== undefined) {
+      payload.tasbihIndex = payload.tasbih_index;
+    }
+    if (!payload.dhikrList && payload.dhikrs) payload.dhikrList = payload.dhikrs;
+    if (!payload.dhikrList && payload.dhikr_list) payload.dhikrList = payload.dhikr_list;
+    if (!payload.sajdahLogs && payload.sajdah_logs) payload.sajdahLogs = payload.sajdah_logs;
+    if (!payload.circleItems && payload.circles) payload.circleItems = payload.circles;
+
     // Core arrays initialization
     if (!payload.bookmarks) payload.bookmarks = [];
     if (!payload.folders) payload.folders = [];
@@ -121,10 +144,11 @@ class BackupService {
     
     // Ensure all standard preference keys are present
     const defaultSettings = {
-      theme: 'dark',
-      notificationsEnabled: true,
-      vibrationEnabled: true,
-      soundEnabled: true,
+      themeMode: 'dark',
+      translationLanguage: 'english',
+      homeMode: 'surah',
+      arabicFont: 'uthmani',
+      enableHifzBlur: false,
     };
     payload.settings = { ...defaultSettings, ...payload.settings };
 
@@ -180,12 +204,29 @@ class BackupService {
    * Restores user data from a backup JSON string
    * @param jsonString The backup JSON string to parse and restore
    */
-  async importBackupLocal(jsonString: string): Promise<boolean> {
+  async importBackupLocal(jsonString: string, password?: string): Promise<'SUCCESS' | 'PASSWORD_REQUIRED' | 'DECRYPTION_FAILED' | 'VALIDATION_FAILED' | 'PARSE_ERROR'> {
     try {
-      const payload = JSON.parse(jsonString);
+      let payload = JSON.parse(jsonString);
+      
+      // Check if backup is encrypted
+      if (payload && payload.encrypted === true) {
+        if (!password) {
+          return 'PASSWORD_REQUIRED';
+        }
+        try {
+          const decryptedBytes = CryptoJS.AES.decrypt(payload.ciphertext, password);
+          const decrypted = decryptedBytes.toString(CryptoJS.enc.Utf8);
+          if (!decrypted) {
+            return 'DECRYPTION_FAILED';
+          }
+          payload = JSON.parse(decrypted);
+        } catch (e) {
+          return 'DECRYPTION_FAILED';
+        }
+      }
       
       if (!this.validateBackup(payload)) {
-        throw new Error('Backup validation failed. File may be corrupted or invalid.');
+        return 'VALIDATION_FAILED';
       }
 
       // Restore to local services
@@ -219,27 +260,32 @@ class BackupService {
         console.warn('Error restoring extra backup data:', e);
       }
 
-      // Save a local copy to DocumentDirectory too
+      // Save a local copy to DocumentDirectory too (unencrypted for triggerAutoBackup compatibility)
       const fileUri = `${FileSystem.documentDirectory}${this.FILE_NAME}`;
       await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(payload, null, 2), {
         encoding: 'utf8',
       });
 
       console.log('Successfully restored bookmarks and preferences locally.');
-      return true;
+      return 'SUCCESS';
     } catch (error) {
       console.error('Failed to restore backup:', error);
-      return false;
+      return 'PARSE_ERROR';
     }
   }
 
   /**
    * Exports backup data to a shared text file or copies to clipboard via Share API
    */
-  async exportBackupLocal(): Promise<boolean> {
+  async exportBackupLocal(password?: string): Promise<boolean> {
     try {
       const payload = await this.getBackupPayload();
-      const content = JSON.stringify(payload, null, 2);
+      let content = JSON.stringify(payload, null, 2);
+
+      if (password) {
+        const ciphertext = CryptoJS.AES.encrypt(content, password).toString();
+        content = JSON.stringify({ encrypted: true, ciphertext });
+      }
 
       // Save locally to DocumentDirectory as well for persistence
       const fileUri = `${FileSystem.documentDirectory}${this.FILE_NAME}`;
@@ -418,10 +464,15 @@ class BackupService {
   /**
    * Google Drive: Perform a full backup of local state to Drive
    */
-  async backupToDrive(accessToken: string): Promise<string | null> {
+  async backupToDrive(accessToken: string, password?: string): Promise<string | null> {
     try {
       const payload = await this.getBackupPayload();
-      const content = JSON.stringify(payload, null, 2);
+      let content = JSON.stringify(payload, null, 2);
+
+      if (password) {
+        const ciphertext = CryptoJS.AES.encrypt(content, password).toString();
+        content = JSON.stringify({ encrypted: true, ciphertext });
+      }
 
       await this.uploadBackup(accessToken, content);
 
@@ -441,15 +492,16 @@ class BackupService {
   /**
    * Google Drive: Perform a full restore from Drive to local state
    */
-  async restoreFromDrive(accessToken: string): Promise<string | null> {
+  async restoreFromDrive(accessToken: string, password?: string): Promise<string | null> {
     try {
       const latest = await this.getLatestBackup(accessToken);
       if (!latest) {
         return 'NO_BACKUP';
       }
 
-      const ok = await this.importBackupLocal(latest.content);
-      return ok ? null : 'PARSE_ERROR';
+      const res = await this.importBackupLocal(latest.content, password);
+      if (res === 'SUCCESS') return null;
+      return res; // Returns 'PASSWORD_REQUIRED', 'DECRYPTION_FAILED', etc.
     } catch (e: any) {
       const msg = e?.message || String(e);
       console.error('[Backup] Failed to restore from Drive:', msg);

@@ -15,6 +15,7 @@ export interface AppPreferences {
   remindersEnabled: boolean;
   reminderStartHour: number;
   reminderEndHour: number;
+  fontSizeMode?: 'small' | 'medium' | 'big';
 }
 
 const PREFERENCES_KEY = '@dhikr_preferences';
@@ -29,6 +30,7 @@ const defaultPreferences: AppPreferences = {
   remindersEnabled: false,
   reminderStartHour: 8,
   reminderEndHour: 22,
+  fontSizeMode: 'medium',
 };
 
 class PreferencesService {

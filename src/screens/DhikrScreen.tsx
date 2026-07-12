@@ -990,7 +990,6 @@ export const DhikrScreen: React.FC = () => {
           <Text 
             style={[styles.arabicDisplay, { color: colors.textPrimary, fontFamily: FONTS.arabic }]}
             adjustsFontSizeToFit={true}
-            numberOfLines={2}
             minimumFontScale={0.4}
           >
             {activeDhikr.arabic}
@@ -998,7 +997,6 @@ export const DhikrScreen: React.FC = () => {
           <Text 
             style={[styles.translationDisplay, { color: colors.textSecondary }]}
             adjustsFontSizeToFit={true}
-            numberOfLines={2}
             minimumFontScale={0.6}
           >
             {activeDhikr.translation}

@@ -6,6 +6,7 @@ import { requestWidgetUpdate } from 'react-native-android-widget';
 import { PrayerTrackerWidget } from '../widgets/components/PrayerTrackerWidget';
 import { useAppPreferences } from '../context/AppPreferencesContext';
 import { FONTS, SIZES } from '../utils/constants';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const PRAYERS: { key: keyof PrayerDay; name: string; icon: keyof typeof Ionicons.glyphMap; time: string }[] = [
   { key: 'fajr', name: 'Fajr', icon: 'moon-outline', time: 'Dawn' },
@@ -163,6 +164,30 @@ export const PrayerTrackerScreen: React.FC = () => {
       const todayStart = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime();
       const isFuture = cellStart > todayStart;
 
+      // Get completed count for this cell
+      const cellLog = prayerService.getPrayerDay(cellDateStr);
+      const completedCount = getCompletedCount(cellLog);
+      
+      let isMetal = false;
+      let metalColors: [string, string, ...string[]] | null = null;
+      let textColor = colors.textPrimary;
+      
+      if (!isFuture) {
+        if (completedCount === 5) {
+          isMetal = true;
+          metalColors = ['#bf953f', '#fcf6ba', '#b38728', '#fbf5b7', '#aa771c'];
+          textColor = '#1e293b';
+        } else if (completedCount >= 3) {
+          isMetal = true;
+          metalColors = ['#bdc3c7', '#ffffff', '#8e9eab', '#ffffff', '#bdc3c7'];
+          textColor = '#1e293b';
+        } else if (completedCount >= 1) {
+          isMetal = true;
+          metalColors = ['#a87c53', '#caa278', '#8f6034', '#caa278', '#a87c53'];
+          textColor = '#ffffff';
+        }
+      }
+
       dayCells.push(
         <Pressable
           key={`day-${day}`}
@@ -171,19 +196,44 @@ export const PrayerTrackerScreen: React.FC = () => {
           style={[
             styles.calendarDayCell,
             isToday ? { borderColor: colors.primary, borderWidth: 1.5 } : null,
-            isSelected ? { backgroundColor: colors.primary } : null,
+            isSelected && !isMetal ? { backgroundColor: colors.primary } : null,
             isFuture ? { opacity: 0.25 } : null,
+            isMetal ? { borderWidth: 0, overflow: 'hidden' } : null,
           ]}
         >
-          <Text
-            style={[
-              styles.calendarDayText,
-              { color: isSelected ? colors.white : colors.textPrimary },
-              isSelected ? { fontWeight: 'bold' } : null,
-            ]}
-          >
-            {day}
-          </Text>
+          {isMetal && metalColors ? (
+            <LinearGradient
+              colors={metalColors}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={{
+                width: 38,
+                height: 38,
+                borderRadius: 19,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Text
+                style={[
+                  styles.calendarDayText,
+                  { color: textColor, fontWeight: '800' },
+                ]}
+              >
+                {day}
+              </Text>
+            </LinearGradient>
+          ) : (
+            <Text
+              style={[
+                styles.calendarDayText,
+                { color: isSelected ? colors.white : colors.textPrimary },
+                isSelected ? { fontWeight: 'bold' } : null,
+              ]}
+            >
+              {day}
+            </Text>
+          )}
         </Pressable>
       );
     }

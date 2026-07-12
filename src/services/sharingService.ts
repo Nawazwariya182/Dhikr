@@ -4,6 +4,7 @@ import {
   onSnapshot,
   updateDoc,
   getDoc,
+  deleteDoc,
 } from 'firebase/firestore';
 import { firestoreDb } from './firebaseConfig';
 
@@ -20,6 +21,7 @@ export interface KhatmRoom {
   mode: 'fixed' | 'dynamic';
   memberCount: number; // Number of members in group (2-30) for fixed mode
   slots: Record<number, KhatmSlot>; // 1 to 30 Juz slots
+  createdBy?: string; // Creator/Admin username
 }
 
 export interface DhikrCircleMember {
@@ -37,6 +39,7 @@ export interface DhikrCircle {
   members: Record<string, DhikrCircleMember>;
   arabic?: string;
   translation?: string;
+  createdBy?: string; // Creator/Admin username
 }
 
 async function withTimeout<T>(promise: Promise<T>, ms = 6000): Promise<T> {
@@ -120,7 +123,7 @@ class SharingService {
   /**
    * Create a new Khatm Room with specific member division
    */
-  async createKhatmRoom(roomId: string, name: string, mode: 'fixed' | 'dynamic', memberCount: number): Promise<KhatmRoom> {
+  async createKhatmRoom(roomId: string, name: string, mode: 'fixed' | 'dynamic', memberCount: number, createdBy?: string): Promise<KhatmRoom> {
     const defaultSlots: Record<number, KhatmSlot> = {};
     for (let i = 1; i <= 30; i += 1) {
       defaultSlots[i] = { reservedBy: '', completed: false, timestamp: 0 };
@@ -133,6 +136,7 @@ class SharingService {
       mode,
       memberCount: Math.max(2, Math.min(30, memberCount)),
       slots: defaultSlots,
+      createdBy,
     };
 
     if (this.isOffline()) {
@@ -346,7 +350,8 @@ class SharingService {
     name: string,
     targetCount: number,
     arabic?: string,
-    translation?: string
+    translation?: string,
+    createdBy?: string
   ): Promise<DhikrCircle> {
     const circle: DhikrCircle = {
       circleId: circleId.trim().toLowerCase(),
@@ -357,6 +362,7 @@ class SharingService {
       members: {},
       arabic: arabic?.trim(),
       translation: translation?.trim(),
+      createdBy,
     };
 
     if (this.isOffline()) {
@@ -454,6 +460,81 @@ class SharingService {
         onUpdate(null);
       }
     );
+  }
+
+  async deleteKhatmRoom(roomId: string): Promise<void> {
+    if (this.isOffline()) {
+      delete this.localKhatmRooms[roomId.toLowerCase()];
+      this.notifyKhatmListeners(roomId);
+      return;
+    }
+    const docRef = doc(firestoreDb!, 'khatm_rooms', roomId.toLowerCase());
+    await executeFirestore(() => deleteDoc(docRef));
+  }
+
+  async deleteDhikrCircle(circleId: string): Promise<void> {
+    if (this.isOffline()) {
+      delete this.localDhikrCircles[circleId.toLowerCase()];
+      this.notifyCircleListeners(circleId);
+      return;
+    }
+    const docRef = doc(firestoreDb!, 'dhikr_circles', circleId.toLowerCase());
+    await executeFirestore(() => deleteDoc(docRef));
+  }
+
+  async leaveDhikrCircle(circleId: string, username: string): Promise<void> {
+    if (this.isOffline()) {
+      const circle = this.localDhikrCircles[circleId.toLowerCase()];
+      if (circle && circle.members) {
+        delete circle.members[username];
+        circle.totalCount = Object.values(circle.members).reduce((acc, m) => acc + m.count, 0);
+        this.notifyCircleListeners(circleId);
+      }
+      return;
+    }
+    const docRef = doc(firestoreDb!, 'dhikr_circles', circleId.toLowerCase());
+    const snap = await executeFirestore(() => getDoc(docRef));
+    if (!snap.exists()) return;
+    const data = snap.data() as DhikrCircle;
+    const members = { ...data.members };
+    delete members[username];
+    const newTotal = Object.values(members).reduce((acc, m) => acc + m.count, 0);
+    await executeFirestore(() => updateDoc(docRef, {
+      members,
+      totalCount: newTotal,
+    }));
+  }
+
+  async leaveKhatmRoom(roomId: string, username: string): Promise<void> {
+    if (this.isOffline()) {
+      const room = this.localKhatmRooms[roomId.toLowerCase()];
+      if (room && room.slots) {
+        const slots = { ...room.slots };
+        for (const slotKey in slots) {
+          if (slots[slotKey].reservedBy === username) {
+            slots[slotKey] = { reservedBy: '', completed: false, timestamp: 0 };
+          }
+        }
+        room.slots = slots;
+        this.notifyKhatmListeners(roomId);
+      }
+      return;
+    }
+    const docRef = doc(firestoreDb!, 'khatm_rooms', roomId.toLowerCase());
+    const snap = await executeFirestore(() => getDoc(docRef));
+    if (!snap.exists()) return;
+    const data = snap.data() as KhatmRoom;
+    const slots = { ...data.slots };
+    let changed = false;
+    for (const slotKey in slots) {
+      if (slots[slotKey].reservedBy === username) {
+        slots[slotKey] = { reservedBy: '', completed: false, timestamp: 0 };
+        changed = true;
+      }
+    }
+    if (changed) {
+      await executeFirestore(() => updateDoc(docRef, { slots }));
+    }
   }
 }
 

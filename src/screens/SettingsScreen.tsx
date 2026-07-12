@@ -16,6 +16,7 @@ import { sharingService, KhatmRoom, DhikrCircle, getJuzDivisionForMember } from 
 import { QRScannerModal } from '../components/QRScannerModal';
 import { getQRCodeUrl, buildKhatmUri, buildCircleUri } from '../utils/qrHelper';
 import { isFirebaseEnabled } from '../services/firebaseConfig';
+import { LocalSyncModal } from '../components/LocalSyncModal';
 
 // Initialize WebBrowser redirect listener
 WebBrowser.maybeCompleteAuthSession();
@@ -86,6 +87,7 @@ export const SettingsScreen: React.FC = () => {
     setRemindersEnabled,
     setReminderStartHour,
     setReminderEndHour,
+    setFontSizeMode,
     colors,
   } = useAppPreferences();
 
@@ -98,6 +100,13 @@ export const SettingsScreen: React.FC = () => {
   const [lastBackupTime, setLastBackupTime] = useState<number | null>(null);
   const [authState, setAuthState] = useState(googleAuthService.getAuthState());
   const [communityVisible, setCommunityVisible] = useState(false);
+  const [localSyncVisible, setLocalSyncVisible] = useState(false);
+
+  // Custom Password Prompt Modal States
+  const [passwordModalVisible, setPasswordModalVisible] = useState(false);
+  const [passwordMode, setPasswordMode] = useState<'export' | 'import' | 'backup_drive' | 'restore_drive'>('export');
+  const [passwordText, setPasswordText] = useState('');
+  const [passwordCallback, setPasswordCallback] = useState<any>(null);
 
 
 
@@ -256,15 +265,59 @@ export const SettingsScreen: React.FC = () => {
     Alert.alert('Google Disconnected', 'Google Drive link removed.');
   };
 
+  const requestPassword = (
+    mode: 'export' | 'import' | 'backup_drive' | 'restore_drive',
+    onConfirm: (password: string) => void
+  ) => {
+    setPasswordMode(mode);
+    setPasswordText('');
+    setPasswordCallback(() => onConfirm);
+    setPasswordModalVisible(true);
+  };
+
   const handleExportBackup = async () => {
-    setBackingUp(true);
-    const success = await backupService.exportBackupLocal();
-    setBackingUp(false);
-    if (success) {
-      Alert.alert('Export Successful', 'Your backup has been generated and shared.', [{ text: 'OK' }]);
-    } else {
-      Alert.alert('Export Failed', 'Unable to export backup data.');
-    }
+    Alert.alert(
+      'Backup Encryption',
+      'Would you like to secure this backup file with a password?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        },
+        {
+          text: 'No, Export Publicly',
+          onPress: async () => {
+            setBackingUp(true);
+            const success = await backupService.exportBackupLocal();
+            setBackingUp(false);
+            if (success) {
+              Alert.alert('Export Successful', 'Your backup has been generated and shared.', [{ text: 'OK' }]);
+            } else {
+              Alert.alert('Export Failed', 'Unable to export backup.');
+            }
+          }
+        },
+        {
+          text: 'Yes, Set Password',
+          onPress: () => {
+            requestPassword('export', async (pass) => {
+              if (!pass.trim()) {
+                Alert.alert('Password Required', 'Backup export cancelled because no password was set.');
+                return;
+              }
+              setBackingUp(true);
+              const success = await backupService.exportBackupLocal(pass);
+              setBackingUp(false);
+              if (success) {
+                Alert.alert('Export Successful', 'Your encrypted backup has been generated and shared.', [{ text: 'OK' }]);
+              } else {
+                Alert.alert('Export Failed', 'Unable to export backup.');
+              }
+            });
+          }
+        }
+      ]
+    );
   };
 
   const handleImportBackup = async () => {
@@ -273,14 +326,34 @@ export const SettingsScreen: React.FC = () => {
       return;
     }
     setRestoring(true);
-    const success = await backupService.importBackupLocal(importText.trim());
+    const status = await backupService.importBackupLocal(importText.trim());
     setRestoring(false);
-    if (success) {
+
+    if (status === 'SUCCESS') {
       setImportModalVisible(false);
       setImportText('');
       Alert.alert('Restore Complete', 'Bookmarks and preferences successfully restored.', [{ text: 'OK' }]);
+    } else if (status === 'PASSWORD_REQUIRED') {
+      requestPassword('import', async (pass) => {
+        if (!pass.trim()) {
+          Alert.alert('Password Required', 'This backup is encrypted and cannot be restored without a password.');
+          return;
+        }
+        setRestoring(true);
+        const secondStatus = await backupService.importBackupLocal(importText.trim(), pass);
+        setRestoring(false);
+        if (secondStatus === 'SUCCESS') {
+          setImportModalVisible(false);
+          setImportText('');
+          Alert.alert('Restore Complete', 'Bookmarks and preferences successfully restored.', [{ text: 'OK' }]);
+        } else if (secondStatus === 'DECRYPTION_FAILED') {
+          Alert.alert('Invalid Password', 'The password entered is incorrect. Please try again.');
+        } else {
+          Alert.alert('Restore Failed', 'Failed to decrypt or restore backup.');
+        }
+      });
     } else {
-      Alert.alert('Restore Failed', 'Invalid backup text format. Make sure you copied the correct backup string.');
+      Alert.alert('Restore Failed', 'Invalid backup text format.');
     }
   };
 
@@ -307,19 +380,53 @@ export const SettingsScreen: React.FC = () => {
       Alert.alert('Not Connected', 'Please connect your Google account first.');
       return;
     }
-    setBackingUp(true);
-    const err = await backupService.backupToDrive(token);
-    setBackingUp(false);
-    if (err === null) {
-      const now = Date.now();
-      setLastBackupTime(now);
-      Alert.alert('Backup Successful', 'Your bookmarks and settings have been backed up to Google Drive.');
-    } else {
-      Alert.alert(
-        'Backup Failed',
-        `Google Drive error:\n\n${err}\n\nTip: Disconnect and reconnect your Google account to refresh the token.`
-      );
-    }
+
+    Alert.alert(
+      'Drive Backup Encryption',
+      'Would you like to encrypt your Google Drive backup with a password?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        },
+        {
+          text: 'No, Backup Publicly',
+          onPress: async () => {
+            setBackingUp(true);
+            const err = await backupService.backupToDrive(token);
+            setBackingUp(false);
+            if (err === null) {
+              const now = Date.now();
+              setLastBackupTime(now);
+              Alert.alert('Backup Successful', 'Your bookmarks and settings have been backed up to Google Drive.');
+            } else {
+              Alert.alert('Backup Failed', `Google Drive error:\n\n${err}`);
+            }
+          }
+        },
+        {
+          text: 'Yes, Set Password',
+          onPress: () => {
+            requestPassword('backup_drive', async (pass) => {
+              if (!pass.trim()) {
+                Alert.alert('Password Required', 'Drive backup cancelled because no password was set.');
+                return;
+              }
+              setBackingUp(true);
+              const err = await backupService.backupToDrive(token, pass);
+              setBackingUp(false);
+              if (err === null) {
+                const now = Date.now();
+                setLastBackupTime(now);
+                Alert.alert('Backup Successful', 'Your encrypted bookmarks and settings have been backed up to Google Drive.');
+              } else {
+                Alert.alert('Backup Failed', `Google Drive error:\n\n${err}`);
+              }
+            });
+          }
+        }
+      ]
+    );
   };
 
   const handleRestoreFromDrive = async () => {
@@ -340,14 +447,32 @@ export const SettingsScreen: React.FC = () => {
             setRestoring(true);
             const err = await backupService.restoreFromDrive(token);
             setRestoring(false);
+
             if (err === null) {
               Alert.alert('Import Successful', 'Your bookmarks and settings have been restored from Google Drive.');
+            } else if (err === 'PASSWORD_REQUIRED') {
+              requestPassword('restore_drive', async (pass) => {
+                if (!pass.trim()) {
+                  Alert.alert('Password Required', 'Import cancelled because no password was entered.');
+                  return;
+                }
+                setRestoring(true);
+                const secondErr = await backupService.restoreFromDrive(token, pass);
+                setRestoring(false);
+                if (secondErr === null) {
+                  Alert.alert('Import Successful', 'Your encrypted bookmarks and settings have been restored from Google Drive.');
+                } else if (secondErr === 'INVALID_PASSWORD') {
+                  Alert.alert('Invalid Password', 'The password entered is incorrect.');
+                } else {
+                  Alert.alert('Import Failed', `Failed to decrypt backup.`);
+                }
+              });
             } else if (err === 'NO_BACKUP') {
-              Alert.alert('No Backup Found', 'No backup file exists on Drive yet. Please press "Export to Drive" first to create one.');
+              Alert.alert('No Backup Found', 'No backup file exists on Drive yet.');
             } else if (err === 'PARSE_ERROR') {
               Alert.alert('Import Failed', 'The backup file on Drive is corrupted or invalid.');
             } else {
-              Alert.alert('Import Failed', `Google Drive error:\n\n${err}\n\nTip: Disconnect and reconnect your Google account to refresh the token.`);
+              Alert.alert('Import Failed', `Google Drive error:\n\n${err}`);
             }
           },
         },
@@ -625,19 +750,59 @@ export const SettingsScreen: React.FC = () => {
             </Pressable>
           </View>
 
-          <Text style={[styles.prefLabel, { color: colors.textSecondary, marginTop: 14 }]}>Appearance</Text>
-          <View style={[styles.segmentRow, { backgroundColor: colors.background }]}> 
+          <Text style={[styles.prefLabel, { color: colors.textSecondary, marginTop: 14 }]}>Appearance (Theme)</Text>
+          <View style={{ gap: 8, marginTop: 4 }}>
+            <View style={[styles.segmentRow, { backgroundColor: colors.background }]}> 
+              <Pressable
+                onPress={() => setThemeMode('dark')}
+                style={[styles.segmentButton, preferences.themeMode === 'dark' ? { backgroundColor: colors.primary } : null]}
+              >
+                <Text style={[styles.segmentText, { color: preferences.themeMode === 'dark' ? colors.white : colors.textSecondary }]}>Dark</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => setThemeMode('light')}
+                style={[styles.segmentButton, preferences.themeMode === 'light' ? { backgroundColor: colors.primary } : null]}
+              >
+                <Text style={[styles.segmentText, { color: preferences.themeMode === 'light' ? colors.white : colors.textSecondary }]}>Light</Text>
+              </Pressable>
+            </View>
+
+            <View style={[styles.segmentRow, { backgroundColor: colors.background }]}> 
+              <Pressable
+                onPress={() => setThemeMode('high_contrast_dark')}
+                style={[styles.segmentButton, preferences.themeMode === 'high_contrast_dark' ? { backgroundColor: colors.primary } : null]}
+              >
+                <Text style={[styles.segmentText, { color: preferences.themeMode === 'high_contrast_dark' ? colors.white : colors.textSecondary }]}>HC Dark</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => setThemeMode('high_contrast_light')}
+                style={[styles.segmentButton, preferences.themeMode === 'high_contrast_light' ? { backgroundColor: colors.primary } : null]}
+              >
+                <Text style={[styles.segmentText, { color: preferences.themeMode === 'high_contrast_light' ? colors.white : colors.textSecondary }]}>HC Light</Text>
+              </Pressable>
+            </View>
+          </View>
+
+          {/* Global Font Size Selector */}
+          <Text style={[styles.prefLabel, { color: colors.textSecondary, marginTop: 16 }]}>Quran & Text Size Scale</Text>
+          <View style={[styles.segmentRow, { backgroundColor: colors.background, marginTop: 4 }]}> 
             <Pressable
-              onPress={() => setThemeMode('dark')}
-              style={[styles.segmentButton, preferences.themeMode === 'dark' ? { backgroundColor: colors.primary } : null]}
+              onPress={() => setFontSizeMode('small')}
+              style={[styles.segmentButton, (preferences.fontSizeMode || 'medium') === 'small' ? { backgroundColor: colors.primary } : null]}
             >
-              <Text style={[styles.segmentText, { color: preferences.themeMode === 'dark' ? colors.white : colors.textSecondary }]}>Dark</Text>
+              <Text style={[styles.segmentText, { color: (preferences.fontSizeMode || 'medium') === 'small' ? colors.white : colors.textSecondary }]}>Small</Text>
             </Pressable>
             <Pressable
-              onPress={() => setThemeMode('light')}
-              style={[styles.segmentButton, preferences.themeMode === 'light' ? { backgroundColor: colors.primary } : null]}
+              onPress={() => setFontSizeMode('medium')}
+              style={[styles.segmentButton, (preferences.fontSizeMode || 'medium') === 'medium' ? { backgroundColor: colors.primary } : null]}
             >
-              <Text style={[styles.segmentText, { color: preferences.themeMode === 'light' ? colors.white : colors.textSecondary }]}>Light</Text>
+              <Text style={[styles.segmentText, { color: (preferences.fontSizeMode || 'medium') === 'medium' ? colors.white : colors.textSecondary }]}>Medium</Text>
+            </Pressable>
+            <Pressable
+              onPress={() => setFontSizeMode('big')}
+              style={[styles.segmentButton, (preferences.fontSizeMode || 'medium') === 'big' ? { backgroundColor: colors.primary } : null]}
+            >
+              <Text style={[styles.segmentText, { color: (preferences.fontSizeMode || 'medium') === 'big' ? colors.white : colors.textSecondary }]}>Large</Text>
             </Pressable>
           </View>
         </View>
@@ -850,6 +1015,71 @@ export const SettingsScreen: React.FC = () => {
         </View>
       </View>
 
+      {/* Local Backup & Quick Share */}
+      <View style={styles.section}>
+        <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>Local Backup & Quick Share</Text>
+        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, padding: 0, overflow: 'hidden' }]}>
+          {/* Quick Share Near Share button */}
+          <Pressable
+            onPress={() => setLocalSyncVisible(true)}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: colors.primary + '20', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="share-social-outline" size={22} color={colors.primary} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>Quick Share Sync</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Sync data directly with nearby devices using Bluetooth</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
+
+          {/* Divider */}
+          <View style={{ height: 1, backgroundColor: colors.border, marginHorizontal: 16 }} />
+
+          {/* Local Export */}
+          <Pressable
+            onPress={handleExportBackup}
+            disabled={backingUp || restoring}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: '#f59e0b20', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="download-outline" size={22} color="#f59e0b" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>Export Local Backup</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Generate an encrypted backup file to copy or share</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
+
+          {/* Divider */}
+          <View style={{ height: 1, backgroundColor: colors.border, marginHorizontal: 16 }} />
+
+          {/* Local Import */}
+          <Pressable
+            onPress={() => setImportModalVisible(true)}
+            disabled={backingUp || restoring}
+            style={({ pressed }) => ([
+              { flexDirection: 'row', alignItems: 'center', padding: 16, opacity: pressed ? 0.75 : 1 },
+            ])}
+          >
+            <View style={{ width: 42, height: 42, borderRadius: 12, backgroundColor: '#10b98120', justifyContent: 'center', alignItems: 'center', marginRight: 14 }}>
+              <Ionicons name="document-text-outline" size={22} color="#10b981" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textPrimary, fontFamily: FONTS.english, fontSize: 15, fontWeight: '700' }}>Import Local Backup</Text>
+              <Text style={{ color: colors.textMuted, fontFamily: FONTS.english, fontSize: 12, marginTop: 2 }}>Paste backup text string to restore bookmarks & logs</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textMuted} />
+          </Pressable>
+        </View>
+      </View>
+
 
 
       {/* About */}
@@ -960,6 +1190,83 @@ export const SettingsScreen: React.FC = () => {
         </View>
       </View>
     </Modal>
+
+    {/* Password Prompt Modal */}
+    <Modal
+      visible={passwordModalVisible}
+      transparent
+      animationType="fade"
+      onRequestClose={() => setPasswordModalVisible(false)}
+    >
+      <View style={styles.modalOverlayCentered}>
+        <View style={[styles.dialogLarge, { backgroundColor: colors.surface, borderColor: colors.border, maxWidth: 300 }]}>
+          <Text style={[styles.dialogTitle, { color: colors.textPrimary }]}>
+            {passwordMode === 'export' || passwordMode === 'backup_drive' ? 'Set Backup Password' : 'Enter Password'}
+          </Text>
+          <Text style={[styles.prefDesc, { color: colors.textMuted, marginBottom: 12 }]}>
+            {passwordMode === 'export' || passwordMode === 'backup_drive'
+              ? 'Enter an optional password to encrypt your database backup. Leave blank to export unencrypted.'
+              : 'This backup is encrypted. Please enter the password to decrypt and restore.'}
+          </Text>
+
+          <TextInput
+            secureTextEntry
+            value={passwordText}
+            onChangeText={setPasswordText}
+            placeholder="Enter password..."
+            placeholderTextColor={colors.textMuted}
+            style={[
+              styles.largeInputField,
+              {
+                color: colors.textPrimary,
+                borderColor: colors.border,
+                backgroundColor: colors.background,
+                height: 48,
+                borderRadius: 8,
+                borderWidth: 1,
+                paddingHorizontal: 12,
+                marginBottom: 16
+              }
+            ]}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect={false}
+          />
+
+          <View style={styles.rowButtons}>
+            <Pressable
+              onPress={() => {
+                setPasswordModalVisible(false);
+                if (passwordCallback) passwordCallback(passwordText);
+              }}
+              style={[styles.syncOptionBtn, { backgroundColor: colors.primary, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 8 }]}
+            >
+              <Text style={styles.syncBtnText}>Confirm</Text>
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                setPasswordModalVisible(false);
+                if (passwordMode === 'export' || passwordMode === 'backup_drive') {
+                  // If exporting, cancel behaves as Skip / export public
+                  if (passwordCallback) passwordCallback('');
+                }
+              }}
+              style={[styles.syncCancelBtn, { paddingHorizontal: 16, paddingVertical: 10 }]}
+            >
+              <Text style={{ color: colors.textSecondary }}>
+                {passwordMode === 'export' || passwordMode === 'backup_drive' ? 'Skip (Unencrypted)' : 'Cancel'}
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
+    </Modal>
+
+    {/* Quick Share Near Share Sync Modal */}
+    <LocalSyncModal
+      visible={localSyncVisible}
+      onClose={() => setLocalSyncVisible(false)}
+    />
 
     {/* Community Sync Modal */}
     <Modal

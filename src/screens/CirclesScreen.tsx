@@ -15,7 +15,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image, Modal } from 'react-native';
-import { isFirebaseEnabled } from '../services/firebaseConfig';
+import { isFirebaseEnabled, firestoreDb } from '../services/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 import { googleAuthService, AuthState } from '../services/googleAuthService';
 import {
   sharingService,
@@ -357,6 +358,7 @@ export const CirclesScreen: React.FC = () => {
   const [showCreateJoinForm, setShowCreateJoinForm] = useState(false);
   const [qrScannerVisible, setQrScannerVisible] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Track user's session counts locally before syncing
   const [circleIncrementPending, setCircleIncrementPending] = useState(0);
@@ -444,7 +446,13 @@ export const CirclesScreen: React.FC = () => {
 
     const generatedId = `khatm_${Math.floor(100000 + Math.random() * 900000)}`;
     try {
-      const room = await sharingService.createKhatmRoom(generatedId, name, khatmMode, khatmMode === 'fixed' ? members : 0);
+      const room = await sharingService.createKhatmRoom(
+        generatedId,
+        name,
+        khatmMode,
+        khatmMode === 'fixed' ? members : 0,
+        authState.user?.name || undefined
+      );
       setActiveKhatmId(room.roomId);
       setKhatmRoomNameInput('');
       await saveKhatmRoomItem(room.roomId, room.name);
@@ -475,28 +483,130 @@ export const CirclesScreen: React.FC = () => {
 
   const handleRemoveSavedKhatm = async (roomId: string) => {
     try {
-      const raw = await AsyncStorage.getItem(KHATM_ROOMS_KEY);
-      if (raw) {
-        const existing: any[] = JSON.parse(raw);
-        const updated = existing.filter((r) => r.roomId !== roomId);
-        await AsyncStorage.setItem(KHATM_ROOMS_KEY, JSON.stringify(updated));
+      setLoading(true);
+      let isAdmin = false;
+      
+      if (isFirebaseEnabled && firestoreDb) {
+        try {
+          const docRef = doc(firestoreDb, 'khatm_rooms', roomId.toLowerCase());
+          const snap = await getDoc(docRef);
+          if (snap.exists()) {
+            const data = snap.data();
+            if (data.createdBy === authState.user?.name) {
+              isAdmin = true;
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to check room admin status:', e);
+        }
       }
-      await loadSavedCirclesAndRooms();
+      
+      setLoading(false);
+      
+      const confirmMsg = isAdmin
+        ? 'Are you sure you want to delete this Quran circle? As the admin, this will delete the circle for all members and remove it from the cloud.'
+        : 'Are you sure you want to leave this Quran circle?';
+        
+      Alert.alert(
+        isAdmin ? 'Delete Circle (Admin)' : 'Leave Circle',
+        confirmMsg,
+        [
+          { text: 'Cancel', style: 'cancel' },
+          {
+            text: isAdmin ? 'Delete for Everyone' : 'Leave',
+            style: 'destructive',
+            onPress: async () => {
+              try {
+                if (isFirebaseEnabled) {
+                  if (isAdmin) {
+                    await sharingService.deleteKhatmRoom(roomId);
+                  } else if (authState.user?.name) {
+                    await sharingService.leaveKhatmRoom(roomId, authState.user.name);
+                  }
+                }
+              } catch (err) {
+                console.warn('Cloud sync leave/delete error:', err);
+              }
+              
+              // Remove locally
+              const raw = await AsyncStorage.getItem(KHATM_ROOMS_KEY);
+              if (raw) {
+                const existing: any[] = JSON.parse(raw);
+                const updated = existing.filter((r) => r.roomId !== roomId);
+                await AsyncStorage.setItem(KHATM_ROOMS_KEY, JSON.stringify(updated));
+              }
+              await loadSavedCirclesAndRooms();
+            }
+          }
+        ]
+      );
     } catch (e) {
+      setLoading(false);
       console.warn(e);
     }
   };
 
   const handleRemoveSavedCircle = async (circleId: string) => {
     try {
-      const raw = await AsyncStorage.getItem(CIRCLE_DHIKR_KEY);
-      if (raw) {
-        const existing: any[] = JSON.parse(raw);
-        const updated = existing.filter((c) => c.circleId !== circleId);
-        await AsyncStorage.setItem(CIRCLE_DHIKR_KEY, JSON.stringify(updated));
+      setLoading(true);
+      let isAdmin = false;
+      
+      if (isFirebaseEnabled && firestoreDb) {
+        try {
+          const docRef = doc(firestoreDb, 'dhikr_circles', circleId.toLowerCase());
+          const snap = await getDoc(docRef);
+          if (snap.exists()) {
+            const data = snap.data();
+            if (data.createdBy === authState.user?.name) {
+              isAdmin = true;
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to check circle admin status:', e);
+        }
       }
-      await loadSavedCirclesAndRooms();
+      
+      setLoading(false);
+      
+      const confirmMsg = isAdmin
+        ? 'Are you sure you want to delete this Dhikr circle? As the admin, this will delete the circle for all members and remove it from the cloud.'
+        : 'Are you sure you want to leave this Dhikr circle?';
+        
+      Alert.alert(
+        isAdmin ? 'Delete Circle (Admin)' : 'Leave Circle',
+        confirmMsg,
+        [
+          { text: 'Cancel', style: 'cancel' },
+          {
+            text: isAdmin ? 'Delete for Everyone' : 'Leave',
+            style: 'destructive',
+            onPress: async () => {
+              try {
+                if (isFirebaseEnabled) {
+                  if (isAdmin) {
+                    await sharingService.deleteDhikrCircle(circleId);
+                  } else if (authState.user?.name) {
+                    await sharingService.leaveDhikrCircle(circleId, authState.user.name);
+                  }
+                }
+              } catch (err) {
+                console.warn('Cloud sync leave/delete error:', err);
+              }
+              
+              // Remove locally
+              const raw = await AsyncStorage.getItem(CIRCLE_DHIKR_KEY);
+              if (raw) {
+                const existing: any[] = JSON.parse(raw);
+                const updated = existing.filter((c) => c.circleId !== circleId);
+                await AsyncStorage.setItem(CIRCLE_DHIKR_KEY, JSON.stringify(updated));
+              }
+              await loadSavedCirclesAndRooms();
+            }
+          }
+        ]
+      );
     } catch (e) {
+      setLoading(false);
       console.warn(e);
     }
   };
@@ -593,7 +703,14 @@ export const CirclesScreen: React.FC = () => {
 
     const generatedId = `circle_${Math.floor(100000 + Math.random() * 900000)}`;
     try {
-      const circle = await sharingService.createDhikrCircle(generatedId, name, target, arabic, translation);
+      const circle = await sharingService.createDhikrCircle(
+        generatedId,
+        name,
+        target,
+        arabic,
+        translation,
+        authState.user?.name || undefined
+      );
       setActiveCircleId(circle.circleId);
       setCircleNameInput('');
       setCustomArabicInput('');
@@ -956,6 +1073,30 @@ export const CirclesScreen: React.FC = () => {
                   >
                     <Ionicons name="qr-code-outline" size={20} color={colors.primary} />
                   </Pressable>
+                  {activeKhatmRoom && (
+                    <Pressable
+                      onPress={async () => {
+                        const roomId = activeKhatmRoom.roomId;
+                        setActiveKhatmId(null);
+                        await handleRemoveSavedKhatm(roomId);
+                      }}
+                      style={({ pressed }) => [
+                        {
+                          padding: 8,
+                          borderRadius: 8,
+                          backgroundColor: colors.error + '15',
+                          marginRight: 8,
+                          opacity: pressed ? 0.8 : 1,
+                        }
+                      ]}
+                    >
+                      <Ionicons
+                        name={activeKhatmRoom.createdBy === authState.user?.name ? "trash-outline" : "log-out-outline"}
+                        size={20}
+                        color={colors.error}
+                      />
+                    </Pressable>
+                  )}
                   <Pressable
                     onPress={() => setActiveKhatmId(null)}
                     style={[styles.leaveBtn, { borderColor: colors.border }]}
@@ -1329,6 +1470,30 @@ export const CirclesScreen: React.FC = () => {
                   >
                     <Ionicons name="qr-code-outline" size={20} color={colors.primary} />
                   </Pressable>
+                  {activeCircle && (
+                    <Pressable
+                      onPress={async () => {
+                        const circleId = activeCircle.circleId;
+                        setActiveCircleId(null);
+                        await handleRemoveSavedCircle(circleId);
+                      }}
+                      style={({ pressed }) => [
+                        {
+                          padding: 8,
+                          borderRadius: 8,
+                          backgroundColor: colors.error + '15',
+                          marginRight: 8,
+                          opacity: pressed ? 0.8 : 1,
+                        }
+                      ]}
+                    >
+                      <Ionicons
+                        name={activeCircle.createdBy === authState.user?.name ? "trash-outline" : "log-out-outline"}
+                        size={20}
+                        color={colors.error}
+                      />
+                    </Pressable>
+                  )}
                   <Pressable
                     onPress={() => setActiveCircleId(null)}
                     style={[styles.leaveBtn, { borderColor: colors.border }]}
